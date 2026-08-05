@@ -129,7 +129,7 @@ def sample_line(p0, p1, n_samples=25):
         pts.append((x, y))
     return pts
 
-def generate_hitman_points(num_points=800):
+def generate_hitman_points(num_points=1200):
     raw_pts = []
     for a in np.linspace(0, 2*math.pi, 250):
         r = 19.5
@@ -159,7 +159,7 @@ def generate_hitman_points(num_points=800):
         
     return pts
 
-def generate_nike_points(num_points=800):
+def generate_nike_points(num_points=1200):
     raw_pts = []
     raw_pts.extend(sample_bezier((6.406, 16.800), (3.152, 20.621), (0, 25.234), (0, 28.902), 60))
     raw_pts.extend(sample_bezier((0, 28.902), (0, 31.019), (1.781, 33.996), (6.132, 33.996), 60))
@@ -188,7 +188,7 @@ def generate_nike_points(num_points=800):
         
     return pts
 
-def generate_ac_points(num_points=800):
+def generate_ac_points(num_points=1200):
     raw_pts = []
     raw_pts.extend(sample_line((16.04, 0), (9, 17), 30))
     raw_pts.extend(sample_bezier((9, 17), (7, 21), (3, 18), (3, 18), 25))
@@ -227,7 +227,7 @@ def generate_ac_points(num_points=800):
         
     return pts
 
-def generate_logo_shapes(num_points=800):
+def generate_logo_shapes(num_points=1200):
     pts_hitman = generate_hitman_points(num_points=num_points)
     pts_nike = generate_nike_points(num_points=num_points)
     pts_ac = generate_ac_points(num_points=num_points)
@@ -255,7 +255,7 @@ def build_svg(dots_portrait, mode="dark"):
     panel_bg = "#0A101F" if is_dark else "#FFFFFF"
     header_bg = "#0B1222" if is_dark else "#E2E8F0"
     
-    num_travellers = 800
+    num_travellers = 1200
     pts_hitman, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
     pts_nike = match_points(pts_hitman, pts_nike_raw)
     pts_ac = match_points(pts_nike, pts_ac_raw)
@@ -301,6 +301,10 @@ def build_svg(dots_portrait, mode="dark"):
         portrait_band_groups.append(band_xml)
 
     traveller_elements = []
+    # Timeline: portrait visible (0-17.6%) -> dissolve to hitman (17.6-35.2%) -> 
+    # hold hitman (35.2-44.4%) -> morph to nike (44.4-58.5%) -> 
+    # hold nike (58.5-67.6%) -> morph to AC (67.6-81.7%) -> 
+    # hold AC (81.7-90.8%) -> reform portrait (90.8-100%)
     pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
     opacity_values = "0; 0; 1; 1; 1; 1; 1; 0; 0"
     
@@ -318,11 +322,12 @@ def build_svg(dots_portrait, mode="dark"):
         x_vals = f"{sx1:.1f}; {sx1:.1f}; {sx1:.1f}; {sx2:.1f}; {sx2:.1f}; {sx3:.1f}; {sx3:.1f}; {sx4:.1f}; {sx4:.1f}"
         y_vals = f"{sy1:.1f}; {sy1:.1f}; {sy1:.1f}; {sy2:.1f}; {sy2:.1f}; {sy3:.1f}; {sy3:.1f}; {sy4:.1f}; {sy4:.1f}"
 
-        dot_xml = f'''    <rect width="2.2" height="2.2" fill="{border_color}" opacity="0">
-      <animate attributeName="x" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="{y_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
+        # Use portrait dot_color (purple) for morph particles so they match the dither portrait
+        dot_xml = f'''    <circle r="1.4" fill="{dot_color}" opacity="0">
+      <animate attributeName="cx" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="{y_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="{opacity_values}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
-    </rect>'''
+    </circle>'''
         traveller_elements.append(dot_xml)
 
     # 4. EXACT ARIFHAXN READOUT SECTIONS

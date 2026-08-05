@@ -26,22 +26,15 @@
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
   </g>
 
+  <!-- LEFT PORTRAIT FRAME (VISUAL.MAP) -->
   <rect x="25" y="55" width="400" height="530" rx="6" class="panel-border" />
   <rect x="25" y="55" width="400" height="30" rx="6" class="header-bg" />
   <line x1="25" y1="85" x2="425" y2="85" stroke="#0891B2" stroke-width="1" />
   
+  <!-- Clean VISUAL.MAP Header without crowded badges -->
   <g opacity="0">
     <text x="40" y="75" fill="#0891B2" font-family="ui-monospace, Consolas, monospace" font-size="12" font-weight="bold">VISUAL.MAP</text>
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.25s" fill="freeze" />
-  </g>
-
-  <g opacity="0">
-    <rect x="270" y="62" width="50" height="16" rx="8" fill="#EF4444" opacity="0.2" />
-    <circle cx="280" cy="70" r="4" fill="#EF4444" class="pulse-live" />
-    <text x="290" y="73" fill="#EF4444" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold">LIVE</text>
-    <rect x="328" y="62" width="90" height="16" rx="8" fill="#0891B2" opacity="0.2" />
-    <text x="373" y="73" fill="#0891B2" font-family="ui-monospace, Consolas, monospace" font-size="9" font-weight="bold" text-anchor="middle">@UnnamedPeople-Chin</text>
-    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.3s" fill="freeze" />
   </g>
 
   <g shape-rendering="crispEdges">
@@ -4332,6 +4325,7 @@
     </rect>
   </g>
 
+  <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
   <rect x="440" y="55" width="715" height="530" rx="6" class="panel-border" />
   <rect x="440" y="55" width="715" height="30" rx="6" class="header-bg" />
   <line x1="440" y1="85" x2="1155" y2="85" stroke="#0891B2" stroke-width="1" />
@@ -4344,75 +4338,88 @@
 
   <g>
     <g opacity="0">
-      <text x="460" y="135" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Subject</text>
-      <text x="610" y="135" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1135" y="135" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Alexios Mercer</text>
+      <text x="460" y="120" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Alias</text>
+      <text x="610" y="120" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . . . . .</text>
+      
+      <!-- LIVE Badge above Alexios Mercer -->
+      <rect x="990" y="108" width="52" height="17" rx="8.5" fill="#EF4444" opacity="0.2" />
+      <circle cx="1001" cy="116.5" r="4" fill="#EF4444" class="pulse-live" />
+      <text x="1011" y="120" fill="#EF4444" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold">LIVE</text>
+      
+      <!-- Chin Pill Badge above Alexios Mercer -->
+      <rect x="1052" y="108" width="83" height="17" rx="8.5" fill="#0891B2" opacity="0.2" />
+      <text x="1093" y="120" fill="#0891B2" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" text-anchor="middle">@Chin</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.40s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="163" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">GitHub</text>
-      <text x="610" y="163" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1135" y="163" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">UnnamedPeople-Chin</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.52s" fill="freeze" />
+      <text x="460" y="147" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Subject</text>
+      <text x="610" y="147" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1135" y="147" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Alexios Mercer</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.50s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="191" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Role</text>
-      <text x="610" y="191" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . </text>
-      <text x="1135" y="191" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Full-Stack | AI Eng | Frontend</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.64s" fill="freeze" />
+      <text x="460" y="174" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">GitHub</text>
+      <text x="610" y="174" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1135" y="174" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">UnnamedPeople-Chin</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.60s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="219" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Origin</text>
-      <text x="610" y="219" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1135" y="219" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Salatiga, Indonesia</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.76s" fill="freeze" />
+      <text x="460" y="201" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Role</text>
+      <text x="610" y="201" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . </text>
+      <text x="1135" y="201" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Full-Stack | AI Eng | Frontend</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.70s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="247" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Education</text>
-      <text x="610" y="247" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . </text>
-      <text x="1135" y="247" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Politeknik Negeri Semarang</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.88s" fill="freeze" />
+      <text x="460" y="228" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Origin</text>
+      <text x="610" y="228" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1135" y="228" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Salatiga, Indonesia</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.80s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="275" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Status</text>
-      <text x="610" y="275" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . </text>
-      <text x="1135" y="275" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Building + Learning + Shipping</text>
+      <text x="460" y="255" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Education</text>
+      <text x="610" y="255" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . </text>
+      <text x="1135" y="255" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Politeknik Negeri Semarang</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="0.90s" fill="freeze" />
+    </g>    <g opacity="0">
+      <text x="460" y="282" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Status</text>
+      <text x="610" y="282" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . </text>
+      <text x="1135" y="282" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Building + Learning + Shipping</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.00s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="303" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Lang</text>
-      <text x="610" y="303" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . </text>
-      <text x="1135" y="303" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">JavaScript, Python, C++</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.12s" fill="freeze" />
+      <text x="460" y="309" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Lang</text>
+      <text x="610" y="309" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . </text>
+      <text x="1135" y="309" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">JavaScript, Python, C++</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.10s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="331" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Frontend</text>
-      <text x="610" y="331" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . </text>
-      <text x="1135" y="331" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">React, Next.js, Tailwind CSS</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.24s" fill="freeze" />
+      <text x="460" y="336" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Frontend</text>
+      <text x="610" y="336" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . </text>
+      <text x="1135" y="336" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">React, Next.js, Tailwind CSS</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.20s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="359" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Backend</text>
-      <text x="610" y="359" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . </text>
-      <text x="1135" y="359" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Node.js, Express</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.36s" fill="freeze" />
+      <text x="460" y="363" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Backend</text>
+      <text x="610" y="363" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . </text>
+      <text x="1135" y="363" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">Node.js, Express</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.30s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="387" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Database</text>
-      <text x="610" y="387" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . </text>
-      <text x="1135" y="387" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">MongoDB, PostgreSQL</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.48s" fill="freeze" />
+      <text x="460" y="390" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Core.Database</text>
+      <text x="610" y="390" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . </text>
+      <text x="1135" y="390" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">MongoDB, PostgreSQL</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.40s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="415" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">ToolChain</text>
-      <text x="610" y="415" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . </text>
-      <text x="1135" y="415" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">VS Code, Git, Figma</text>
+      <text x="460" y="417" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">ToolChain</text>
+      <text x="610" y="417" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . </text>
+      <text x="1135" y="417" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">VS Code, Git, Figma</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.50s" fill="freeze" />
+    </g>    <g opacity="0">
+      <text x="460" y="444" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Contact.Mail</text>
+      <text x="610" y="444" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . </text>
+      <text x="1135" y="444" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">jizdanyr354@gmail.com</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.60s" fill="freeze" />
-    </g>    <g opacity="0">
-      <text x="460" y="443" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Contact.Mail</text>
-      <text x="610" y="443" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . </text>
-      <text x="1135" y="443" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">jizdanyr354@gmail.com</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.72s" fill="freeze" />
     </g>    <g opacity="0">
       <text x="460" y="471" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Social.Insta</text>
       <text x="610" y="471" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . </text>
       <text x="1135" y="471" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">instagram.com/jizdan.yr</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.84s" fill="freeze" />
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.70s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="460" y="499" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Social.TikTok</text>
-      <text x="610" y="499" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . </text>
-      <text x="1135" y="499" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">tiktok.com/@jizdan.yr</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.96s" fill="freeze" />
+      <text x="460" y="498" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13">Social.TikTok</text>
+      <text x="610" y="498" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . </text>
+      <text x="1135" y="498" fill="#0F172A" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">tiktok.com/@jizdan.yr</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="1.80s" fill="freeze" />
     </g>
   </g>
 </svg>

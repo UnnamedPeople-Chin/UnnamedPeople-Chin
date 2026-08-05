@@ -129,17 +129,11 @@ def sample_line(p0, p1, n_samples=25):
     return pts
 
 def generate_hitman_points(num_points=800):
-    """Samples exact points from ic_hitman.svg geometry."""
-    # viewBox: 0 0 48 48
     raw_pts = []
-    
-    # Outer circle badge outline
     for a in np.linspace(0, 2*math.pi, 250):
         r = 19.5
         raw_pts.append((24 + r * math.cos(a), 24 + r * math.sin(a)))
 
-    # Central Hitman tie / emblem geometry
-    # Polygon / Lines from top down to bottom tip (24, 39)
     raw_pts.extend(sample_line((13.11, 7.24), (24, 39), 80))
     raw_pts.extend(sample_line((34.89, 7.24), (24, 39), 80))
     raw_pts.extend(sample_line((22, 10), (19.97, 27.25), 50))
@@ -148,7 +142,7 @@ def generate_hitman_points(num_points=800):
     raw_pts.extend(sample_line((28.03, 27.25), (24, 39), 50))
 
     cx, cy = GRID_W / 2, GRID_H / 2
-    scale = 5.8  # Scale 48px box to ~260px
+    scale = 5.8
     
     pts = []
     for x, y in raw_pts:
@@ -165,15 +159,7 @@ def generate_hitman_points(num_points=800):
     return pts
 
 def generate_nike_points(num_points=800):
-    """Samples exact points from ic_nike.svg path geometry."""
-    # viewBox 0 0 50 50
-    # M 6.406 16.800 C 3.152 20.621, 0 25.234, 0 28.902 C 0 31.019, 1.781 33.996, 6.132 33.996
-    # C 8.484 33.996, 10.820 33.050, 12.648 32.320 C 15.730 31.085, 49.789 16.296, 49.789 16.296
-    # C 50.117 16.132, 50.058 15.925, 49.644 16.027 C 49.480 16.070, 12.566 26.074, 12.566 26.074
-    # C 11.855 26.273, 11.128 26.382, 10.421 26.382 C 7.230 26.382, 5.078 24.851, 5.078 21.503
-    # C 5.078 20.207, 5.484 18.640, 6.406 16.800 Z
     raw_pts = []
-    
     raw_pts.extend(sample_bezier((6.406, 16.800), (3.152, 20.621), (0, 25.234), (0, 28.902), 60))
     raw_pts.extend(sample_bezier((0, 28.902), (0, 31.019), (1.781, 33.996), (6.132, 33.996), 60))
     raw_pts.extend(sample_bezier((6.132, 33.996), (8.484, 33.996), (10.820, 33.050), (12.648, 32.320), 60))
@@ -185,7 +171,7 @@ def generate_nike_points(num_points=800):
     raw_pts.extend(sample_bezier((5.078, 21.503), (5.078, 20.207), (5.484, 18.640), (6.406, 16.800), 60))
 
     cx, cy = GRID_W / 2, GRID_H / 2
-    scale = 5.2  # Scale 50px box to ~260px
+    scale = 5.2
     
     pts = []
     for x, y in raw_pts:
@@ -202,10 +188,7 @@ def generate_nike_points(num_points=800):
     return pts
 
 def generate_ac_points(num_points=800):
-    """Samples exact points from ic_assassins_creed.svg path geometry."""
-    # viewBox 0 0 32 32
     raw_pts = []
-    
     raw_pts.extend(sample_line((16.04, 0), (9, 17), 30))
     raw_pts.extend(sample_bezier((9, 17), (7, 21), (3, 18), (3, 18), 25))
     raw_pts.extend(sample_bezier((3, 18), (5, 23), (3, 25), (3, 25), 25))
@@ -221,14 +204,13 @@ def generate_ac_points(num_points=800):
     raw_pts.extend(sample_bezier((29, 18), (25, 21), (23, 17), (23, 17), 25))
     raw_pts.extend(sample_line((23, 17), (16.04, 0), 30))
 
-    # Bottom Arc
     raw_pts.extend(sample_bezier((2, 25), (6.999, 32), (15.914, 32), (15.914, 32), 45))
     raw_pts.extend(sample_bezier((15.914, 32), (24.829, 32), (30, 25), (30, 25), 45))
     raw_pts.extend(sample_bezier((30, 25), (19, 35), (16, 29), (16, 29), 45))
     raw_pts.extend(sample_bezier((16, 29), (13, 35), (2, 25), (2, 25), 45))
 
     cx, cy = GRID_W / 2, GRID_H / 2
-    scale = 8.5  # Scale 32px box to ~270px
+    scale = 8.5
     
     pts = []
     for x, y in raw_pts:
@@ -245,7 +227,6 @@ def generate_ac_points(num_points=800):
     return pts
 
 def generate_logo_shapes(num_points=800):
-    """Generates precise vector points for 1. Hitman, 2. Nike, 3. Assassin's Creed."""
     pts_hitman = generate_hitman_points(num_points=num_points)
     pts_nike = generate_nike_points(num_points=num_points)
     pts_ac = generate_ac_points(num_points=num_points)
@@ -273,14 +254,12 @@ def build_svg(dots_portrait, mode="dark"):
     panel_bg = "#070D18" if is_dark else "#FFFFFF"
     header_bg = "#0F172A" if is_dark else "#E2E8F0"
     
-    # 1. LOGO SWARM POINTS (HITMAN -> NIKE -> ASSASSIN'S CREED)
     num_travellers = 800
     pts_hitman, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
     pts_nike = match_points(pts_hitman, pts_nike_raw)
     pts_ac = match_points(pts_nike, pts_ac_raw)
     pts_hitman_return = match_points(pts_ac, pts_hitman)
 
-    # 2. PORTRAIT DISSOLVE DRIFT BANDS (~90 BANDS)
     num_bands = 90
     bands = [[] for _ in range(num_bands)]
     
@@ -320,7 +299,6 @@ def build_svg(dots_portrait, mode="dark"):
     </g>'''
         portrait_band_groups.append(band_xml)
 
-    # 3. TRAVELLERS SWARM (HITMAN -> NIKE -> ASSASSIN'S CREED)
     traveller_elements = []
     pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
     opacity_values = "0; 0; 1; 1; 1; 1; 1; 0; 0"
@@ -346,8 +324,10 @@ def build_svg(dots_portrait, mode="dark"):
     </rect>'''
         traveller_elements.append(dot_xml)
 
-    # 4. SYSTEM INFO READOUT ROWS WITH STAGGERED INTRO FADE-IN
+    # 4. SYSTEM INFO READOUT ROWS WITH UNNAMEDPEOPLE->CHIN ABOVE SUBJECT & LIVE ABOVE ALEXIOS MERCER
+    # We move Chin above Subject, and LIVE above Alexios Mercer
     info_data = [
+        ("Chin", "Chin"),
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
         ("Role", "Full-Stack | AI Eng | Frontend"),
@@ -365,17 +345,33 @@ def build_svg(dots_portrait, mode="dark"):
     ]
 
     info_rows_xml = []
-    y_base = 135
-    row_height = 28
+    y_base = 120
+    row_height = 27
     
     for idx, (label, val) in enumerate(info_data):
         y_pos = y_base + idx * row_height
-        dots_count = max(4, 45 - len(label) - len(val))
-        dotted_str = ". " * dots_count
-        
-        row_intro_delay = 0.4 + idx * 0.12
-        
-        info_rows_xml.append(f'''    <g opacity="0">
+        row_intro_delay = 0.4 + idx * 0.10
+
+        if label == "Chin":
+            # Chin pill badge & pulsing red LIVE badge positioned right above Subject / Alexios Mercer
+            info_rows_xml.append(f'''    <g opacity="0">
+      <text x="460" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13">Alias</text>
+      <text x="610" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . . . . .</text>
+      
+      <!-- LIVE Badge above Alexios Mercer -->
+      <rect x="990" y="{y_pos - 12}" width="52" height="17" rx="8.5" fill="#EF4444" opacity="0.2" />
+      <circle cx="1001" cy="{y_pos - 3.5}" r="4" fill="#EF4444" class="pulse-live" />
+      <text x="1011" y="{y_pos}" fill="#EF4444" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold">LIVE</text>
+      
+      <!-- Chin Pill Badge above Alexios Mercer -->
+      <rect x="1052" y="{y_pos - 12}" width="83" height="17" rx="8.5" fill="{border_color}" opacity="0.2" />
+      <text x="1093" y="{y_pos}" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" text-anchor="middle">@Chin</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="{row_intro_delay:.2f}s" fill="freeze" />
+    </g>''')
+        else:
+            dots_count = max(4, 45 - len(label) - len(val))
+            dotted_str = ". " * dots_count
+            info_rows_xml.append(f'''    <g opacity="0">
       <text x="460" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13">{label}</text>
       <text x="610" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">{dotted_str}</text>
       <text x="1135" y="{y_pos}" fill="{text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">{val}</text>
@@ -410,22 +406,15 @@ def build_svg(dots_portrait, mode="dark"):
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
   </g>
 
+  <!-- LEFT PORTRAIT FRAME (VISUAL.MAP) -->
   <rect x="25" y="55" width="400" height="530" rx="6" class="panel-border" />
   <rect x="25" y="55" width="400" height="30" rx="6" class="header-bg" />
   <line x1="25" y1="85" x2="425" y2="85" stroke="{border_color}" stroke-width="1" />
   
+  <!-- Clean VISUAL.MAP Header without crowded badges -->
   <g opacity="0">
     <text x="40" y="75" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="12" font-weight="bold">VISUAL.MAP</text>
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.25s" fill="freeze" />
-  </g>
-
-  <g opacity="0">
-    <rect x="270" y="62" width="50" height="16" rx="8" fill="#EF4444" opacity="0.2" />
-    <circle cx="280" cy="70" r="4" fill="#EF4444" class="pulse-live" />
-    <text x="290" y="73" fill="#EF4444" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold">LIVE</text>
-    <rect x="328" y="62" width="90" height="16" rx="8" fill="{border_color}" opacity="0.2" />
-    <text x="373" y="73" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="9" font-weight="bold" text-anchor="middle">@UnnamedPeople-Chin</text>
-    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.3s" fill="freeze" />
   </g>
 
   <g shape-rendering="crispEdges">
@@ -436,6 +425,7 @@ def build_svg(dots_portrait, mode="dark"):
 {"".join(traveller_elements)}
   </g>
 
+  <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
   <rect x="440" y="55" width="715" height="530" rx="6" class="panel-border" />
   <rect x="440" y="55" width="715" height="30" rx="6" class="header-bg" />
   <line x1="440" y1="85" x2="1155" y2="85" stroke="{border_color}" stroke-width="1" />
@@ -457,13 +447,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with HITMAN, NIKE, and ASSASSIN'S CREED SVG files...")
+    print("Building updated dark.svg with LIVE & @Chin badges above Subject...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with HITMAN, NIKE, and ASSASSIN'S CREED SVG files...")
+    print("Building updated light.svg with LIVE & @Chin badges above Subject...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

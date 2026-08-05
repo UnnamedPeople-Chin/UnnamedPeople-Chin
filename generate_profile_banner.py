@@ -12,10 +12,10 @@ OUTPUT_LIGHT = r"d:\Git setup\light.svg"
 GRID_W = 300
 GRID_H = 340
 
-PORTRAIT_X = 35
-PORTRAIT_Y = 95
-PORTRAIT_BOX_W = 380
-PORTRAIT_BOX_H = 480
+PORTRAIT_X = 36
+PORTRAIT_Y = 84
+PORTRAIT_BOX_W = 400
+PORTRAIT_BOX_H = 492
 
 SCALE_X = PORTRAIT_BOX_W / GRID_W
 SCALE_Y = PORTRAIT_BOX_H / GRID_H
@@ -245,14 +245,14 @@ def clamp(val, min_v, max_v):
 
 def build_svg(dots_portrait, mode="dark"):
     is_dark = (mode == "dark")
-    bg_color = "#0A101F" if is_dark else "#F8FAFC"
+    bg_color = "#070B16" if is_dark else "#F8FAFC"
     border_color = "#22D3EE" if is_dark else "#0891B2"
     dot_color = "#A78BFA" if is_dark else "#7C3AED"
     text_color = "#F8FAFC" if is_dark else "#0F172A"
     sub_text_color = "#94A3B8" if is_dark else "#475569"
     accent_color = "#10B981" if is_dark else "#059669"
-    panel_bg = "#070D18" if is_dark else "#FFFFFF"
-    header_bg = "#0F172A" if is_dark else "#E2E8F0"
+    panel_bg = "#0A101F" if is_dark else "#FFFFFF"
+    header_bg = "#0B1222" if is_dark else "#E2E8F0"
     
     num_travellers = 800
     pts_hitman, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
@@ -295,7 +295,7 @@ def build_svg(dots_portrait, mode="dark"):
                  keyTimes="0; 0.176; 0.268; 0.810; 0.901; 1" 
                  dur="14.2s" repeatCount="indefinite" />
       </path>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="1.5s" begin="{intro_delay:.2f}s" fill="freeze" />
+      <animate attributeName="opacity" values="0;1" dur="1.5s" begin="{intro_delay:.2f}s" fill="freeze" />
     </g>'''
         portrait_band_groups.append(band_xml)
 
@@ -324,10 +324,8 @@ def build_svg(dots_portrait, mode="dark"):
     </rect>'''
         traveller_elements.append(dot_xml)
 
-    # 4. SYSTEM INFO READOUT ROWS WITH UNNAMEDPEOPLE->CHIN ABOVE SUBJECT & LIVE ABOVE ALEXIOS MERCER
-    # We move Chin above Subject, and LIVE above Alexios Mercer
+    # 4. EXACT ARIFHAXN PREMIUM SYSTEM INFO READOUT FORMAT
     info_data = [
-        ("Chin", "Chin"),
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
         ("Role", "Full-Stack | AI Eng | Frontend"),
@@ -339,105 +337,101 @@ def build_svg(dots_portrait, mode="dark"):
         ("Core.Backend", "Node.js, Express"),
         ("Core.Database", "MongoDB, PostgreSQL"),
         ("ToolChain", "VS Code, Git, Figma"),
-        ("Contact.Mail", "jizdanyr354@gmail.com"),
-        ("Social.Insta", "instagram.com/jizdan.yr"),
-        ("Social.TikTok", "tiktok.com/@jizdan.yr"),
+        ("Grid.Mail", "jizdanyr354@gmail.com"),
+        ("Grid.Insta", "instagram.com/jizdan.yr"),
+        ("Grid.TikTok", "tiktok.com/@jizdan.yr"),
     ]
 
     info_rows_xml = []
-    y_base = 120
-    row_height = 27
+    y_base = 145
+    row_height = 29
     
     for idx, (label, val) in enumerate(info_data):
         y_pos = y_base + idx * row_height
-        row_intro_delay = 0.4 + idx * 0.10
-
-        if label == "Chin":
-            # Chin pill badge & pulsing red LIVE badge positioned right above Subject / Alexios Mercer
-            info_rows_xml.append(f'''    <g opacity="0">
-      <text x="460" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13">Alias</text>
-      <text x="610" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">. . . . . . . . . . . . . . . . . . . . . . . . .</text>
-      
-      <!-- LIVE Badge above Alexios Mercer -->
-      <rect x="990" y="{y_pos - 12}" width="52" height="17" rx="8.5" fill="#EF4444" opacity="0.2" />
-      <circle cx="1001" cy="{y_pos - 3.5}" r="4" fill="#EF4444" class="pulse-live" />
-      <text x="1011" y="{y_pos}" fill="#EF4444" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold">LIVE</text>
-      
-      <!-- Chin Pill Badge above Alexios Mercer -->
-      <rect x="1052" y="{y_pos - 12}" width="83" height="17" rx="8.5" fill="{border_color}" opacity="0.2" />
-      <text x="1093" y="{y_pos}" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="10" font-weight="bold" text-anchor="middle">@Chin</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="{row_intro_delay:.2f}s" fill="freeze" />
-    </g>''')
-        else:
-            dots_count = max(4, 45 - len(label) - len(val))
-            dotted_str = ". " * dots_count
-            info_rows_xml.append(f'''    <g opacity="0">
-      <text x="460" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13">{label}</text>
-      <text x="610" y="{y_pos}" fill="{sub_text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.35">{dotted_str}</text>
-      <text x="1135" y="{y_pos}" fill="{text_color}" font-family="ui-monospace, Consolas, monospace" font-size="13" font-weight="bold" text-anchor="end">{val}</text>
+        row_intro_delay = 0.4 + idx * 0.08
+        
+        # Exact arifhaxn dotted leader dots string calculation
+        dots_count = max(4, 42 - len(label) - len(val))
+        dotted_str = ". " * dots_count
+        
+        info_rows_xml.append(f'''    <g opacity="0">
+      <text x="475" y="{y_pos}" fill="{sub_text_color}" font-size="13">{label}</text>
+      <text x="615" y="{y_pos}" fill="{sub_text_color}" font-size="13" opacity="0.30">{dotted_str}</text>
+      <text x="1115" y="{y_pos}" fill="{text_color}" font-size="13" font-weight="bold" text-anchor="end">{val}</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="{row_intro_delay:.2f}s" fill="freeze" />
     </g>''')
 
-    svg_code = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="1180" height="610">
-  <style>
-    .terminal-bg {{ fill: {bg_color}; }}
-    .panel-border {{ stroke: {border_color}; stroke-width: 1.5; fill: {panel_bg}; }}
-    .header-bg {{ fill: {header_bg}; }}
-    .title-text {{ fill: {text_color}; font-family: ui-monospace, Consolas, monospace; font-size: 14px; font-weight: bold; }}
-    .pulse-live {{ animation: pulse 1.5s infinite alternate; }}
-    @keyframes pulse {{ from {{ opacity: 0.3; }} to {{ opacity: 1; }} }}
-  </style>
+    # SVG COMPOSITION WITH EXACT ARIFHAXN GLOW FILTERS, CORNER RADIUS 18, AND TERMINAL TITLE BAR
+    svg_code = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Alexios Mercer — profile.sh --live">
+  <defs>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="{panel_bg}"/>
+      <stop offset="1" stop-color="#0C1426"/>
+    </linearGradient>
+    <filter id="glow3" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <clipPath id="winClip">
+      <rect x="2" y="2" width="1176" height="606" rx="18"/>
+    </clipPath>
+  </defs>
 
-  <rect width="1180" height="610" rx="10" class="terminal-bg" />
-  <rect x="2" y="2" width="1176" height="606" rx="9" fill="none" stroke="{border_color}" stroke-width="1.5" opacity="0.8" />
-  
-  <path d="M 2 12 Q 2 2 12 2 L 1168 2 Q 1178 2 1178 12 L 1178 40 L 2 40 Z" class="header-bg" />
-  <line x1="2" y1="40" x2="1178" y2="40" stroke="{border_color}" stroke-width="1.5" />
-  
-  <g opacity="0">
-    <circle cx="25" cy="21" r="6" fill="#FF5F56" />
-    <circle cx="45" cy="21" r="6" fill="#FFBD2E" />
-    <circle cx="65" cy="21" r="6" fill="#27C93F" />
-    <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.1s" fill="freeze" />
-  </g>
-  
-  <g opacity="0">
-    <text x="590" y="26" class="title-text" text-anchor="middle">profile.sh --live</text>
-    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
-  </g>
+  <rect x="2" y="2" width="1176" height="606" rx="18" fill="#070B16"/>
+  <g clip-path="url(#winClip)">
+    <rect x="2" y="2" width="1176" height="606" fill="url(#panelGrad)"/>
+    
+    <!-- Top Header Bar -->
+    <rect x="2" y="2" width="1176" height="46" fill="{header_bg}"/>
+    <line x1="2" y1="48" x2="1178" y2="48" stroke="rgba(255,255,255,0.10)"/>
+    
+    <!-- Window Controls -->
+    <g opacity="0">
+      <circle cx="30" cy="25" r="5.5" fill="#ff5f56"/>
+      <circle cx="50" cy="25" r="5.5" fill="#ffbd2e"/>
+      <circle cx="70" cy="25" r="5.5" fill="#27c93f"/>
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.1s" fill="freeze" />
+    </g>
 
-  <!-- LEFT PORTRAIT FRAME (VISUAL.MAP) -->
-  <rect x="25" y="55" width="400" height="530" rx="6" class="panel-border" />
-  <rect x="25" y="55" width="400" height="30" rx="6" class="header-bg" />
-  <line x1="25" y1="85" x2="425" y2="85" stroke="{border_color}" stroke-width="1" />
-  
-  <!-- Clean VISUAL.MAP Header without crowded badges -->
-  <g opacity="0">
-    <text x="40" y="75" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="12" font-weight="bold">VISUAL.MAP</text>
-    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.25s" fill="freeze" />
-  </g>
+    <!-- Header Title Bar -->
+    <g opacity="0">
+      <text x="590" y="29" text-anchor="middle" font-size="12" fill="#94A3B8">jizdanyr354@gmail.com - % ./profile.sh --live</text>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
+    </g>
 
-  <g shape-rendering="crispEdges">
+    <!-- LEFT PORTRAIT FRAME (VISUAL.MAP) -->
+    <g opacity="0">
+      <text x="38" y="74" font-size="10" letter-spacing="3" fill="#475569">VISUAL.MAP</text>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.25s" fill="freeze" />
+    </g>
+
+    <rect x="36" y="84" width="400" height="492" rx="10" fill="none" stroke="{border_color}" stroke-width="2" opacity="0.45" filter="url(#glow3)"/>
+    <rect x="36" y="84" width="400" height="492" rx="10" fill="{panel_bg}" stroke="rgba(34,211,238,0.35)"/>
+
+    <!-- PORTRAIT DITHER DRIFT BANDS -->
+    <g shape-rendering="crispEdges">
 {"".join(portrait_band_groups)}
-  </g>
+    </g>
 
-  <g>
+    <!-- TRAVELLERS SWARM (HITMAN -> NIKE -> ASSASSIN'S CREED) -->
+    <g>
 {"".join(traveller_elements)}
-  </g>
+    </g>
 
-  <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
-  <rect x="440" y="55" width="715" height="530" rx="6" class="panel-border" />
-  <rect x="440" y="55" width="715" height="30" rx="6" class="header-bg" />
-  <line x1="440" y1="85" x2="1155" y2="85" stroke="{border_color}" stroke-width="1" />
-  
-  <g opacity="0">
-    <text x="455" y="75" fill="{border_color}" font-family="ui-monospace, Consolas, monospace" font-size="12" font-weight="bold">SYSTEM.INFO</text>
-    <text x="1140" y="75" fill="{accent_color}" font-family="ui-monospace, Consolas, monospace" font-size="11" font-weight="bold" text-anchor="end">STATUS: ONLINE</text>
-    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.35s" fill="freeze" />
-  </g>
+    <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
+    <g opacity="0">
+      <text x="455" y="74" font-size="10" letter-spacing="3" fill="#475569">SYSTEM.INFO</text>
+      <circle cx="1105" cy="71" r="4" fill="{accent_color}"/>
+      <text x="1115" y="74" font-size="10" letter-spacing="1" fill="{accent_color}" font-weight="bold" text-anchor="end">STATUS: ONLINE</text>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.3s" fill="freeze" />
+    </g>
 
-  <g>
+    <rect x="455" y="84" width="685" height="492" rx="10" fill="none" stroke="{border_color}" stroke-width="2" opacity="0.45" filter="url(#glow3)"/>
+    <rect x="455" y="84" width="685" height="492" rx="10" fill="{panel_bg}" stroke="rgba(34,211,238,0.35)"/>
+
+    <!-- SYSTEM INFO READOUT ROWS -->
+    <g>
 {"".join(info_rows_xml)}
+    </g>
   </g>
 </svg>'''
     return svg_code
@@ -447,13 +441,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with LIVE & @Chin badges above Subject...")
+    print("Building updated dark.svg with EXACT arifhaxn premium styling & 3 custom SVGs...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with LIVE & @Chin badges above Subject...")
+    print("Building updated light.svg with EXACT arifhaxn premium styling & 3 custom SVGs...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

@@ -33,8 +33,20 @@
 <br/>
 <br/>
 
+<!-- FEATURED PROJECTS GRID -->
+<div align="center">
+  <img width="100%" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/projects.svg?v=1" alt="Projects List" />
+</div>
+
+<br/>
+<br/>
+
 <!-- SOCIAL & CONTACT BADGES -->
 <div align="center">
+  <a href="https://github.com/UnnamedPeople-Chin" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A101F?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0A101F" alt="LinkedIn" />
+  </a>
+  &nbsp;&nbsp;
   <a href="https://www.instagram.com/jizdan.yr" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=A78BFA&labelColor=0A101F" alt="Instagram" />
   </a>

@@ -1,0 +1,320 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="765" viewBox="0 0 1180 765" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Projects List">
+  <defs>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A101F"/>
+      <stop offset="1" stop-color="#0C1426"/>
+    </linearGradient>
+    <filter id="glow3" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <clipPath id="winClip">
+      <rect x="2" y="2" width="1176" height="761" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <rect x="2" y="2" width="1176" height="761" rx="18" fill="#070B16"/>
+  <g clip-path="url(#winClip)">
+    <rect x="2" y="2" width="1176" height="761" fill="url(#panelGrad)"/>
+    
+    <!-- Top Header -->
+    <text x="38" y="38" font-size="12" font-weight="bold" letter-spacing="3" fill="#22D3EE">PROJECTS.LIST <tspan fill="#475569">./projects.sh --all</tspan></text>
+    <line x1="38" y1="46" x2="1142" y2="46" stroke="rgba(34,211,238,0.20)"/>
+
+    <!-- PROJECT CARDS GRID -->
+
+    <!-- CARD 1: LeadUnity_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="36" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="36" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="56" cy="82" r="3" fill="#22D3EE"/>
+      <text x="66" y="86" font-size="11" fill="#64748B">UnnamedPeople-Chin/LeadUnity</text>
+
+      <!-- Icon Box -->
+      <rect x="56" y="108" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#7C3AED" stroke-width="1.5"/>
+      <g transform="translate(68, 120) scale(0.9)">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="116" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">LeadUnity_</text>
+      <text x="116" y="152" font-size="11" fill="#94A3B8">AI Powered Lead Management & Analytics Platform</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="116" y="190" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="150.25" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Next.js</text>
+            
+        <rect x="192.5" y="190" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="226.75" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Node.js</text>
+            
+        <rect x="269.0" y="190" width="98.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="318.25" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">TailwindCSS</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M116 232l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="131" y="236" font-size="10" font-weight="bold" fill="#94A3B8">12</text>
+      <text x="156" y="236" font-size="10" fill="#64748B">updated 2d ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(496, 165)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#A78BFA" stroke-width="6" stroke-dasharray="144.3 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">82%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="401" cy="150" r="3" fill="#A78BFA"/>
+      <text x="411" y="153" font-size="10" fill="#94A3B8">TypeScript 82%</text>
+    </g>
+        
+    <!-- CARD 2: OnePick_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="608" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="608" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="628" cy="82" r="3" fill="#22D3EE"/>
+      <text x="638" y="86" font-size="11" fill="#64748B">UnnamedPeople-Chin/OnePick</text>
+
+      <!-- Icon Box -->
+      <rect x="628" y="108" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#10B981" stroke-width="1.5"/>
+      <g transform="translate(640, 120) scale(0.9)">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="#10B981" stroke-width="2.5"/><path d="M12 7v5l3 3" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="688" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">OnePick_</text>
+      <text x="688" y="152" font-size="11" fill="#94A3B8">Smart Decision & Character Matcher Engine</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="688" y="190" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="714.75" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">React</text>
+            
+        <rect x="749.5" y="190" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="783.75" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Express</text>
+            
+        <rect x="826.0" y="190" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="860.25" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">MongoDB</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M688 232l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="703" y="236" font-size="10" font-weight="bold" fill="#94A3B8">8</text>
+      <text x="728" y="236" font-size="10" fill="#64748B">updated 5d ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(1068, 165)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="114.4 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">65%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="973" cy="150" r="3" fill="#10B981"/>
+      <text x="983" y="153" font-size="10" fill="#94A3B8">Python 65%</text>
+    </g>
+        
+    <!-- CARD 3: Chessy_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="36" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="36" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="56" cy="312" r="3" fill="#22D3EE"/>
+      <text x="66" y="316" font-size="11" fill="#64748B">UnnamedPeople-Chin/Chessy</text>
+
+      <!-- Icon Box -->
+      <rect x="56" y="338" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#F59E0B" stroke-width="1.5"/>
+      <g transform="translate(68, 350) scale(0.9)">
+        <path d="M7 21h10M12 3v14M8 7h8M9 11h6" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="116" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Chessy_</text>
+      <text x="116" y="382" font-size="11" fill="#94A3B8">Real-time Multiplayer Chess Engine & AI Bot</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="116" y="420" width="38.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="135.25" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">C++</text>
+            
+        <rect x="162.5" y="420" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="189.25" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">React</text>
+            
+        <rect x="224.0" y="420" width="91.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="269.5" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">WebSockets</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M116 462l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="131" y="466" font-size="10" font-weight="bold" fill="#94A3B8">15</text>
+      <text x="156" y="466" font-size="10" fill="#64748B">updated 1w ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(496, 395)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#F59E0B" stroke-width="6" stroke-dasharray="130.2 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">74%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="401" cy="380" r="3" fill="#F59E0B"/>
+      <text x="411" y="383" font-size="10" fill="#94A3B8">C++ 74%</text>
+    </g>
+        
+    <!-- CARD 4: Claster_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="608" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="608" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="628" cy="312" r="3" fill="#22D3EE"/>
+      <text x="638" y="316" font-size="11" fill="#64748B">UnnamedPeople-Chin/Claster</text>
+
+      <!-- Icon Box -->
+      <rect x="628" y="338" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#EC4899" stroke-width="1.5"/>
+      <g transform="translate(640, 350) scale(0.9)">
+        <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#EC4899" stroke-width="2.5"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="688" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Claster_</text>
+      <text x="688" y="382" font-size="11" fill="#94A3B8">Class Scheduling & Routine Tracking App for Educators</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="688" y="420" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="722.25" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Next.js</text>
+            
+        <rect x="764.5" y="420" width="91.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="810.0" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">PostgreSQL</text>
+            
+        <rect x="863.5" y="420" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="894.0" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Prisma</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M688 462l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="703" y="466" font-size="10" font-weight="bold" fill="#94A3B8">6</text>
+      <text x="728" y="466" font-size="10" fill="#64748B">updated 2w ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(1068, 395)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#EC4899" stroke-width="6" stroke-dasharray="102.0 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">58%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="973" cy="380" r="3" fill="#EC4899"/>
+      <text x="983" y="383" font-size="10" fill="#94A3B8">TypeScript 58%</text>
+    </g>
+        
+    <!-- CARD 5: OneTELE_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="36" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="36" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="56" cy="542" r="3" fill="#22D3EE"/>
+      <text x="66" y="546" font-size="11" fill="#64748B">UnnamedPeople-Chin/OneTELE</text>
+
+      <!-- Icon Box -->
+      <rect x="56" y="568" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#6366F1" stroke-width="1.5"/>
+      <g transform="translate(68, 580) scale(0.9)">
+        <polygon points="23 7 16 12 23 17 23 7" fill="none" stroke="#6366F1" stroke-width="2.5" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="#6366F1" stroke-width="2.5"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="116" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">OneTELE_</text>
+      <text x="116" y="612" font-size="11" fill="#94A3B8">Custom Teleprompter & Recording Studio Suite</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="116" y="650" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="142.75" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">React</text>
+            
+        <rect x="177.5" y="650" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="208.0" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">WebRTC</text>
+            
+        <rect x="246.5" y="650" width="98.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="295.75" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">TailwindCSS</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M116 692l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="131" y="696" font-size="10" font-weight="bold" fill="#94A3B8">10</text>
+      <text x="156" y="696" font-size="10" fill="#64748B">updated 3w ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(496, 625)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#6366F1" stroke-width="6" stroke-dasharray="139.0 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">79%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="401" cy="610" r="3" fill="#6366F1"/>
+      <text x="411" y="613" font-size="10" fill="#94A3B8">JavaScript 79%</text>
+    </g>
+        
+    <!-- CARD 6: Career Logic AI_ -->
+    <g>
+      <!-- Card Outer Border & Glow -->
+      <rect x="608" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+      <rect x="608" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
+
+      <!-- Repo Path Header -->
+      <circle cx="628" cy="542" r="3" fill="#22D3EE"/>
+      <text x="638" y="546" font-size="11" fill="#64748B">UnnamedPeople-Chin/CareerLogicAI</text>
+
+      <!-- Icon Box -->
+      <rect x="628" y="568" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#3B82F6" stroke-width="1.5"/>
+      <g transform="translate(640, 580) scale(0.9)">
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+      </g>
+
+      <!-- Title & Description -->
+      <text x="688" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">Career Logic AI_</text>
+      <text x="688" y="612" font-size="11" fill="#94A3B8">AI Powered Resume Analyzer & Career Builder</text>
+
+      <!-- Tag Pills -->
+      
+        <rect x="688" y="650" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="718.5" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Python</text>
+            
+        <rect x="757.0" y="650" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="791.25" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">FastAPI</text>
+            
+        <rect x="833.5" y="650" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
+        <text x="864.0" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">OpenAI</text>
+            
+
+      <!-- Stars & Updated -->
+      <path d="M688 692l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+      <text x="703" y="696" font-size="10" font-weight="bold" fill="#94A3B8">22</text>
+      <text x="728" y="696" font-size="10" fill="#64748B">updated 1mo ago</text>
+
+      <!-- Donut Circle Chart -->
+      <g transform="translate(1068, 625)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#3B82F6" stroke-width="6" stroke-dasharray="154.8 175.9" transform="rotate(-90)"/>
+        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">88%</text>
+      </g>
+
+      <!-- Language Legend -->
+      <circle cx="973" cy="610" r="3" fill="#3B82F6"/>
+      <text x="983" y="613" font-size="10" fill="#94A3B8">Python 88%</text>
+    </g>
+        
+  </g>
+</svg>

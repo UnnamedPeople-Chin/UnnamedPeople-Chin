@@ -113,118 +113,116 @@ def process_image(image_path):
     return dots_dark, dots_light
 
 def generate_logo_shapes(num_points=800):
-    """Generates precise vector points for Flutter, </> Glyph, and Assassin's Creed Insignia."""
+    """Generates large, clean, perfectly centered vector shapes for Flutter, </>, and AC."""
     cx, cy = GRID_W / 2, GRID_H / 2
     
     # -------------------------------------------------------------
-    # 1. FLUTTER LOGO (Iconic 2-layered angled wings)
+    # 1. FLUTTER LOGO (Perfect 2-layer Wing Geometry)
     # -------------------------------------------------------------
     pts_flutter = []
-    # Main top-left to bottom-right diagonal bar
-    n_top = int(num_points * 0.50)
+    # Main top wing: diagonal stroke from (cx+60, cy-100) -> (cx-55, cy+15)
+    n_top = int(num_points * 0.52)
     for i in range(n_top):
         t = i / n_top
-        x0 = cx + 60 - t * 120
-        y0 = cy - 90 + t * 120
-        th = (random.random() - 0.5) * 20
+        x0 = cx + 60 - t * 115
+        y0 = cy - 100 + t * 115
+        th = (random.random() - 0.5) * 22
         pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
 
-    # Middle lower wing
-    n_mid = int(num_points * 0.25)
+    # Middle wing: (cx-20, cy-20) -> (cx+25, cy+25)
+    n_mid = int(num_points * 0.24)
     for i in range(n_mid):
         t = i / n_mid
-        x0 = cx - 20 + t * 50
-        y0 = cy - 10 + t * 50
-        th = (random.random() - 0.5) * 16
+        x0 = cx - 20 + t * 45
+        y0 = cy - 20 + t * 45
+        th = (random.random() - 0.5) * 18
         pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
 
-    # Bottom wing turning back
+    # Bottom wing: (cx+25, cy+25) -> (cx-35, cy+85)
     n_bot = num_points - n_top - n_mid
     for i in range(n_bot):
         t = i / n_bot
-        x0 = cx + 30 - t * 50
-        y0 = cy + 40 + t * 50
-        th = (random.random() - 0.5) * 16
+        x0 = cx + 25 - t * 60
+        y0 = cy + 25 + t * 60
+        th = (random.random() - 0.5) * 18
         pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
 
     # -------------------------------------------------------------
-    # 2. </> CODE GLYPH LOGO (Left bracket < , Slash / , Right bracket >)
+    # 2. </> CODE GLYPH LOGO (Large, bold centered code brackets and slash)
     # -------------------------------------------------------------
     pts_glyph = []
-    # Left bracket < (35% of dots)
+    # Left bracket < (35% points)
     n_l = int(num_points * 0.35)
     for i in range(n_l):
         t = i / n_l
         if t < 0.5:
             sub = t * 2
-            x0 = cx - 30 - sub * 50
-            y0 = cy - 75 + sub * 75
+            x0 = cx - 25 - sub * 60
+            y0 = cy - 85 + sub * 85
         else:
             sub = (t - 0.5) * 2
-            x0 = cx - 80 + sub * 50
-            y0 = cy + sub * 75
-        th = (random.random() - 0.5) * 16
+            x0 = cx - 85 + sub * 60
+            y0 = cy + sub * 85
+        th = (random.random() - 0.5) * 18
         pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # Center Slash / (30% of dots)
+    # Center Slash / (30% points)
     n_slash = int(num_points * 0.30)
     for i in range(n_slash):
         t = i / n_slash
-        x0 = cx + 22 - t * 44
-        y0 = cy - 85 + t * 170
-        th = (random.random() - 0.5) * 16
+        x0 = cx + 25 - t * 50
+        y0 = cy - 95 + t * 190
+        th = (random.random() - 0.5) * 18
         pts_glyph.append((x0 + th, y0))
 
-    # Right bracket > (35% of dots)
+    # Right bracket > (35% points)
     n_r = num_points - n_l - n_slash
     for i in range(n_r):
         t = i / n_r
         if t < 0.5:
             sub = t * 2
-            x0 = cx + 30 + sub * 50
-            y0 = cy - 75 + sub * 75
+            x0 = cx + 25 + sub * 60
+            y0 = cy - 85 + sub * 85
         else:
             sub = (t - 0.5) * 2
-            x0 = cx + 80 - sub * 50
-            y0 = cy + sub * 75
-        th = (random.random() - 0.5) * 16
+            x0 = cx + 85 - sub * 60
+            y0 = cy + sub * 85
+        th = (random.random() - 0.5) * 18
         pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
     # -------------------------------------------------------------
-    # 3. ASSASSIN'S CREED INSIGNIA LOGO (A-hood arch & center blade)
+    # 3. ASSASSIN'S CREED INSIGNIA LOGO (Bold AC Hood & Blade)
     # -------------------------------------------------------------
     pts_ac = []
     n_hood = int(num_points * 0.70)
     for i in range(n_hood):
         t = i / n_hood
         if t < 0.5:
-            # Left outer hood curving down and turning in
+            # Left outer hood
             sub = t * 2
-            x0 = cx - (math.sin(sub * math.pi * 0.85) * 80)
-            y0 = cy - 95 + sub * 155
+            x0 = cx - (math.sin(sub * math.pi * 0.85) * 90)
+            y0 = cy - 105 + sub * 165
         else:
-            # Right outer hood curving down and turning in
+            # Right outer hood
             sub = (t - 0.5) * 2
-            x0 = cx + (math.sin(sub * math.pi * 0.85) * 80)
-            y0 = cy - 95 + sub * 155
-        th = (random.random() - 0.5) * 18
+            x0 = cx + (math.sin(sub * math.pi * 0.85) * 90)
+            y0 = cy - 105 + sub * 165
+        th = (random.random() - 0.5) * 20
         pts_ac.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # Inner Arch + Blade Tip
+    # Inner Arch + Bottom Blade Tip
     n_inner = num_points - n_hood
     for i in range(n_inner):
         t = i / n_inner
         if t < 0.65:
-            # Inner hollow arch
             sub = t / 0.65
             ang = (sub - 0.5) * math.pi * 0.85
-            x0 = cx + math.sin(ang) * 45
-            y0 = cy + 15 - math.cos(ang) * 50
+            x0 = cx + math.sin(ang) * 50
+            y0 = cy + 20 - math.cos(ang) * 55
         else:
-            # Center bottom blade
             sub = (t - 0.65) / 0.35
-            x0 = cx + (random.random() - 0.5) * 10
-            y0 = cy + 45 + sub * 45
+            x0 = cx + (random.random() - 0.5) * 12
+            y0 = cy + 50 + sub * 55
         pts_ac.append((x0, y0))
 
     return pts_flutter, pts_glyph, pts_ac
@@ -250,14 +248,12 @@ def build_svg(dots_portrait, mode="dark"):
     panel_bg = "#070D18" if is_dark else "#FFFFFF"
     header_bg = "#0F172A" if is_dark else "#E2E8F0"
     
-    # 1. LOGO SWARM POINTS (FLUTTER -> </> GLYPH -> ASSASSIN'S CREED)
     num_travellers = 800
     pts_flutter, pts_glyph_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
     pts_glyph = match_points(pts_flutter, pts_glyph_raw)
     pts_ac = match_points(pts_glyph, pts_ac_raw)
     pts_flutter_return = match_points(pts_ac, pts_flutter)
 
-    # 2. PORTRAIT DISSOLVE DRIFT BANDS (~90 BANDS)
     num_bands = 90
     bands = [[] for _ in range(num_bands)]
     
@@ -297,7 +293,6 @@ def build_svg(dots_portrait, mode="dark"):
     </g>'''
         portrait_band_groups.append(band_xml)
 
-    # 3. TRAVELLERS SWARM (FIXED COORDINATE BINDINGS)
     traveller_elements = []
     pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
     opacity_values = "0; 0; 1; 1; 1; 1; 1; 0; 0"
@@ -313,18 +308,16 @@ def build_svg(dots_portrait, mode="dark"):
         sx3, sy3 = PORTRAIT_X + p3[0] * SCALE_X, PORTRAIT_Y + p3[1] * SCALE_Y
         sx4, sy4 = PORTRAIT_X + p4[0] * SCALE_X, PORTRAIT_Y + p4[1] * SCALE_Y
 
-        # FIX: Ensure sx is used for X animate, and sy is used for Y animate!
         x_vals = f"{sx1:.1f}; {sx1:.1f}; {sx1:.1f}; {sx2:.1f}; {sx2:.1f}; {sx3:.1f}; {sx3:.1f}; {sx4:.1f}; {sx4:.1f}"
         y_vals = f"{sy1:.1f}; {sy1:.1f}; {sy1:.1f}; {sy2:.1f}; {sy2:.1f}; {sy3:.1f}; {sy3:.1f}; {sy4:.1f}; {sy4:.1f}"
 
-        dot_xml = f'''    <rect width="2" height="2" fill="{border_color}" opacity="0">
+        dot_xml = f'''    <rect width="2.2" height="2.2" fill="{border_color}" opacity="0">
       <animate attributeName="x" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
       <animate attributeName="y" values="{y_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="{opacity_values}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
     </rect>'''
         traveller_elements.append(dot_xml)
 
-    # 4. SYSTEM INFO READOUT ROWS WITH STAGGERED INTRO FADE-IN
     info_data = [
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
@@ -360,7 +353,6 @@ def build_svg(dots_portrait, mode="dark"):
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="{row_intro_delay:.2f}s" fill="freeze" />
     </g>''')
 
-    # SVG COMPOSITION
     svg_code = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="1180" height="610">
   <style>
     .terminal-bg {{ fill: {bg_color}; }}
@@ -371,15 +363,12 @@ def build_svg(dots_portrait, mode="dark"):
     @keyframes pulse {{ from {{ opacity: 0.3; }} to {{ opacity: 1; }} }}
   </style>
 
-  <!-- Outer Window Frame -->
   <rect width="1180" height="610" rx="10" class="terminal-bg" />
   <rect x="2" y="2" width="1176" height="606" rx="9" fill="none" stroke="{border_color}" stroke-width="1.5" opacity="0.8" />
   
-  <!-- Header Bar -->
   <path d="M 2 12 Q 2 2 12 2 L 1168 2 Q 1178 2 1178 12 L 1178 40 L 2 40 Z" class="header-bg" />
   <line x1="2" y1="40" x2="1178" y2="40" stroke="{border_color}" stroke-width="1.5" />
   
-  <!-- Window Controls -->
   <g opacity="0">
     <circle cx="25" cy="21" r="6" fill="#FF5F56" />
     <circle cx="45" cy="21" r="6" fill="#FFBD2E" />
@@ -387,13 +376,11 @@ def build_svg(dots_portrait, mode="dark"):
     <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.1s" fill="freeze" />
   </g>
   
-  <!-- Header Title -->
   <g opacity="0">
     <text x="590" y="26" class="title-text" text-anchor="middle">profile.sh --live</text>
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
   </g>
 
-  <!-- LEFT PORTRAIT FRAME (VISUAL.MAP) -->
   <rect x="25" y="55" width="400" height="530" rx="6" class="panel-border" />
   <rect x="25" y="55" width="400" height="30" rx="6" class="header-bg" />
   <line x1="25" y1="85" x2="425" y2="85" stroke="{border_color}" stroke-width="1" />
@@ -412,17 +399,14 @@ def build_svg(dots_portrait, mode="dark"):
     <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.3s" fill="freeze" />
   </g>
 
-  <!-- PORTRAIT DITHER DRIFT BANDS -->
   <g shape-rendering="crispEdges">
 {"".join(portrait_band_groups)}
   </g>
 
-  <!-- TRAVELLERS SWARM (FLUTTER -> </> GLYPH -> ASSASSIN'S CREED) -->
   <g>
 {"".join(traveller_elements)}
   </g>
 
-  <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
   <rect x="440" y="55" width="715" height="530" rx="6" class="panel-border" />
   <rect x="440" y="55" width="715" height="30" rx="6" class="header-bg" />
   <line x1="440" y1="85" x2="1155" y2="85" stroke="{border_color}" stroke-width="1" />
@@ -444,13 +428,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with FIXED Y-coordinate bindings...")
+    print("Building updated dark.svg with larger, crisp vector shapes...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with FIXED Y-coordinate bindings...")
+    print("Building updated light.svg with larger, crisp vector shapes...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

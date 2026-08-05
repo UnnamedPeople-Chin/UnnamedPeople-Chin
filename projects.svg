@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1180" height="765" viewBox="0 0 1180 765" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Projects List">
   <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
     <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0A101F"/>
       <stop offset="1" stop-color="#0C1426"/>
@@ -16,304 +21,391 @@
   <g clip-path="url(#winClip)">
     <rect x="2" y="2" width="1176" height="761" fill="url(#panelGrad)"/>
     
-    <!-- Top Header -->
-    <text x="38" y="38" font-size="12" font-weight="bold" letter-spacing="3" fill="#22D3EE">PROJECTS.LIST <tspan fill="#475569">./projects.sh --all</tspan></text>
-    <line x1="38" y1="46" x2="1142" y2="46" stroke="rgba(34,211,238,0.20)"/>
+    <!-- Top Header Bar with Shimmer Animation -->
+    <g opacity="0">
+      <text x="38" y="38" font-size="11" font-weight="bold" letter-spacing="3" fill="#22D3EE">PROJECTS.LIST <tspan fill="#475569">./projects.sh --all</tspan></text>
+      <line x1="38" y1="46" x2="1142" y2="46" stroke="rgba(34,211,238,0.25)"/>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.1s" fill="freeze"/>
+    </g>
 
-    <!-- PROJECT CARDS GRID -->
+    <!-- ANIMATED PROJECT CARDS GRID -->
 
     <!-- CARD 1: Star Wars AR Visualizer_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="36" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="36" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="36" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="56" cy="82" r="3" fill="#22D3EE"/>
-      <text x="66" y="86" font-size="11" fill="#64748B">UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="56" cy="82" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="66" y="86" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/Star-Wars-AR-Interac...</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="56" y="108" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#22D3EE" stroke-width="1.5"/>
-      <g transform="translate(68, 120) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="56" y="108" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#22D3EE" stroke-width="1.5"/>
+      <g transform="translate(67, 119) scale(0.9)">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="116" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">Star Wars AR Visualizer_</text>
-      <text x="116" y="152" font-size="11" fill="#94A3B8">Immersive Star Wars character visualization in 3D &amp; AR</text>
+      <text x="116" y="128" font-size="15" font-weight="bold" fill="#F8FAFC">Star Wars AR Visualizer_</text>
+      <text x="116" y="152" font-size="11" fill="#94A3B8">Immersive Star Wars character 3D &amp; AR visualizer</text>
 
       <!-- Tag Pills -->
       
-        <rect x="116" y="190" width="31.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="131.5" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">C#</text>
+        <rect x="116" y="188" width="30.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="131.2" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">C#</text>
             
-        <rect x="155.0" y="190" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="181.75" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Unity</text>
+        <rect x="154.4" y="188" width="52.0" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="180.4" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Unity</text>
             
-        <rect x="216.5" y="190" width="143.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="288.25" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Augmented Reality</text>
+        <rect x="214.4" y="188" width="138.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="283.6" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Augmented Reality</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M116 232l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="131" y="236" font-size="10" font-weight="bold" fill="#94A3B8">4</text>
-      <text x="156" y="236" font-size="10" fill="#64748B">updated 2w ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(496, 165)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#22D3EE" stroke-width="6" stroke-dasharray="110.8 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">63%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(116, 228)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">4</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 2w ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="401" cy="150" r="3" fill="#22D3EE"/>
-      <text x="411" y="153" font-size="10" fill="#94A3B8">C# 63%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(501, 165)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#22D3EE" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="65.1" dur="1.4s" begin="0.50s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">63%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(396, 145)">
+        <circle cx="0" cy="0" r="3" fill="#22D3EE"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">C# 63%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.20s" fill="freeze"/>
     </g>
         
     <!-- CARD 2: MoneyFlow PBO_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="608" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="608" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="608" y="60" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="628" cy="82" r="3" fill="#22D3EE"/>
-      <text x="638" y="86" font-size="11" fill="#64748B">UnnamedPeople-Chin/Project-PBO-MoneyFlow</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="628" cy="82" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="638" y="86" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/Project-PBO-MoneyFlow</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="628" y="108" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#10B981" stroke-width="1.5"/>
-      <g transform="translate(640, 120) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="628" y="108" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#10B981" stroke-width="1.5"/>
+      <g transform="translate(639, 119) scale(0.9)">
         <circle cx="12" cy="12" r="9" fill="none" stroke="#10B981" stroke-width="2.5"/><path d="M12 7v5l3 3" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="688" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">MoneyFlow PBO_</text>
-      <text x="688" y="152" font-size="11" fill="#94A3B8">Finance &amp; Money Flow Manager (Object Oriented Programming)</text>
+      <text x="688" y="128" font-size="15" font-weight="bold" fill="#F8FAFC">MoneyFlow PBO_</text>
+      <text x="688" y="152" font-size="11" fill="#94A3B8">Finance &amp; Money Flow Manager (OOP Java)</text>
 
       <!-- Tag Pills -->
       
-        <rect x="688" y="190" width="46.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="711.0" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Java</text>
+        <rect x="688" y="188" width="44.8" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="710.4" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Java</text>
             
-        <rect x="742.0" y="190" width="38.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="761.25" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">OOP</text>
+        <rect x="740.8" y="188" width="37.6" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="759.6" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">OOP</text>
             
-        <rect x="788.5" y="190" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="822.75" y="205" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Finance</text>
+        <rect x="786.4" y="188" width="66.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="819.6" y="203" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Finance</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M688 232l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="703" y="236" font-size="10" font-weight="bold" fill="#94A3B8">2</text>
-      <text x="728" y="236" font-size="10" fill="#64748B">updated 1mo ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(1068, 165)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="137.2 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">78%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(688, 228)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">2</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 1mo ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="973" cy="150" r="3" fill="#10B981"/>
-      <text x="983" y="153" font-size="10" fill="#94A3B8">Java 78%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(1073, 165)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#10B981" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="38.7" dur="1.4s" begin="0.65s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">78%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(968, 145)">
+        <circle cx="0" cy="0" r="3" fill="#10B981"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">Java 78%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.35s" fill="freeze"/>
     </g>
         
     <!-- CARD 3: Schedule Organizer_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="36" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="36" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="36" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="56" cy="312" r="3" fill="#22D3EE"/>
-      <text x="66" y="316" font-size="11" fill="#64748B">UnnamedPeople-Chin/schedule-organizer</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="56" cy="312" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="66" y="316" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/schedule-organizer</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="56" y="338" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#A78BFA" stroke-width="1.5"/>
-      <g transform="translate(68, 350) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="56" y="338" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#A78BFA" stroke-width="1.5"/>
+      <g transform="translate(67, 349) scale(0.9)">
         <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#A78BFA" stroke-width="2.5"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="116" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Schedule Organizer_</text>
-      <text x="116" y="382" font-size="11" fill="#94A3B8">Smart Schedule &amp; Task Routine Organizer Application</text>
+      <text x="116" y="358" font-size="15" font-weight="bold" fill="#F8FAFC">Schedule Organizer_</text>
+      <text x="116" y="382" font-size="11" fill="#94A3B8">Smart Schedule &amp; Task Routine Organizer App</text>
 
       <!-- Tag Pills -->
       
-        <rect x="116" y="420" width="91.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="161.5" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">JavaScript</text>
+        <rect x="116" y="418" width="88.0" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="160.0" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">JavaScript</text>
             
-        <rect x="215.0" y="420" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="241.75" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">HTML5</text>
+        <rect x="212.0" y="418" width="52.0" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="238.0" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">HTML5</text>
             
-        <rect x="276.5" y="420" width="46.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="299.5" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">CSS3</text>
+        <rect x="272.0" y="418" width="44.8" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="294.4" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">CSS3</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M116 462l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="131" y="466" font-size="10" font-weight="bold" fill="#94A3B8">3</text>
-      <text x="156" y="466" font-size="10" fill="#64748B">updated 1mo ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(496, 395)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#A78BFA" stroke-width="6" stroke-dasharray="149.5 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">85%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(116, 458)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">3</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 1mo ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="401" cy="380" r="3" fill="#A78BFA"/>
-      <text x="411" y="383" font-size="10" fill="#94A3B8">JavaScript 85%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(501, 395)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#A78BFA" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="26.4" dur="1.4s" begin="0.80s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">85%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(396, 375)">
+        <circle cx="0" cy="0" r="3" fill="#A78BFA"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">JavaScript 85%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.50s" fill="freeze"/>
     </g>
         
     <!-- CARD 4: Wand Enhancer_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="608" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="608" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="608" y="290" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="628" cy="312" r="3" fill="#22D3EE"/>
-      <text x="638" y="316" font-size="11" fill="#64748B">UnnamedPeople-Chin/Wand-Enhancer</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="628" cy="312" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="638" y="316" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/Wand-Enhancer</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="628" y="338" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#F59E0B" stroke-width="1.5"/>
-      <g transform="translate(640, 350) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="628" y="338" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#F59E0B" stroke-width="1.5"/>
+      <g transform="translate(639, 349) scale(0.9)">
         <path d="M7 21h10M12 3v14M8 7h8M9 11h6" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="688" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Wand Enhancer_</text>
-      <text x="688" y="382" font-size="11" fill="#94A3B8">Advanced UX &amp; Interoperability Extension Suite</text>
+      <text x="688" y="358" font-size="15" font-weight="bold" fill="#F8FAFC">Wand Enhancer_</text>
+      <text x="688" y="382" font-size="11" fill="#94A3B8">Advanced UX &amp; Interoperability Suite</text>
 
       <!-- Tag Pills -->
       
-        <rect x="688" y="420" width="38.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="707.25" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">C++</text>
+        <rect x="688" y="418" width="37.6" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="706.8" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">C++</text>
             
-        <rect x="734.5" y="420" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="765.0" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">System</text>
+        <rect x="733.6" y="418" width="59.2" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="763.2" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">System</text>
             
-        <rect x="803.5" y="420" width="106.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="856.5" y="435" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">UX Extension</text>
+        <rect x="800.8000000000001" y="418" width="102.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="852.0" y="433" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">UX Extension</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M688 462l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="703" y="466" font-size="10" font-weight="bold" fill="#94A3B8">5</text>
-      <text x="728" y="466" font-size="10" fill="#64748B">updated 1mo ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(1068, 395)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#F59E0B" stroke-width="6" stroke-dasharray="126.7 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">72%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(688, 458)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">5</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 1mo ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="973" cy="380" r="3" fill="#F59E0B"/>
-      <text x="983" y="383" font-size="10" fill="#94A3B8">C++ 72%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(1073, 395)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#F59E0B" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="49.3" dur="1.4s" begin="0.95s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">72%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(968, 375)">
+        <circle cx="0" cy="0" r="3" fill="#F59E0B"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">C++ 72%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.65s" fill="freeze"/>
     </g>
         
     <!-- CARD 5: GitHub Readme Stats_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="36" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="36" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="36" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="56" cy="542" r="3" fill="#22D3EE"/>
-      <text x="66" y="546" font-size="11" fill="#64748B">UnnamedPeople-Chin/github-readme-stats</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="56" cy="542" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="66" y="546" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/github-readme-stats</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="56" y="568" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#EC4899" stroke-width="1.5"/>
-      <g transform="translate(68, 580) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="56" y="568" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#EC4899" stroke-width="1.5"/>
+      <g transform="translate(67, 579) scale(0.9)">
         <polygon points="23 7 16 12 23 17 23 7" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="#EC4899" stroke-width="2.5"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="116" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">GitHub Readme Stats_</text>
-      <text x="116" y="612" font-size="11" fill="#94A3B8">Dynamically generated stats cards for GitHub profiles</text>
+      <text x="116" y="588" font-size="15" font-weight="bold" fill="#F8FAFC">GitHub Readme Stats_</text>
+      <text x="116" y="612" font-size="11" fill="#94A3B8">Dynamically generated stats cards for GitHub</text>
 
       <!-- Tag Pills -->
       
-        <rect x="116" y="650" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="150.25" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Node.js</text>
+        <rect x="116" y="648" width="66.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="149.2" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Node.js</text>
             
-        <rect x="192.5" y="650" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="223.0" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Vercel</text>
+        <rect x="190.4" y="648" width="59.2" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="220.0" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Vercel</text>
             
-        <rect x="261.5" y="650" width="68.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="295.75" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Express</text>
+        <rect x="257.6" y="648" width="66.4" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="290.8" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Express</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M116 692l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="131" y="696" font-size="10" font-weight="bold" fill="#94A3B8">7</text>
-      <text x="156" y="696" font-size="10" fill="#64748B">updated 3d ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(496, 625)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#EC4899" stroke-width="6" stroke-dasharray="160.1 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">91%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(116, 688)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">7</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 3d ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="401" cy="610" r="3" fill="#EC4899"/>
-      <text x="411" y="613" font-size="10" fill="#94A3B8">JavaScript 91%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(501, 625)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#EC4899" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="15.8" dur="1.4s" begin="1.10s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">91%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(396, 605)">
+        <circle cx="0" cy="0" r="3" fill="#EC4899"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">JavaScript 91%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.80s" fill="freeze"/>
     </g>
         
     <!-- CARD 6: AI Full-Stack Portfolio_ -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="608" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="608" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="608" y="520" width="536" height="205" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="628" cy="542" r="3" fill="#22D3EE"/>
-      <text x="638" y="546" font-size="11" fill="#64748B">UnnamedPeople-Chin/Alexios-AI-Portfolio</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="628" cy="542" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="638" y="546" font-size="11" font-weight="500" fill="#64748B">UnnamedPeople-Chin/Alexios-AI-Portfolio</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="628" y="568" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="#3B82F6" stroke-width="1.5"/>
-      <g transform="translate(640, 580) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="628" y="568" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="#3B82F6" stroke-width="1.5"/>
+      <g transform="translate(639, 579) scale(0.9)">
         <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
       </g>
 
       <!-- Title & Description -->
-      <text x="688" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">AI Full-Stack Portfolio_</text>
-      <text x="688" y="612" font-size="11" fill="#94A3B8">Personal AI Engineer Showcase &amp; Terminal System</text>
+      <text x="688" y="588" font-size="15" font-weight="bold" fill="#F8FAFC">AI Full-Stack Portfolio_</text>
+      <text x="688" y="612" font-size="11" fill="#94A3B8">Personal AI Engineer Showcase Terminal</text>
 
       <!-- Tag Pills -->
       
-        <rect x="688" y="650" width="53.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="714.75" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">React</text>
+        <rect x="688" y="648" width="52.0" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="714.0" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">React</text>
             
-        <rect x="749.5" y="650" width="61.0" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="780.0" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Python</text>
+        <rect x="748.0" y="648" width="59.2" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="777.6" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">Python</text>
             
-        <rect x="818.5" y="650" width="98.5" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="867.75" y="665" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">TailwindCSS</text>
+        <rect x="815.2" y="648" width="95.2" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="862.8" y="663" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">TailwindCSS</text>
             
 
-      <!-- Stars & Updated -->
-      <path d="M688 692l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="703" y="696" font-size="10" font-weight="bold" fill="#94A3B8">10</text>
-      <text x="728" y="696" font-size="10" fill="#64748B">updated 1d ago</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate(1068, 625)">
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="28" fill="none" stroke="#3B82F6" stroke-width="6" stroke-dasharray="154.8 175.9" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">88%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate(688, 688)">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">10</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">updated 1d ago</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="973" cy="610" r="3" fill="#3B82F6"/>
-      <text x="983" y="613" font-size="10" fill="#94A3B8">Python 88%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate(1073, 625)">
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="28" fill="none" stroke="#3B82F6" stroke-width="5.5"
+                stroke-dasharray="175.9" stroke-dashoffset="175.9" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="175.9" to="21.1" dur="1.4s" begin="1.25s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">88%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate(968, 605)">
+        <circle cx="0" cy="0" r="3" fill="#3B82F6"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">Python 88%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.95s" fill="freeze"/>
     </g>
         
   </g>

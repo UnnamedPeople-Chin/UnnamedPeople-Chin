@@ -8,7 +8,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer",
         "title": "Star Wars AR Visualizer_",
-        "desc": "Immersive Star Wars character visualization in 3D &amp; AR",
+        "desc": "Immersive Star Wars character 3D &amp; AR visualizer",
         "tags": ["C#", "Unity", "Augmented Reality"],
         "lang_name": "C#",
         "lang_pct": 63,
@@ -21,7 +21,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Project-PBO-MoneyFlow",
         "title": "MoneyFlow PBO_",
-        "desc": "Finance &amp; Money Flow Manager (Object Oriented Programming)",
+        "desc": "Finance &amp; Money Flow Manager (OOP Java)",
         "tags": ["Java", "OOP", "Finance"],
         "lang_name": "Java",
         "lang_pct": 78,
@@ -34,7 +34,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/schedule-organizer",
         "title": "Schedule Organizer_",
-        "desc": "Smart Schedule &amp; Task Routine Organizer Application",
+        "desc": "Smart Schedule &amp; Task Routine Organizer App",
         "tags": ["JavaScript", "HTML5", "CSS3"],
         "lang_name": "JavaScript",
         "lang_pct": 85,
@@ -47,7 +47,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Wand-Enhancer",
         "title": "Wand Enhancer_",
-        "desc": "Advanced UX &amp; Interoperability Extension Suite",
+        "desc": "Advanced UX &amp; Interoperability Suite",
         "tags": ["C++", "System", "UX Extension"],
         "lang_name": "C++",
         "lang_pct": 72,
@@ -60,7 +60,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/github-readme-stats",
         "title": "GitHub Readme Stats_",
-        "desc": "Dynamically generated stats cards for GitHub profiles",
+        "desc": "Dynamically generated stats cards for GitHub",
         "tags": ["Node.js", "Vercel", "Express"],
         "lang_name": "JavaScript",
         "lang_pct": 91,
@@ -73,7 +73,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Alexios-AI-Portfolio",
         "title": "AI Full-Stack Portfolio_",
-        "desc": "Personal AI Engineer Showcase &amp; Terminal System",
+        "desc": "Personal AI Engineer Showcase Terminal",
         "tags": ["React", "Python", "TailwindCSS"],
         "lang_name": "Python",
         "lang_pct": 88,
@@ -101,69 +101,96 @@ def build_projects_svg():
         x_pos, y_pos = positions[idx]
         card_w, card_h = 536, 205
 
-        # Donut progress math
+        # Animated Donut Calculations
         pct = p["lang_pct"]
         radius = 28
         circumference = 2 * math.pi * radius
-        stroke_dasharray = f"{(pct / 100.0) * circumference:.1f} {circumference:.1f}"
+        final_dashoffset = circumference * (1 - pct / 100.0)
 
-        # Tags pills
+        # Entrance delay
+        intro_delay = 0.2 + idx * 0.15
+
+        # Truncate long repo text cleanly
+        repo_display = p["repo"]
+        if len(repo_display) > 42:
+            repo_display = repo_display[:39] + "..."
+
+        # Tags pills with neat spacing
         tag_pills = []
         tag_x = x_pos + 80
-        tag_y = y_pos + 130
+        tag_y = y_pos + 128
         
         for t in p["tags"]:
-            w_tag = len(t) * 7.5 + 16
+            w_tag = len(t) * 7.2 + 16
             tag_pills.append(f'''
-        <rect x="{tag_x}" y="{tag_y}" width="{w_tag}" height="22" rx="11" fill="rgba(124,58,237,0.20)" stroke="rgba(167,139,250,0.4)"/>
-        <text x="{tag_x + w_tag/2}" y="{tag_y + 15}" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">{t}</text>
+        <rect x="{tag_x}" y="{tag_y}" width="{w_tag:.1f}" height="22" rx="11" fill="rgba(124,58,237,0.18)" stroke="rgba(167,139,250,0.35)"/>
+        <text x="{tag_x + w_tag/2:.1f}" y="{tag_y + 15}" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">{t}</text>
             ''')
             tag_x += w_tag + 8
 
         cards_xml.append(f'''
     <!-- CARD {idx+1}: {p["title"]} -->
-    <g>
-      <!-- Card Outer Border & Glow -->
-      <rect x="{x_pos}" y="{y_pos}" width="{card_w}" height="{card_h}" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.30)" stroke-width="1.5" filter="url(#glow3)"/>
+    <g opacity="0">
+      <!-- Card Outer Border & Subtle Pulse Glow -->
+      <rect x="{x_pos}" y="{y_pos}" width="{card_w}" height="{card_h}" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.35)" stroke-width="1.5" filter="url(#glow3)">
+        <animate attributeName="stroke-opacity" values="0.25;0.55;0.25" dur="4s" repeatCount="indefinite"/>
+      </rect>
       <rect x="{x_pos}" y="{y_pos}" width="{card_w}" height="{card_h}" rx="12" fill="#0A101F" stroke="rgba(34,211,238,0.25)"/>
 
-      <!-- Repo Path Header -->
-      <circle cx="{x_pos + 20}" cy="{y_pos + 22}" r="3" fill="#22D3EE"/>
-      <text x="{x_pos + 30}" y="{y_pos + 26}" font-size="11" fill="#64748B">{p["repo"]}</text>
+      <!-- Repo Path Header with Pulsing Dot -->
+      <circle cx="{x_pos + 20}" cy="{y_pos + 22}" r="3" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="{x_pos + 30}" y="{y_pos + 26}" font-size="11" font-weight="500" fill="#64748B">{repo_display}</text>
 
-      <!-- Vector Icon Box (No External Image 404) -->
-      <rect x="{x_pos + 20}" y="{y_pos + 48}" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="{p["icon_color"]}" stroke-width="1.5"/>
-      <g transform="translate({x_pos + 32}, {y_pos + 60}) scale(0.9)">
+      <!-- Vector Icon Box -->
+      <rect x="{x_pos + 20}" y="{y_pos + 48}" width="46" height="46" rx="10" fill="rgba(15,23,42,0.85)" stroke="{p["icon_color"]}" stroke-width="1.5"/>
+      <g transform="translate({x_pos + 31}, {y_pos + 59}) scale(0.9)">
         {p["icon"]}
       </g>
 
       <!-- Title & Description -->
-      <text x="{x_pos + 80}" y="{y_pos + 68}" font-size="16" font-weight="bold" fill="#F8FAFC">{p["title"]}</text>
+      <text x="{x_pos + 80}" y="{y_pos + 68}" font-size="15" font-weight="bold" fill="#F8FAFC">{p["title"]}</text>
       <text x="{x_pos + 80}" y="{y_pos + 92}" font-size="11" fill="#94A3B8">{p["desc"]}</text>
 
       <!-- Tag Pills -->
       {"".join(tag_pills)}
 
-      <!-- Stars & Updated -->
-      <path d="M{x_pos + 80} {y_pos + 172}l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
-      <text x="{x_pos + 95}" y="{y_pos + 176}" font-size="10" font-weight="bold" fill="#94A3B8">{p["stars"]}</text>
-      <text x="{x_pos + 120}" y="{y_pos + 176}" font-size="10" fill="#64748B">{p["updated"]}</text>
-
-      <!-- Donut Circle Chart -->
-      <g transform="translate({x_pos + 460}, {y_pos + 105})">
-        <circle cx="0" cy="0" r="{radius}" fill="none" stroke="#1E293B" stroke-width="6"/>
-        <circle cx="0" cy="0" r="{radius}" fill="none" stroke="{p["donut_color"]}" stroke-width="6" stroke-dasharray="{stroke_dasharray}" transform="rotate(-90)"/>
-        <text x="0" y="4" font-size="12" font-weight="bold" fill="#F8FAFC" text-anchor="middle">{pct}%</text>
+      <!-- Stars & Last Updated Footer -->
+      <g transform="translate({x_pos + 80}, {y_pos + 168})">
+        <path d="M0 0l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#F59E0B"/>
+        <text x="14" y="4" font-size="10" font-weight="bold" fill="#94A3B8">{p["stars"]}</text>
+        <text x="36" y="4" font-size="10" fill="#64748B">{p["updated"]}</text>
       </g>
 
-      <!-- Language Legend -->
-      <circle cx="{x_pos + 365}" cy="{y_pos + 90}" r="3" fill="{p["donut_color"]}"/>
-      <text x="{x_pos + 375}" y="{y_pos + 93}" font-size="10" fill="#94A3B8">{p["lang_name"]} {pct}%</text>
+      <!-- Animated Donut Progress Circle -->
+      <g transform="translate({x_pos + 465}, {y_pos + 105})">
+        <circle cx="0" cy="0" r="{radius}" fill="none" stroke="#1E293B" stroke-width="5.5"/>
+        <circle cx="0" cy="0" r="{radius}" fill="none" stroke="{p["donut_color"]}" stroke-width="5.5"
+                stroke-dasharray="{circumference:.1f}" stroke-dashoffset="{circumference:.1f}" transform="rotate(-90)">
+          <animate attributeName="stroke-dashoffset" from="{circumference:.1f}" to="{final_dashoffset:.1f}" dur="1.4s" begin="{intro_delay + 0.3:.2f}s" fill="freeze"/>
+        </circle>
+        <text x="0" y="4" font-size="11" font-weight="bold" fill="#F8FAFC" text-anchor="middle">{pct}%</text>
+      </g>
+
+      <!-- Language Legend Indicator -->
+      <g transform="translate({x_pos + 360}, {y_pos + 85})">
+        <circle cx="0" cy="0" r="3" fill="{p["donut_color"]}"/>
+        <text x="8" y="3" font-size="10" font-weight="600" fill="#94A3B8">{p["lang_name"]} {pct}%</text>
+      </g>
+
+      <!-- Sequential Card Entrance Animation -->
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="{intro_delay:.2f}s" fill="freeze"/>
     </g>
         ''')
 
     svg_code = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="765" viewBox="0 0 1180 765" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Projects List">
   <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
     <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0A101F"/>
       <stop offset="1" stop-color="#0C1426"/>
@@ -180,11 +207,14 @@ def build_projects_svg():
   <g clip-path="url(#winClip)">
     <rect x="2" y="2" width="1176" height="761" fill="url(#panelGrad)"/>
     
-    <!-- Top Header -->
-    <text x="38" y="38" font-size="12" font-weight="bold" letter-spacing="3" fill="#22D3EE">PROJECTS.LIST <tspan fill="#475569">./projects.sh --all</tspan></text>
-    <line x1="38" y1="46" x2="1142" y2="46" stroke="rgba(34,211,238,0.20)"/>
+    <!-- Top Header Bar with Shimmer Animation -->
+    <g opacity="0">
+      <text x="38" y="38" font-size="11" font-weight="bold" letter-spacing="3" fill="#22D3EE">PROJECTS.LIST <tspan fill="#475569">./projects.sh --all</tspan></text>
+      <line x1="38" y1="46" x2="1142" y2="46" stroke="rgba(34,211,238,0.25)"/>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.1s" fill="freeze"/>
+    </g>
 
-    <!-- PROJECT CARDS GRID -->
+    <!-- ANIMATED PROJECT CARDS GRID -->
 {"".join(cards_xml)}
   </g>
 </svg>'''

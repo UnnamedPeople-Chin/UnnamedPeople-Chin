@@ -35,7 +35,7 @@
 
 <!-- FEATURED PROJECTS GRID -->
 <div align="center">
-  <img width="100%" src="./projects.svg?v=3" alt="Projects List" />
+  <img width="100%" src="./projects.svg?v=4" alt="Projects List" />
 </div>
 
 <br/>

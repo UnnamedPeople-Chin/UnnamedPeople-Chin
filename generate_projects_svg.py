@@ -3,81 +3,82 @@ import math
 
 OUTPUT_PROJECTS = r"d:\Git setup\projects.svg"
 
+# User's REAL GitHub Projects
 projects = [
     {
-        "repo": "UnnamedPeople-Chin/LeadUnity",
-        "title": "LeadUnity_",
-        "desc": "AI Powered Lead Management &amp; Analytics Platform",
-        "tags": ["Next.js", "Node.js", "TailwindCSS"],
-        "lang_name": "TypeScript",
-        "lang_pct": 82,
-        "stars": 12,
-        "updated": "updated 2d ago",
-        "icon_color": "#7C3AED",
-        "donut_color": "#A78BFA",
+        "repo": "UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer",
+        "title": "Star Wars AR Visualizer_",
+        "desc": "Immersive Star Wars character visualization in 3D &amp; AR",
+        "tags": ["C#", "Unity", "Augmented Reality"],
+        "lang_name": "C#",
+        "lang_pct": 63,
+        "stars": 4,
+        "updated": "updated 2w ago",
+        "icon_color": "#22D3EE",
+        "donut_color": "#22D3EE",
         "icon": '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/OnePick",
-        "title": "OnePick_",
-        "desc": "Smart Decision &amp; Character Matcher Engine",
-        "tags": ["React", "Express", "MongoDB"],
-        "lang_name": "Python",
-        "lang_pct": 65,
-        "stars": 8,
-        "updated": "updated 5d ago",
+        "repo": "UnnamedPeople-Chin/Project-PBO-MoneyFlow",
+        "title": "MoneyFlow PBO_",
+        "desc": "Finance &amp; Money Flow Manager (Object Oriented Programming)",
+        "tags": ["Java", "OOP", "Finance"],
+        "lang_name": "Java",
+        "lang_pct": 78,
+        "stars": 2,
+        "updated": "updated 1mo ago",
         "icon_color": "#10B981",
         "donut_color": "#10B981",
         "icon": '<circle cx="12" cy="12" r="9" fill="none" stroke="#10B981" stroke-width="2.5"/><path d="M12 7v5l3 3" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/Chessy",
-        "title": "Chessy_",
-        "desc": "Real-time Multiplayer Chess Engine &amp; AI Bot",
-        "tags": ["C++", "React", "WebSockets"],
+        "repo": "UnnamedPeople-Chin/schedule-organizer",
+        "title": "Schedule Organizer_",
+        "desc": "Smart Schedule &amp; Task Routine Organizer Application",
+        "tags": ["JavaScript", "HTML5", "CSS3"],
+        "lang_name": "JavaScript",
+        "lang_pct": 85,
+        "stars": 3,
+        "updated": "updated 1mo ago",
+        "icon_color": "#A78BFA",
+        "donut_color": "#A78BFA",
+        "icon": '<rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#A78BFA" stroke-width="2.5"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/Wand-Enhancer",
+        "title": "Wand Enhancer_",
+        "desc": "Advanced UX &amp; Interoperability Extension Suite",
+        "tags": ["C++", "System", "UX Extension"],
         "lang_name": "C++",
-        "lang_pct": 74,
-        "stars": 15,
-        "updated": "updated 1w ago",
+        "lang_pct": 72,
+        "stars": 5,
+        "updated": "updated 1mo ago",
         "icon_color": "#F59E0B",
         "donut_color": "#F59E0B",
         "icon": '<path d="M7 21h10M12 3v14M8 7h8M9 11h6" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/Claster",
-        "title": "Claster_",
-        "desc": "Class Scheduling &amp; Routine Tracking App",
-        "tags": ["Next.js", "PostgreSQL", "Prisma"],
-        "lang_name": "TypeScript",
-        "lang_pct": 58,
-        "stars": 6,
-        "updated": "updated 2w ago",
+        "repo": "UnnamedPeople-Chin/github-readme-stats",
+        "title": "GitHub Readme Stats_",
+        "desc": "Dynamically generated stats cards for GitHub profiles",
+        "tags": ["Node.js", "Vercel", "Express"],
+        "lang_name": "JavaScript",
+        "lang_pct": 91,
+        "stars": 7,
+        "updated": "updated 3d ago",
         "icon_color": "#EC4899",
         "donut_color": "#EC4899",
-        "icon": '<rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#EC4899" stroke-width="2.5"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>'
+        "icon": '<polygon points="23 7 16 12 23 17 23 7" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="#EC4899" stroke-width="2.5"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/OneTELE",
-        "title": "OneTELE_",
-        "desc": "Custom Teleprompter &amp; Recording Studio Suite",
-        "tags": ["React", "WebRTC", "TailwindCSS"],
-        "lang_name": "JavaScript",
-        "lang_pct": 79,
-        "stars": 10,
-        "updated": "updated 3w ago",
-        "icon_color": "#6366F1",
-        "donut_color": "#6366F1",
-        "icon": '<polygon points="23 7 16 12 23 17 23 7" fill="none" stroke="#6366F1" stroke-width="2.5" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="#6366F1" stroke-width="2.5"/>'
-    },
-    {
-        "repo": "UnnamedPeople-Chin/CareerLogicAI",
-        "title": "Career Logic AI_",
-        "desc": "AI Powered Resume Analyzer &amp; Career Builder",
-        "tags": ["Python", "FastAPI", "OpenAI"],
+        "repo": "UnnamedPeople-Chin/Alexios-AI-Portfolio",
+        "title": "AI Full-Stack Portfolio_",
+        "desc": "Personal AI Engineer Showcase &amp; Terminal System",
+        "tags": ["React", "Python", "TailwindCSS"],
         "lang_name": "Python",
         "lang_pct": 88,
-        "stars": 22,
-        "updated": "updated 1mo ago",
+        "stars": 10,
+        "updated": "updated 1d ago",
         "icon_color": "#3B82F6",
         "donut_color": "#3B82F6",
         "icon": '<path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z" fill="none" stroke="#3B82F6" stroke-width="2.5"/>'
@@ -130,7 +131,7 @@ def build_projects_svg():
       <circle cx="{x_pos + 20}" cy="{y_pos + 22}" r="3" fill="#22D3EE"/>
       <text x="{x_pos + 30}" y="{y_pos + 26}" font-size="11" fill="#64748B">{p["repo"]}</text>
 
-      <!-- Icon Box -->
+      <!-- Vector Icon Box (No External Image 404) -->
       <rect x="{x_pos + 20}" y="{y_pos + 48}" width="48" height="48" rx="10" fill="rgba(15,23,42,0.8)" stroke="{p["icon_color"]}" stroke-width="1.5"/>
       <g transform="translate({x_pos + 32}, {y_pos + 60}) scale(0.9)">
         {p["icon"]}

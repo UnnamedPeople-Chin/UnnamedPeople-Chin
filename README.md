@@ -1,8 +1,8 @@
 <!-- ANIMATED TERMINAL BANNER -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/dark.svg?v=10&cache=refresh">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=10&cache=refresh">
-  <img alt="Alexios Mercer Terminal Banner" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=10&cache=refresh">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/dark.svg?v=12&cache=bust">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=12&cache=bust">
+  <img alt="Alexios Mercer Terminal Banner" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=12&cache=bust">
 </picture>
 
 <br/>

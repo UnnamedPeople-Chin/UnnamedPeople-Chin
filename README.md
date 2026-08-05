@@ -35,7 +35,7 @@
 
 <!-- FEATURED PROJECTS GRID -->
 <div align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/projects.svg?v=1" alt="Projects List" />
+  <img width="100%" src="./projects.svg" alt="Projects List" />
 </div>
 
 <br/>

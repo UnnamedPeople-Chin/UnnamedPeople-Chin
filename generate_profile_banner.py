@@ -112,7 +112,7 @@ def process_image(image_path):
 
     return dots_dark, dots_light
 
-def sample_bezier(p0, p1, p2, p3, n_samples=20):
+def sample_bezier(p0, p1, p2, p3, n_samples=25):
     pts = []
     for t in np.linspace(0, 1, n_samples):
         x = (1-t)**3 * p0[0] + 3*(1-t)**2 * t * p1[0] + 3*(1-t) * t**2 * p2[0] + t**3 * p3[0]
@@ -120,7 +120,7 @@ def sample_bezier(p0, p1, p2, p3, n_samples=20):
         pts.append((x, y))
     return pts
 
-def sample_line(p0, p1, n_samples=20):
+def sample_line(p0, p1, n_samples=25):
     pts = []
     for t in np.linspace(0, 1, n_samples):
         x = (1-t) * p0[0] + t * p1[0]
@@ -128,131 +128,129 @@ def sample_line(p0, p1, n_samples=20):
         pts.append((x, y))
     return pts
 
-def generate_ac_logo_points(num_points=800):
-    """Parses and samples exact Assassin's Creed SVG path provided by user."""
-    # User's exact SVG path commands for AC:
-    # Outer Hood:
-    # M 16.042969 0 L 9 17 C 7 21, 3 18, 3 18 C 5 23, 3 25, 3 25 C 3 25, 4 23, 7 26 C 10 29, 15 29, 15 29
-    # C 8 28, 8.43 25.043, 9 23 C 10.285 18.391, 15.5 5, 15.5 5 L 23 23 C 25 28, 17 29, 17 29 C 17 29, 22 29, 25 26
-    # C 28 23, 29 25, 29 25 C 27 22, 29 18, 29 18 C 25 21, 23 17, 23 17 L 16.042969 0
+def generate_hitman_points(num_points=800):
+    """Samples exact points from ic_hitman.svg geometry."""
+    # viewBox: 0 0 48 48
     raw_pts = []
     
-    # Path 1 segments
+    # Outer circle badge outline
+    for a in np.linspace(0, 2*math.pi, 250):
+        r = 19.5
+        raw_pts.append((24 + r * math.cos(a), 24 + r * math.sin(a)))
+
+    # Central Hitman tie / emblem geometry
+    # Polygon / Lines from top down to bottom tip (24, 39)
+    raw_pts.extend(sample_line((13.11, 7.24), (24, 39), 80))
+    raw_pts.extend(sample_line((34.89, 7.24), (24, 39), 80))
+    raw_pts.extend(sample_line((22, 10), (19.97, 27.25), 50))
+    raw_pts.extend(sample_line((26, 10), (28.03, 27.25), 50))
+    raw_pts.extend(sample_line((19.97, 27.25), (24, 39), 50))
+    raw_pts.extend(sample_line((28.03, 27.25), (24, 39), 50))
+
+    cx, cy = GRID_W / 2, GRID_H / 2
+    scale = 5.8  # Scale 48px box to ~260px
+    
+    pts = []
+    for x, y in raw_pts:
+        nx = cx + (x - 24.0) * scale + (random.random() - 0.5) * 3
+        ny = cy + (y - 24.0) * scale + (random.random() - 0.5) * 3
+        pts.append((nx, ny))
+
+    if len(pts) > num_points:
+        step = len(pts) / float(num_points)
+        pts = [pts[int(i * step)] for i in range(num_points)]
+    while len(pts) < num_points:
+        pts.append((cx, cy))
+        
+    return pts
+
+def generate_nike_points(num_points=800):
+    """Samples exact points from ic_nike.svg path geometry."""
+    # viewBox 0 0 50 50
+    # M 6.406 16.800 C 3.152 20.621, 0 25.234, 0 28.902 C 0 31.019, 1.781 33.996, 6.132 33.996
+    # C 8.484 33.996, 10.820 33.050, 12.648 32.320 C 15.730 31.085, 49.789 16.296, 49.789 16.296
+    # C 50.117 16.132, 50.058 15.925, 49.644 16.027 C 49.480 16.070, 12.566 26.074, 12.566 26.074
+    # C 11.855 26.273, 11.128 26.382, 10.421 26.382 C 7.230 26.382, 5.078 24.851, 5.078 21.503
+    # C 5.078 20.207, 5.484 18.640, 6.406 16.800 Z
+    raw_pts = []
+    
+    raw_pts.extend(sample_bezier((6.406, 16.800), (3.152, 20.621), (0, 25.234), (0, 28.902), 60))
+    raw_pts.extend(sample_bezier((0, 28.902), (0, 31.019), (1.781, 33.996), (6.132, 33.996), 60))
+    raw_pts.extend(sample_bezier((6.132, 33.996), (8.484, 33.996), (10.820, 33.050), (12.648, 32.320), 60))
+    raw_pts.extend(sample_bezier((12.648, 32.320), (15.730, 31.085), (49.789, 16.296), (49.789, 16.296), 120))
+    raw_pts.extend(sample_bezier((49.789, 16.296), (50.117, 16.132), (50.058, 15.925), (49.644, 16.027), 40))
+    raw_pts.extend(sample_bezier((49.644, 16.027), (49.480, 16.070), (12.566, 26.074), (12.566, 26.074), 120))
+    raw_pts.extend(sample_bezier((12.566, 26.074), (11.855, 26.273), (11.128, 26.382), (10.421, 26.382), 60))
+    raw_pts.extend(sample_bezier((10.421, 26.382), (7.230, 26.382), (5.078, 24.851), (5.078, 21.503), 60))
+    raw_pts.extend(sample_bezier((5.078, 21.503), (5.078, 20.207), (5.484, 18.640), (6.406, 16.800), 60))
+
+    cx, cy = GRID_W / 2, GRID_H / 2
+    scale = 5.2  # Scale 50px box to ~260px
+    
+    pts = []
+    for x, y in raw_pts:
+        nx = cx + (x - 25.0) * scale + (random.random() - 0.5) * 3
+        ny = cy + (y - 25.0) * scale + (random.random() - 0.5) * 3
+        pts.append((nx, ny))
+
+    if len(pts) > num_points:
+        step = len(pts) / float(num_points)
+        pts = [pts[int(i * step)] for i in range(num_points)]
+    while len(pts) < num_points:
+        pts.append((cx, cy))
+        
+    return pts
+
+def generate_ac_points(num_points=800):
+    """Samples exact points from ic_assassins_creed.svg path geometry."""
+    # viewBox 0 0 32 32
+    raw_pts = []
+    
     raw_pts.extend(sample_line((16.04, 0), (9, 17), 30))
-    raw_pts.extend(sample_bezier((9, 17), (7, 21), (3, 18), (3, 18), 20))
-    raw_pts.extend(sample_bezier((3, 18), (5, 23), (3, 25), (3, 25), 20))
-    raw_pts.extend(sample_bezier((3, 25), (4, 23), (7, 26), (7, 26), 20))
-    raw_pts.extend(sample_bezier((7, 26), (10, 29), (15, 29), (15, 29), 30))
-    raw_pts.extend(sample_bezier((15, 29), (8, 28), (8.43, 25.043), (9, 23), 30))
-    raw_pts.extend(sample_bezier((9, 23), (10.285, 18.391), (15.5, 5), (15.5, 5), 40))
-    raw_pts.extend(sample_line((15.5, 5), (23, 23), 40))
-    raw_pts.extend(sample_bezier((23, 23), (25, 28), (17, 29), (17, 29), 30))
-    raw_pts.extend(sample_bezier((17, 29), (22, 29), (25, 26), (25, 26), 30))
-    raw_pts.extend(sample_bezier((25, 26), (28, 23), (29, 25), (29, 25), 20))
-    raw_pts.extend(sample_bezier((29, 25), (27, 22), (29, 18), (29, 18), 20))
-    raw_pts.extend(sample_bezier((29, 18), (25, 21), (23, 17), (23, 17), 20))
+    raw_pts.extend(sample_bezier((9, 17), (7, 21), (3, 18), (3, 18), 25))
+    raw_pts.extend(sample_bezier((3, 18), (5, 23), (3, 25), (3, 25), 25))
+    raw_pts.extend(sample_bezier((3, 25), (4, 23), (7, 26), (7, 26), 25))
+    raw_pts.extend(sample_bezier((7, 26), (10, 29), (15, 29), (15, 29), 35))
+    raw_pts.extend(sample_bezier((15, 29), (8, 28), (8.43, 25.043), (9, 23), 35))
+    raw_pts.extend(sample_bezier((9, 23), (10.285, 18.391), (15.5, 5), (15.5, 5), 45))
+    raw_pts.extend(sample_line((15.5, 5), (23, 23), 45))
+    raw_pts.extend(sample_bezier((23, 23), (25, 28), (17, 29), (17, 29), 35))
+    raw_pts.extend(sample_bezier((17, 29), (22, 29), (25, 26), (25, 26), 35))
+    raw_pts.extend(sample_bezier((25, 26), (28, 23), (29, 25), (29, 25), 25))
+    raw_pts.extend(sample_bezier((29, 25), (27, 22), (29, 18), (29, 18), 25))
+    raw_pts.extend(sample_bezier((29, 18), (25, 21), (23, 17), (23, 17), 25))
     raw_pts.extend(sample_line((23, 17), (16.04, 0), 30))
 
-    # Path 2 (Bottom Arc)
-    # M 2 25 C 2 25, 6.999 32, 15.914 32 C 24.829 32, 30 25, 30 25 C 19 35, 16 29, 16 29 C 13 35, 2 25, 2 25
-    raw_pts.extend(sample_bezier((2, 25), (6.999, 32), (15.914, 32), (15.914, 32), 40))
-    raw_pts.extend(sample_bezier((15.914, 32), (24.829, 32), (30, 25), (30, 25), 40))
-    raw_pts.extend(sample_bezier((30, 25), (19, 35), (16, 29), (16, 29), 40))
-    raw_pts.extend(sample_bezier((16, 29), (13, 35), (2, 25), (2, 25), 40))
+    # Bottom Arc
+    raw_pts.extend(sample_bezier((2, 25), (6.999, 32), (15.914, 32), (15.914, 32), 45))
+    raw_pts.extend(sample_bezier((15.914, 32), (24.829, 32), (30, 25), (30, 25), 45))
+    raw_pts.extend(sample_bezier((30, 25), (19, 35), (16, 29), (16, 29), 45))
+    raw_pts.extend(sample_bezier((16, 29), (13, 35), (2, 25), (2, 25), 45))
 
-    # Scale and center AC logo points into GRID_W x GRID_H (300 x 340)
-    # Original SVG viewBox: 0 0 32 32
     cx, cy = GRID_W / 2, GRID_H / 2
     scale = 8.5  # Scale 32px box to ~270px
     
-    pts_ac = []
+    pts = []
     for x, y in raw_pts:
-        # Transform (16, 16) center to (cx, cy)
         nx = cx + (x - 16.0) * scale + (random.random() - 0.5) * 3
         ny = cy + (y - 16.0) * scale + (random.random() - 0.5) * 3
-        pts_ac.append((nx, ny))
+        pts.append((nx, ny))
 
-    # Re-sample or interpolate to get exact num_points
-    if len(pts_ac) > num_points:
-        step = len(pts_ac) / float(num_points)
-        pts_ac = [pts_ac[int(i * step)] for i in range(num_points)]
-    while len(pts_ac) < num_points:
-        pts_ac.append((cx, cy))
+    if len(pts) > num_points:
+        step = len(pts) / float(num_points)
+        pts = [pts[int(i * step)] for i in range(num_points)]
+    while len(pts) < num_points:
+        pts.append((cx, cy))
         
-    return pts_ac
+    return pts
 
 def generate_logo_shapes(num_points=800):
-    """Generates precise vector points for Flutter, </>, and Assassin's Creed."""
-    cx, cy = GRID_W / 2, GRID_H / 2
-    
-    # 1. FLUTTER LOGO
-    pts_flutter = []
-    n_top = int(num_points * 0.52)
-    for i in range(n_top):
-        t = i / n_top
-        x0 = cx + 60 - t * 115
-        y0 = cy - 100 + t * 115
-        th = (random.random() - 0.5) * 20
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
+    """Generates precise vector points for 1. Hitman, 2. Nike, 3. Assassin's Creed."""
+    pts_hitman = generate_hitman_points(num_points=num_points)
+    pts_nike = generate_nike_points(num_points=num_points)
+    pts_ac = generate_ac_points(num_points=num_points)
 
-    n_mid = int(num_points * 0.24)
-    for i in range(n_mid):
-        t = i / n_mid
-        x0 = cx - 20 + t * 45
-        y0 = cy - 20 + t * 45
-        th = (random.random() - 0.5) * 16
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
-
-    n_bot = num_points - n_top - n_mid
-    for i in range(n_bot):
-        t = i / n_bot
-        x0 = cx + 25 - t * 60
-        y0 = cy + 25 + t * 60
-        th = (random.random() - 0.5) * 16
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
-
-    # 2. </> CODE GLYPH LOGO
-    pts_glyph = []
-    n_l = int(num_points * 0.35)
-    for i in range(n_l):
-        t = i / n_l
-        if t < 0.5:
-            sub = t * 2
-            x0 = cx - 25 - sub * 60
-            y0 = cy - 85 + sub * 85
-        else:
-            sub = (t - 0.5) * 2
-            x0 = cx - 85 + sub * 60
-            y0 = cy + sub * 85
-        th = (random.random() - 0.5) * 16
-        pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
-
-    n_slash = int(num_points * 0.30)
-    for i in range(n_slash):
-        t = i / n_slash
-        x0 = cx + 25 - t * 50
-        y0 = cy - 95 + t * 190
-        th = (random.random() - 0.5) * 16
-        pts_glyph.append((x0 + th, y0))
-
-    n_r = num_points - n_l - n_slash
-    for i in range(n_r):
-        t = i / n_r
-        if t < 0.5:
-            sub = t * 2
-            x0 = cx + 25 + sub * 60
-            y0 = cy - 85 + sub * 85
-        else:
-            sub = (t - 0.5) * 2
-            x0 = cx + 85 - sub * 60
-            y0 = cy + sub * 85
-        th = (random.random() - 0.5) * 16
-        pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
-
-    # 3. ASSASSIN'S CREED LOGO (Extracted from official SVG path)
-    pts_ac = generate_ac_logo_points(num_points=num_points)
-
-    return pts_flutter, pts_glyph, pts_ac
+    return pts_hitman, pts_nike, pts_ac
 
 def match_points(pts1, pts2):
     P1 = np.array(pts1)
@@ -275,12 +273,14 @@ def build_svg(dots_portrait, mode="dark"):
     panel_bg = "#070D18" if is_dark else "#FFFFFF"
     header_bg = "#0F172A" if is_dark else "#E2E8F0"
     
+    # 1. LOGO SWARM POINTS (HITMAN -> NIKE -> ASSASSIN'S CREED)
     num_travellers = 800
-    pts_flutter, pts_glyph_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
-    pts_glyph = match_points(pts_flutter, pts_glyph_raw)
-    pts_ac = match_points(pts_glyph, pts_ac_raw)
-    pts_flutter_return = match_points(pts_ac, pts_flutter)
+    pts_hitman, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
+    pts_nike = match_points(pts_hitman, pts_nike_raw)
+    pts_ac = match_points(pts_nike, pts_ac_raw)
+    pts_hitman_return = match_points(pts_ac, pts_hitman)
 
+    # 2. PORTRAIT DISSOLVE DRIFT BANDS (~90 BANDS)
     num_bands = 90
     bands = [[] for _ in range(num_bands)]
     
@@ -320,15 +320,16 @@ def build_svg(dots_portrait, mode="dark"):
     </g>'''
         portrait_band_groups.append(band_xml)
 
+    # 3. TRAVELLERS SWARM (HITMAN -> NIKE -> ASSASSIN'S CREED)
     traveller_elements = []
     pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
     opacity_values = "0; 0; 1; 1; 1; 1; 1; 0; 0"
     
     for i in range(num_travellers):
-        p1 = pts_flutter[i]
-        p2 = pts_glyph[i]
+        p1 = pts_hitman[i]
+        p2 = pts_nike[i]
         p3 = pts_ac[i]
-        p4 = pts_flutter_return[i]
+        p4 = pts_hitman_return[i]
         
         sx1, sy1 = PORTRAIT_X + p1[0] * SCALE_X, PORTRAIT_Y + p1[1] * SCALE_Y
         sx2, sy2 = PORTRAIT_X + p2[0] * SCALE_X, PORTRAIT_Y + p2[1] * SCALE_Y
@@ -345,6 +346,7 @@ def build_svg(dots_portrait, mode="dark"):
     </rect>'''
         traveller_elements.append(dot_xml)
 
+    # 4. SYSTEM INFO READOUT ROWS WITH STAGGERED INTRO FADE-IN
     info_data = [
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
@@ -455,13 +457,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with OFFICIAL Assassin's Creed SVG path geometry...")
+    print("Building updated dark.svg with HITMAN, NIKE, and ASSASSIN'S CREED SVG files...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with OFFICIAL Assassin's Creed SVG path geometry...")
+    print("Building updated light.svg with HITMAN, NIKE, and ASSASSIN'S CREED SVG files...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

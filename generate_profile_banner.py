@@ -112,46 +112,107 @@ def process_image(image_path):
 
     return dots_dark, dots_light
 
+def sample_bezier(p0, p1, p2, p3, n_samples=20):
+    pts = []
+    for t in np.linspace(0, 1, n_samples):
+        x = (1-t)**3 * p0[0] + 3*(1-t)**2 * t * p1[0] + 3*(1-t) * t**2 * p2[0] + t**3 * p3[0]
+        y = (1-t)**3 * p0[1] + 3*(1-t)**2 * t * p1[1] + 3*(1-t) * t**2 * p2[1] + t**3 * p3[1]
+        pts.append((x, y))
+    return pts
+
+def sample_line(p0, p1, n_samples=20):
+    pts = []
+    for t in np.linspace(0, 1, n_samples):
+        x = (1-t) * p0[0] + t * p1[0]
+        y = (1-t) * p0[1] + t * p1[1]
+        pts.append((x, y))
+    return pts
+
+def generate_ac_logo_points(num_points=800):
+    """Parses and samples exact Assassin's Creed SVG path provided by user."""
+    # User's exact SVG path commands for AC:
+    # Outer Hood:
+    # M 16.042969 0 L 9 17 C 7 21, 3 18, 3 18 C 5 23, 3 25, 3 25 C 3 25, 4 23, 7 26 C 10 29, 15 29, 15 29
+    # C 8 28, 8.43 25.043, 9 23 C 10.285 18.391, 15.5 5, 15.5 5 L 23 23 C 25 28, 17 29, 17 29 C 17 29, 22 29, 25 26
+    # C 28 23, 29 25, 29 25 C 27 22, 29 18, 29 18 C 25 21, 23 17, 23 17 L 16.042969 0
+    raw_pts = []
+    
+    # Path 1 segments
+    raw_pts.extend(sample_line((16.04, 0), (9, 17), 30))
+    raw_pts.extend(sample_bezier((9, 17), (7, 21), (3, 18), (3, 18), 20))
+    raw_pts.extend(sample_bezier((3, 18), (5, 23), (3, 25), (3, 25), 20))
+    raw_pts.extend(sample_bezier((3, 25), (4, 23), (7, 26), (7, 26), 20))
+    raw_pts.extend(sample_bezier((7, 26), (10, 29), (15, 29), (15, 29), 30))
+    raw_pts.extend(sample_bezier((15, 29), (8, 28), (8.43, 25.043), (9, 23), 30))
+    raw_pts.extend(sample_bezier((9, 23), (10.285, 18.391), (15.5, 5), (15.5, 5), 40))
+    raw_pts.extend(sample_line((15.5, 5), (23, 23), 40))
+    raw_pts.extend(sample_bezier((23, 23), (25, 28), (17, 29), (17, 29), 30))
+    raw_pts.extend(sample_bezier((17, 29), (22, 29), (25, 26), (25, 26), 30))
+    raw_pts.extend(sample_bezier((25, 26), (28, 23), (29, 25), (29, 25), 20))
+    raw_pts.extend(sample_bezier((29, 25), (27, 22), (29, 18), (29, 18), 20))
+    raw_pts.extend(sample_bezier((29, 18), (25, 21), (23, 17), (23, 17), 20))
+    raw_pts.extend(sample_line((23, 17), (16.04, 0), 30))
+
+    # Path 2 (Bottom Arc)
+    # M 2 25 C 2 25, 6.999 32, 15.914 32 C 24.829 32, 30 25, 30 25 C 19 35, 16 29, 16 29 C 13 35, 2 25, 2 25
+    raw_pts.extend(sample_bezier((2, 25), (6.999, 32), (15.914, 32), (15.914, 32), 40))
+    raw_pts.extend(sample_bezier((15.914, 32), (24.829, 32), (30, 25), (30, 25), 40))
+    raw_pts.extend(sample_bezier((30, 25), (19, 35), (16, 29), (16, 29), 40))
+    raw_pts.extend(sample_bezier((16, 29), (13, 35), (2, 25), (2, 25), 40))
+
+    # Scale and center AC logo points into GRID_W x GRID_H (300 x 340)
+    # Original SVG viewBox: 0 0 32 32
+    cx, cy = GRID_W / 2, GRID_H / 2
+    scale = 8.5  # Scale 32px box to ~270px
+    
+    pts_ac = []
+    for x, y in raw_pts:
+        # Transform (16, 16) center to (cx, cy)
+        nx = cx + (x - 16.0) * scale + (random.random() - 0.5) * 3
+        ny = cy + (y - 16.0) * scale + (random.random() - 0.5) * 3
+        pts_ac.append((nx, ny))
+
+    # Re-sample or interpolate to get exact num_points
+    if len(pts_ac) > num_points:
+        step = len(pts_ac) / float(num_points)
+        pts_ac = [pts_ac[int(i * step)] for i in range(num_points)]
+    while len(pts_ac) < num_points:
+        pts_ac.append((cx, cy))
+        
+    return pts_ac
+
 def generate_logo_shapes(num_points=800):
-    """Generates large, clean, perfectly centered vector shapes for Flutter, </>, and AC."""
+    """Generates precise vector points for Flutter, </>, and Assassin's Creed."""
     cx, cy = GRID_W / 2, GRID_H / 2
     
-    # -------------------------------------------------------------
-    # 1. FLUTTER LOGO (Perfect 2-layer Wing Geometry)
-    # -------------------------------------------------------------
+    # 1. FLUTTER LOGO
     pts_flutter = []
-    # Main top wing: diagonal stroke from (cx+60, cy-100) -> (cx-55, cy+15)
     n_top = int(num_points * 0.52)
     for i in range(n_top):
         t = i / n_top
         x0 = cx + 60 - t * 115
         y0 = cy - 100 + t * 115
-        th = (random.random() - 0.5) * 22
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
+        th = (random.random() - 0.5) * 20
+        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # Middle wing: (cx-20, cy-20) -> (cx+25, cy+25)
     n_mid = int(num_points * 0.24)
     for i in range(n_mid):
         t = i / n_mid
         x0 = cx - 20 + t * 45
         y0 = cy - 20 + t * 45
-        th = (random.random() - 0.5) * 18
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
+        th = (random.random() - 0.5) * 16
+        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # Bottom wing: (cx+25, cy+25) -> (cx-35, cy+85)
     n_bot = num_points - n_top - n_mid
     for i in range(n_bot):
         t = i / n_bot
         x0 = cx + 25 - t * 60
         y0 = cy + 25 + t * 60
-        th = (random.random() - 0.5) * 18
-        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 8))
+        th = (random.random() - 0.5) * 16
+        pts_flutter.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # -------------------------------------------------------------
-    # 2. </> CODE GLYPH LOGO (Large, bold centered code brackets and slash)
-    # -------------------------------------------------------------
+    # 2. </> CODE GLYPH LOGO
     pts_glyph = []
-    # Left bracket < (35% points)
     n_l = int(num_points * 0.35)
     for i in range(n_l):
         t = i / n_l
@@ -163,19 +224,17 @@ def generate_logo_shapes(num_points=800):
             sub = (t - 0.5) * 2
             x0 = cx - 85 + sub * 60
             y0 = cy + sub * 85
-        th = (random.random() - 0.5) * 18
+        th = (random.random() - 0.5) * 16
         pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # Center Slash / (30% points)
     n_slash = int(num_points * 0.30)
     for i in range(n_slash):
         t = i / n_slash
         x0 = cx + 25 - t * 50
         y0 = cy - 95 + t * 190
-        th = (random.random() - 0.5) * 18
+        th = (random.random() - 0.5) * 16
         pts_glyph.append((x0 + th, y0))
 
-    # Right bracket > (35% points)
     n_r = num_points - n_l - n_slash
     for i in range(n_r):
         t = i / n_r
@@ -187,43 +246,11 @@ def generate_logo_shapes(num_points=800):
             sub = (t - 0.5) * 2
             x0 = cx + 85 - sub * 60
             y0 = cy + sub * 85
-        th = (random.random() - 0.5) * 18
+        th = (random.random() - 0.5) * 16
         pts_glyph.append((x0 + th, y0 + (random.random() - 0.5) * 6))
 
-    # -------------------------------------------------------------
-    # 3. ASSASSIN'S CREED INSIGNIA LOGO (Bold AC Hood & Blade)
-    # -------------------------------------------------------------
-    pts_ac = []
-    n_hood = int(num_points * 0.70)
-    for i in range(n_hood):
-        t = i / n_hood
-        if t < 0.5:
-            # Left outer hood
-            sub = t * 2
-            x0 = cx - (math.sin(sub * math.pi * 0.85) * 90)
-            y0 = cy - 105 + sub * 165
-        else:
-            # Right outer hood
-            sub = (t - 0.5) * 2
-            x0 = cx + (math.sin(sub * math.pi * 0.85) * 90)
-            y0 = cy - 105 + sub * 165
-        th = (random.random() - 0.5) * 20
-        pts_ac.append((x0 + th, y0 + (random.random() - 0.5) * 6))
-
-    # Inner Arch + Bottom Blade Tip
-    n_inner = num_points - n_hood
-    for i in range(n_inner):
-        t = i / n_inner
-        if t < 0.65:
-            sub = t / 0.65
-            ang = (sub - 0.5) * math.pi * 0.85
-            x0 = cx + math.sin(ang) * 50
-            y0 = cy + 20 - math.cos(ang) * 55
-        else:
-            sub = (t - 0.65) / 0.35
-            x0 = cx + (random.random() - 0.5) * 12
-            y0 = cy + 50 + sub * 55
-        pts_ac.append((x0, y0))
+    # 3. ASSASSIN'S CREED LOGO (Extracted from official SVG path)
+    pts_ac = generate_ac_logo_points(num_points=num_points)
 
     return pts_flutter, pts_glyph, pts_ac
 
@@ -428,13 +455,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with larger, crisp vector shapes...")
+    print("Building updated dark.svg with OFFICIAL Assassin's Creed SVG path geometry...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with larger, crisp vector shapes...")
+    print("Building updated light.svg with OFFICIAL Assassin's Creed SVG path geometry...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

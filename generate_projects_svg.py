@@ -7,7 +7,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/LeadUnity",
         "title": "LeadUnity_",
-        "desc": "AI Powered Lead Management & Analytics Platform",
+        "desc": "AI Powered Lead Management &amp; Analytics Platform",
         "tags": ["Next.js", "Node.js", "TailwindCSS"],
         "lang_name": "TypeScript",
         "lang_pct": 82,
@@ -20,7 +20,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/OnePick",
         "title": "OnePick_",
-        "desc": "Smart Decision & Character Matcher Engine",
+        "desc": "Smart Decision &amp; Character Matcher Engine",
         "tags": ["React", "Express", "MongoDB"],
         "lang_name": "Python",
         "lang_pct": 65,
@@ -33,7 +33,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Chessy",
         "title": "Chessy_",
-        "desc": "Real-time Multiplayer Chess Engine & AI Bot",
+        "desc": "Real-time Multiplayer Chess Engine &amp; AI Bot",
         "tags": ["C++", "React", "WebSockets"],
         "lang_name": "C++",
         "lang_pct": 74,
@@ -46,7 +46,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/Claster",
         "title": "Claster_",
-        "desc": "Class Scheduling & Routine Tracking App for Educators",
+        "desc": "Class Scheduling &amp; Routine Tracking App",
         "tags": ["Next.js", "PostgreSQL", "Prisma"],
         "lang_name": "TypeScript",
         "lang_pct": 58,
@@ -59,7 +59,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/OneTELE",
         "title": "OneTELE_",
-        "desc": "Custom Teleprompter & Recording Studio Suite",
+        "desc": "Custom Teleprompter &amp; Recording Studio Suite",
         "tags": ["React", "WebRTC", "TailwindCSS"],
         "lang_name": "JavaScript",
         "lang_pct": 79,
@@ -72,7 +72,7 @@ projects = [
     {
         "repo": "UnnamedPeople-Chin/CareerLogicAI",
         "title": "Career Logic AI_",
-        "desc": "AI Powered Resume Analyzer & Career Builder",
+        "desc": "AI Powered Resume Analyzer &amp; Career Builder",
         "tags": ["Python", "FastAPI", "OpenAI"],
         "lang_name": "Python",
         "lang_pct": 88,

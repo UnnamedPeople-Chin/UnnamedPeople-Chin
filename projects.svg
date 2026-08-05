@@ -40,7 +40,7 @@
 
       <!-- Title & Description -->
       <text x="116" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">LeadUnity_</text>
-      <text x="116" y="152" font-size="11" fill="#94A3B8">AI Powered Lead Management & Analytics Platform</text>
+      <text x="116" y="152" font-size="11" fill="#94A3B8">AI Powered Lead Management &amp; Analytics Platform</text>
 
       <!-- Tag Pills -->
       
@@ -89,7 +89,7 @@
 
       <!-- Title & Description -->
       <text x="688" y="128" font-size="16" font-weight="bold" fill="#F8FAFC">OnePick_</text>
-      <text x="688" y="152" font-size="11" fill="#94A3B8">Smart Decision & Character Matcher Engine</text>
+      <text x="688" y="152" font-size="11" fill="#94A3B8">Smart Decision &amp; Character Matcher Engine</text>
 
       <!-- Tag Pills -->
       
@@ -138,7 +138,7 @@
 
       <!-- Title & Description -->
       <text x="116" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Chessy_</text>
-      <text x="116" y="382" font-size="11" fill="#94A3B8">Real-time Multiplayer Chess Engine & AI Bot</text>
+      <text x="116" y="382" font-size="11" fill="#94A3B8">Real-time Multiplayer Chess Engine &amp; AI Bot</text>
 
       <!-- Tag Pills -->
       
@@ -187,7 +187,7 @@
 
       <!-- Title & Description -->
       <text x="688" y="358" font-size="16" font-weight="bold" fill="#F8FAFC">Claster_</text>
-      <text x="688" y="382" font-size="11" fill="#94A3B8">Class Scheduling & Routine Tracking App for Educators</text>
+      <text x="688" y="382" font-size="11" fill="#94A3B8">Class Scheduling &amp; Routine Tracking App</text>
 
       <!-- Tag Pills -->
       
@@ -236,7 +236,7 @@
 
       <!-- Title & Description -->
       <text x="116" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">OneTELE_</text>
-      <text x="116" y="612" font-size="11" fill="#94A3B8">Custom Teleprompter & Recording Studio Suite</text>
+      <text x="116" y="612" font-size="11" fill="#94A3B8">Custom Teleprompter &amp; Recording Studio Suite</text>
 
       <!-- Tag Pills -->
       
@@ -285,7 +285,7 @@
 
       <!-- Title & Description -->
       <text x="688" y="588" font-size="16" font-weight="bold" fill="#F8FAFC">Career Logic AI_</text>
-      <text x="688" y="612" font-size="11" fill="#94A3B8">AI Powered Resume Analyzer & Career Builder</text>
+      <text x="688" y="612" font-size="11" fill="#94A3B8">AI Powered Resume Analyzer &amp; Career Builder</text>
 
       <!-- Tag Pills -->
       

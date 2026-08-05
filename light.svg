@@ -5970,88 +5970,83 @@
     <!-- SYSTEM INFO READOUT ROWS -->
     <g>
     <g opacity="0">
-      <text x="475" y="142" fill="#475569" font-size="12">Subject</text>
+      <text x="475" y="142" fill="#0891B2" font-size="12">Subject</text>
       <text x="605" y="142" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . . . . . . . . </text>
       <text x="1115" y="142" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Alexios Mercer</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.35s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="163" fill="#475569" font-size="12">GitHub</text>
-      <text x="605" y="163" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="163" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">UnnamedPeople-Chin</text>
+      <text x="475" y="163" fill="#0891B2" font-size="12">Role</text>
+      <text x="605" y="163" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . </text>
+      <text x="1115" y="163" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Full-Stack | AI Eng | Frontend</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.40s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="184" fill="#475569" font-size="12">Role</text>
-      <text x="605" y="184" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . </text>
-      <text x="1115" y="184" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Full-Stack | AI Eng | Frontend</text>
+      <text x="475" y="184" fill="#0891B2" font-size="12">Origin</text>
+      <text x="605" y="184" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="184" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Salatiga, Indonesia</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.45s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="205" fill="#475569" font-size="12">Origin</text>
-      <text x="605" y="205" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="205" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Salatiga, Indonesia</text>
+      <text x="475" y="205" fill="#0891B2" font-size="12">Education</text>
+      <text x="605" y="205" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . </text>
+      <text x="1115" y="205" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Politeknik Negeri Semarang</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.50s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="226" fill="#475569" font-size="12">Education</text>
-      <text x="605" y="226" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . </text>
-      <text x="1115" y="226" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Politeknik Negeri Semarang</text>
+      <text x="475" y="226" fill="#0891B2" font-size="12">Status</text>
+      <text x="605" y="226" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . </text>
+      <text x="1115" y="226" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Building + Learning + Shipping</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.55s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="247" fill="#475569" font-size="12">Status</text>
-      <text x="605" y="247" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . </text>
-      <text x="1115" y="247" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Building + Learning + Shipping</text>
+      <text x="475" y="247" fill="#0891B2" font-size="12">ToolChain</text>
+      <text x="605" y="247" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="247" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">VS Code, Git, Figma</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.60s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="268" fill="#475569" font-size="12">ToolChain</text>
-      <text x="605" y="268" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="268" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">VS Code, Git, Figma</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.65s" fill="freeze" />
+      <text x="475" y="278" fill="#0891B2" font-size="12">Core.Lang</text>
+      <text x="605" y="278" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="278" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">JavaScript, Python, C++</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.70s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="299" fill="#475569" font-size="12">Core.Lang</text>
-      <text x="605" y="299" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="299" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">JavaScript, Python, C++</text>
+      <text x="475" y="299" fill="#0891B2" font-size="12">Core.Frontend</text>
+      <text x="605" y="299" fill="#475569" font-size="12" opacity="0.30">. . . . . . . </text>
+      <text x="1115" y="299" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">React, Next.js, Tailwind CSS</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.75s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="320" fill="#475569" font-size="12">Core.Frontend</text>
-      <text x="605" y="320" fill="#475569" font-size="12" opacity="0.30">. . . . . . . </text>
-      <text x="1115" y="320" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">React, Next.js, Tailwind CSS</text>
+      <text x="475" y="320" fill="#0891B2" font-size="12">Core.Backend</text>
+      <text x="605" y="320" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="320" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Node.js, Express</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.80s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="341" fill="#475569" font-size="12">Core.Backend</text>
-      <text x="605" y="341" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="341" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Node.js, Express</text>
+      <text x="475" y="341" fill="#0891B2" font-size="12">Core.Database</text>
+      <text x="605" y="341" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="341" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">MongoDB, PostgreSQL</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.85s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="362" fill="#475569" font-size="12">Core.Database</text>
-      <text x="605" y="362" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="362" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">MongoDB, PostgreSQL</text>
+      <text x="475" y="362" fill="#0891B2" font-size="12">Core.Infra</text>
+      <text x="605" y="362" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="362" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Vercel, Docker, Git</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.90s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="383" fill="#475569" font-size="12">Core.Infra</text>
-      <text x="605" y="383" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="383" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">Vercel, Docker, Git</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="0.95s" fill="freeze" />
+      <text x="475" y="393" fill="#64748B" font-size="11" letter-spacing="1">-- Contact</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.00s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="414" fill="#64748B" font-size="11" letter-spacing="1">-- Contact</text>
+      <text x="475" y="415" fill="#9333EA" font-size="12">Grid.Mail</text>
+      <text x="605" y="415" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="415" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">jizdanyr354@gmail.com</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.05s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="436" fill="#475569" font-size="12">Grid.Mail</text>
-      <text x="605" y="436" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="436" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">jizdanyr354@gmail.com</text>
+      <text x="475" y="436" fill="#9333EA" font-size="12">Grid.Insta</text>
+      <text x="605" y="436" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . </text>
+      <text x="1115" y="436" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">instagram.com/jizdan.yr</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.10s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="457" fill="#475569" font-size="12">Grid.Insta</text>
-      <text x="605" y="457" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . </text>
-      <text x="1115" y="457" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">instagram.com/jizdan.yr</text>
+      <text x="475" y="457" fill="#9333EA" font-size="12">Grid.TikTok</text>
+      <text x="605" y="457" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="457" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">tiktok.com/@jizdan.yr</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.15s" fill="freeze" />
     </g>    <g opacity="0">
-      <text x="475" y="478" fill="#475569" font-size="12">Grid.TikTok</text>
-      <text x="605" y="478" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="478" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">tiktok.com/@jizdan.yr</text>
+      <text x="475" y="478" fill="#9333EA" font-size="12">Grid.Github</text>
+      <text x="605" y="478" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . </text>
+      <text x="1115" y="478" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">@UnnamedPeople-Chin</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.20s" fill="freeze" />
-    </g>    <g opacity="0">
-      <text x="475" y="499" fill="#475569" font-size="12">Grid.Github</text>
-      <text x="605" y="499" fill="#475569" font-size="12" opacity="0.30">. . . . . . . . . . . . . . . . . . </text>
-      <text x="1115" y="499" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="end">@UnnamedPeople-Chin</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.25s" fill="freeze" />
     </g>    <g opacity="0">
       <text x="475" y="555" fill="url(#accentGrad)" font-size="12" font-weight="bold">> More about me &amp; projects below in README &#8595; <tspan fill="#22D3EE" class="pulse-live">&#9646;</tspan></text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.4s" fill="freeze" />

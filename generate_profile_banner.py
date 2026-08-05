@@ -331,32 +331,37 @@ def build_svg(dots_portrait, mode="dark"):
         traveller_elements.append(dot_xml)
 
     # 4. EXACT ARIFHAXN READOUT SECTIONS
+    # Each row: (label, value, label_color)
+    #   - "cyan" labels for system fields (Subject, Role, Core.*, etc.)
+    #   - "magenta" labels for Grid.* contact fields
+    cyan_label = "#22D3EE" if is_dark else "#0891B2"
+    magenta_label = "#C084FC" if is_dark else "#9333EA"
+
     info_sections = [
-        ("Subject", "Alexios Mercer"),
-        ("GitHub", "UnnamedPeople-Chin"),
-        ("Role", "Full-Stack | AI Eng | Frontend"),
-        ("Origin", "Salatiga, Indonesia"),
-        ("Education", "Politeknik Negeri Semarang"),
-        ("Status", "Building + Learning + Shipping"),
-        ("ToolChain", "VS Code, Git, Figma"),
-        ("GAP1", ""),
-        ("Core.Lang", "JavaScript, Python, C++"),
-        ("Core.Frontend", "React, Next.js, Tailwind CSS"),
-        ("Core.Backend", "Node.js, Express"),
-        ("Core.Database", "MongoDB, PostgreSQL"),
-        ("Core.Infra", "Vercel, Docker, Git"),
-        ("GAP2", ""),
-        ("HEADER_CONTACT", "-- Contact"),
-        ("Grid.Mail", "jizdanyr354@gmail.com"),
-        ("Grid.Insta", "instagram.com/jizdan.yr"),
-        ("Grid.TikTok", "tiktok.com/@jizdan.yr"),
-        ("Grid.Github", "@UnnamedPeople-Chin"),
+        ("Subject", "Alexios Mercer", cyan_label),
+        ("Role", "Full-Stack | AI Eng | Frontend", cyan_label),
+        ("Origin", "Salatiga, Indonesia", cyan_label),
+        ("Education", "Politeknik Negeri Semarang", cyan_label),
+        ("Status", "Building + Learning + Shipping", cyan_label),
+        ("ToolChain", "VS Code, Git, Figma", cyan_label),
+        ("GAP1", "", ""),
+        ("Core.Lang", "JavaScript, Python, C++", cyan_label),
+        ("Core.Frontend", "React, Next.js, Tailwind CSS", cyan_label),
+        ("Core.Backend", "Node.js, Express", cyan_label),
+        ("Core.Database", "MongoDB, PostgreSQL", cyan_label),
+        ("Core.Infra", "Vercel, Docker, Git", cyan_label),
+        ("GAP2", "", ""),
+        ("HEADER_CONTACT", "-- Contact", ""),
+        ("Grid.Mail", "jizdanyr354@gmail.com", magenta_label),
+        ("Grid.Insta", "instagram.com/jizdan.yr", magenta_label),
+        ("Grid.TikTok", "tiktok.com/@jizdan.yr", magenta_label),
+        ("Grid.Github", "@UnnamedPeople-Chin", magenta_label),
     ]
 
     info_rows_xml = []
     y_curr = 142
     
-    for idx, (label, val) in enumerate(info_sections):
+    for idx, (label, val, lbl_color) in enumerate(info_sections):
         row_intro_delay = 0.35 + idx * 0.05
         
         if label.startswith("GAP"):
@@ -371,11 +376,12 @@ def build_svg(dots_portrait, mode="dark"):
             y_curr += 22
             continue
 
+        # Dotted leader fills the gap between label and value
         dots_count = max(4, 48 - len(label) - len(val))
         dotted_str = ". " * dots_count
         
         info_rows_xml.append(f'''    <g opacity="0">
-      <text x="475" y="{y_curr}" fill="{sub_text_color}" font-size="12">{label}</text>
+      <text x="475" y="{y_curr}" fill="{lbl_color}" font-size="12">{label}</text>
       <text x="605" y="{y_curr}" fill="{sub_text_color}" font-size="12" opacity="0.30">{dotted_str}</text>
       <text x="1115" y="{y_curr}" fill="{text_color}" font-size="12" font-weight="bold" text-anchor="end">{val}</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="{row_intro_delay:.2f}s" fill="freeze" />

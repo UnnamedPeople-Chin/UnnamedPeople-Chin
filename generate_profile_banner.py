@@ -12,11 +12,11 @@ OUTPUT_LIGHT = r"d:\Git setup\light.svg"
 GRID_W = 300
 GRID_H = 340
 
-# Fit portrait dither perfectly into 400x492 box with translate(50, 96) scale(1.15, 1.25)
-PORTRAIT_X = 50
-PORTRAIT_Y = 96
-PORTRAIT_BOX_W = 370
-PORTRAIT_BOX_H = 465
+# Fill 400x492 box completely so the portrait touches the bottom border line
+PORTRAIT_X = 36
+PORTRAIT_Y = 84
+PORTRAIT_BOX_W = 400
+PORTRAIT_BOX_H = 492
 
 SCALE_X = PORTRAIT_BOX_W / GRID_W
 SCALE_Y = PORTRAIT_BOX_H / GRID_H
@@ -327,7 +327,6 @@ def build_svg(dots_portrait, mode="dark"):
 
     # 4. EXACT ARIFHAXN READOUT SECTIONS
     info_sections = [
-        # (Label, Value)
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
         ("Role", "Full-Stack | AI Eng | Frontend"),
@@ -486,13 +485,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with EXACT arifhaxn layout, sections, badges & bottom prompt...")
+    print("Building updated dark.svg with full-height portrait anchored to bottom border...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with EXACT arifhaxn layout, sections, badges & bottom prompt...")
+    print("Building updated light.svg with full-height portrait anchored to bottom border...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

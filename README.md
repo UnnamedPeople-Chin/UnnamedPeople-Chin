@@ -43,8 +43,8 @@
 
 <!-- SOCIAL & CONTACT BADGES -->
 <div align="center">
-  <a href="https://github.com/UnnamedPeople-Chin" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0A101F?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0A101F" alt="LinkedIn" />
+  <a href="https://wa.me/6281229680104" target="_blank">
+    <img src="https://img.shields.io/badge/WhatsApp-0A101F?style=for-the-badge&logo=whatsapp&logoColor=25D366&labelColor=0A101F" alt="WhatsApp" />
   </a>
   &nbsp;&nbsp;
   <a href="https://www.instagram.com/jizdan.yr" target="_blank">

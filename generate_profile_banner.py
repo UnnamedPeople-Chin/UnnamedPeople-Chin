@@ -12,10 +12,11 @@ OUTPUT_LIGHT = r"d:\Git setup\light.svg"
 GRID_W = 300
 GRID_H = 340
 
-PORTRAIT_X = 36
-PORTRAIT_Y = 84
-PORTRAIT_BOX_W = 400
-PORTRAIT_BOX_H = 492
+# Fit portrait dither perfectly into 400x492 box with translate(50, 96) scale(1.15, 1.25)
+PORTRAIT_X = 50
+PORTRAIT_Y = 96
+PORTRAIT_BOX_W = 370
+PORTRAIT_BOX_H = 465
 
 SCALE_X = PORTRAIT_BOX_W / GRID_W
 SCALE_Y = PORTRAIT_BOX_H / GRID_H
@@ -324,46 +325,78 @@ def build_svg(dots_portrait, mode="dark"):
     </rect>'''
         traveller_elements.append(dot_xml)
 
-    # 4. EXACT ARIFHAXN PREMIUM SYSTEM INFO READOUT FORMAT
-    info_data = [
+    # 4. EXACT ARIFHAXN READOUT SECTIONS
+    info_sections = [
+        # (Label, Value)
         ("Subject", "Alexios Mercer"),
         ("GitHub", "UnnamedPeople-Chin"),
         ("Role", "Full-Stack | AI Eng | Frontend"),
         ("Origin", "Salatiga, Indonesia"),
         ("Education", "Politeknik Negeri Semarang"),
         ("Status", "Building + Learning + Shipping"),
+        ("ToolChain", "VS Code, Git, Figma"),
+        ("GAP1", ""),
         ("Core.Lang", "JavaScript, Python, C++"),
         ("Core.Frontend", "React, Next.js, Tailwind CSS"),
         ("Core.Backend", "Node.js, Express"),
         ("Core.Database", "MongoDB, PostgreSQL"),
-        ("ToolChain", "VS Code, Git, Figma"),
+        ("Core.Infra", "Vercel, Docker, Git"),
+        ("GAP2", ""),
+        ("HEADER_CONTACT", "-- Contact"),
         ("Grid.Mail", "jizdanyr354@gmail.com"),
         ("Grid.Insta", "instagram.com/jizdan.yr"),
         ("Grid.TikTok", "tiktok.com/@jizdan.yr"),
+        ("Grid.Github", "@UnnamedPeople-Chin"),
     ]
 
     info_rows_xml = []
-    y_base = 145
-    row_height = 29
+    y_curr = 142
     
-    for idx, (label, val) in enumerate(info_data):
-        y_pos = y_base + idx * row_height
-        row_intro_delay = 0.4 + idx * 0.08
+    for idx, (label, val) in enumerate(info_sections):
+        row_intro_delay = 0.35 + idx * 0.05
         
-        # Exact arifhaxn dotted leader dots string calculation
-        dots_count = max(4, 42 - len(label) - len(val))
+        if label.startswith("GAP"):
+            y_curr += 10
+            continue
+            
+        if label == "HEADER_CONTACT":
+            info_rows_xml.append(f'''    <g opacity="0">
+      <text x="475" y="{y_curr}" fill="#64748B" font-size="11" letter-spacing="1">-- Contact</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="{row_intro_delay:.2f}s" fill="freeze" />
+    </g>''')
+            y_curr += 22
+            continue
+
+        dots_count = max(4, 48 - len(label) - len(val))
         dotted_str = ". " * dots_count
         
         info_rows_xml.append(f'''    <g opacity="0">
-      <text x="475" y="{y_pos}" fill="{sub_text_color}" font-size="13">{label}</text>
-      <text x="615" y="{y_pos}" fill="{sub_text_color}" font-size="13" opacity="0.30">{dotted_str}</text>
-      <text x="1115" y="{y_pos}" fill="{text_color}" font-size="13" font-weight="bold" text-anchor="end">{val}</text>
-      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.6s" begin="{row_intro_delay:.2f}s" fill="freeze" />
+      <text x="475" y="{y_curr}" fill="{sub_text_color}" font-size="12">{label}</text>
+      <text x="605" y="{y_curr}" fill="{sub_text_color}" font-size="12" opacity="0.30">{dotted_str}</text>
+      <text x="1115" y="{y_curr}" fill="{text_color}" font-size="12" font-weight="bold" text-anchor="end">{val}</text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="{row_intro_delay:.2f}s" fill="freeze" />
+    </g>''')
+        y_curr += 21
+
+    # Bottom prompt line exact like arifhaxn
+    info_rows_xml.append(f'''    <g opacity="0">
+      <text x="475" y="555" fill="url(#accentGrad)" font-size="12" font-weight="bold">> More about me &amp; projects below in README &#8595; <tspan fill="#22D3EE" class="pulse-live">&#9646;</tspan></text>
+      <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="1.4s" fill="freeze" />
     </g>''')
 
-    # SVG COMPOSITION WITH EXACT ARIFHAXN GLOW FILTERS, CORNER RADIUS 18, AND TERMINAL TITLE BAR
     svg_code = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" role="img" aria-label="Alexios Mercer — profile.sh --live">
   <defs>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7C3AED">
+        <animate attributeName="stop-color" values="#7C3AED;#22D3EE;#10B981;#7C3AED" dur="10s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.5" stop-color="#22D3EE">
+        <animate attributeName="stop-color" values="#22D3EE;#10B981;#7C3AED;#22D3EE" dur="10s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#10B981">
+        <animate attributeName="stop-color" values="#10B981;#7C3AED;#22D3EE;#10B981" dur="10s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
     <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="{panel_bg}"/>
       <stop offset="1" stop-color="#0C1426"/>
@@ -392,7 +425,7 @@ def build_svg(dots_portrait, mode="dark"):
       <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.1s" fill="freeze" />
     </g>
 
-    <!-- Header Title Bar -->
+    <!-- Top Header Title -->
     <g opacity="0">
       <text x="590" y="29" text-anchor="middle" font-size="12" fill="#94A3B8">jizdanyr354@gmail.com - % ./profile.sh --live</text>
       <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s" fill="freeze" />
@@ -420,13 +453,25 @@ def build_svg(dots_portrait, mode="dark"):
     <!-- RIGHT INFO PANEL (SYSTEM.INFO) -->
     <g opacity="0">
       <text x="455" y="74" font-size="10" letter-spacing="3" fill="#475569">SYSTEM.INFO</text>
-      <circle cx="1105" cy="71" r="4" fill="{accent_color}"/>
-      <text x="1115" y="74" font-size="10" letter-spacing="1" fill="{accent_color}" font-weight="bold" text-anchor="end">STATUS: ONLINE</text>
+      
+      <!-- Top Right LIVE Badge -->
+      <g transform="translate(1075, 61)">
+        <rect width="56" height="18" rx="9" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.4)"/>
+        <circle cx="12" cy="9" r="3.5" fill="#EF4444" class="pulse-live"/>
+        <text x="21" y="12.5" font-size="9" font-weight="bold" fill="#EF4444">LIVE</text>
+      </g>
       <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.3s" fill="freeze" />
     </g>
 
     <rect x="455" y="84" width="685" height="492" rx="10" fill="none" stroke="{border_color}" stroke-width="2" opacity="0.45" filter="url(#glow3)"/>
     <rect x="455" y="84" width="685" height="492" rx="10" fill="{panel_bg}" stroke="rgba(34,211,238,0.35)"/>
+
+    <!-- Top Email Purple Pill Badge in SYSTEM.INFO -->
+    <g opacity="0" transform="translate(475, 100)">
+      <rect width="215" height="22" rx="5" fill="#7C3AED" opacity="0.9"/>
+      <text x="107" y="15" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">jizdanyr354@gmail.com</text>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.35s" fill="freeze" />
+    </g>
 
     <!-- SYSTEM INFO READOUT ROWS -->
     <g>
@@ -441,13 +486,13 @@ def main():
     dots_dark, dots_light = process_image(IMAGE_PATH)
     print(f"Extracted {len(dots_dark)} dots for dark mode, {len(dots_light)} dots for light mode.")
     
-    print("Building updated dark.svg with EXACT arifhaxn premium styling & 3 custom SVGs...")
+    print("Building updated dark.svg with EXACT arifhaxn layout, sections, badges & bottom prompt...")
     svg_dark = build_svg(dots_dark, mode="dark")
     with open(OUTPUT_DARK, "w", encoding="utf-8") as f:
         f.write(svg_dark)
     print(f"Saved {OUTPUT_DARK}")
 
-    print("Building updated light.svg with EXACT arifhaxn premium styling & 3 custom SVGs...")
+    print("Building updated light.svg with EXACT arifhaxn layout, sections, badges & bottom prompt...")
     svg_light = build_svg(dots_light, mode="light")
     with open(OUTPUT_LIGHT, "w", encoding="utf-8") as f:
         f.write(svg_light)

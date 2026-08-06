@@ -129,33 +129,73 @@ def sample_line(p0, p1, n_samples=25):
         pts.append((x, y))
     return pts
 
-def generate_hitman_points(num_points=1200):
-    raw_pts = []
-    for a in np.linspace(0, 2*math.pi, 250):
-        r = 19.5
-        raw_pts.append((24 + r * math.cos(a), 24 + r * math.sin(a)))
+import re
 
-    raw_pts.extend(sample_line((13.11, 7.24), (24, 39), 80))
-    raw_pts.extend(sample_line((34.89, 7.24), (24, 39), 80))
-    raw_pts.extend(sample_line((22, 10), (19.97, 27.25), 50))
-    raw_pts.extend(sample_line((26, 10), (28.03, 27.25), 50))
-    raw_pts.extend(sample_line((19.97, 27.25), (24, 39), 50))
-    raw_pts.extend(sample_line((28.03, 27.25), (24, 39), 50))
+def parse_svg_path_commands(d_str):
+    tokens = re.findall(r'([A-Za-z])|(-?\d+(?:\.\d+)?)', d_str)
+    commands = []
+    curr_cmd = None
+    curr_args = []
+    
+    for cmd, val in tokens:
+        if cmd:
+            if curr_cmd:
+                commands.append((curr_cmd, curr_args))
+            curr_cmd = cmd
+            curr_args = []
+        elif val:
+            curr_args.append(float(val))
+    if curr_cmd:
+        commands.append((curr_cmd, curr_args))
+        
+    pts = []
+    curr_pos = (0.0, 0.0)
+    
+    for cmd, args in commands:
+        if cmd == 'M' and len(args) >= 2:
+            curr_pos = (args[0], args[1])
+            pts.append(curr_pos)
+        elif cmd == 'L' and len(args) >= 2:
+            next_pos = (args[0], args[1])
+            pts.extend(sample_line(curr_pos, next_pos, 8))
+            curr_pos = next_pos
+        elif cmd == 'C' and len(args) >= 6:
+            for k in range(0, len(args) - 5, 6):
+                p0 = curr_pos
+                p1 = (args[k], args[k+1])
+                p2 = (args[k+2], args[k+3])
+                p3 = (args[k+4], args[k+5])
+                pts.extend(sample_bezier(p0, p1, p2, p3, 12))
+                curr_pos = p3
+        elif cmd == 'Z':
+            pass
+    return pts
 
+def generate_spiderman_points(num_points=1200):
+    svg_file = r"D:\Git setup\ic_spider_man_new.svg"
+    with open(svg_file, "r") as f:
+        content = f.read()
+    
+    d_start = content.find('d="') + 3
+    d_end = content.find('"', d_start)
+    path_d = content[d_start:d_end]
+    
+    raw_pts = parse_svg_path_commands(path_d)
+    
     cx, cy = GRID_W / 2, GRID_H / 2
-    scale = 5.8
+    scale = 6.2
     
     pts = []
     for x, y in raw_pts:
-        nx = cx + (x - 24.0) * scale + (random.random() - 0.5) * 3
-        ny = cy + (y - 24.0) * scale + (random.random() - 0.5) * 3
+        nx = cx + (x - 25.0) * scale + (random.random() - 0.5) * 2.5
+        ny = cy + (y - 25.0) * scale + (random.random() - 0.5) * 2.5
         pts.append((nx, ny))
 
     if len(pts) > num_points:
         step = len(pts) / float(num_points)
         pts = [pts[int(i * step)] for i in range(num_points)]
     while len(pts) < num_points:
-        src = pts[random.randint(0, min(len(pts), len(raw_pts)) - 1)]
+        src = pts[random.randint(0, len(pts) - 1)]
         pts.append((src[0] + random.gauss(0, 2), src[1] + random.gauss(0, 2)))
         
     return pts
@@ -231,11 +271,11 @@ def generate_ac_points(num_points=1200):
     return pts
 
 def generate_logo_shapes(num_points=1200):
-    pts_hitman = generate_hitman_points(num_points=num_points)
+    pts_spiderman = generate_spiderman_points(num_points=num_points)
     pts_nike = generate_nike_points(num_points=num_points)
     pts_ac = generate_ac_points(num_points=num_points)
 
-    return pts_hitman, pts_nike, pts_ac
+    return pts_spiderman, pts_nike, pts_ac
 
 def match_points(pts1, pts2):
     P1 = np.array(pts1)
@@ -259,11 +299,6 @@ def build_svg(dots_portrait, mode="dark"):
     header_bg = "#0B1222" if is_dark else "#E2E8F0"
     
     num_travellers = 1200
-    pts_hitman, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
-    pts_nike = match_points(pts_hitman, pts_nike_raw)
-    pts_ac = match_points(pts_nike, pts_ac_raw)
-    pts_hitman_return = match_points(pts_ac, pts_hitman)
-
     # Sample portrait dots for morph travellers — these dots will FLY from portrait into logos
     random.seed(42)
     sampled_portrait = random.sample(dots_portrait, min(num_travellers, len(dots_portrait)))
@@ -273,16 +308,16 @@ def build_svg(dots_portrait, mode="dark"):
     portrait_svg = []
     for x, y in sampled_portrait:
         portrait_svg.append((PORTRAIT_X + x * SCALE_X, PORTRAIT_Y + y * SCALE_Y))
-    
+
     # Convert raw logo shape points to SVG coords
-    pts_hitman_raw, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
-    pts_hitman_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman_raw]
+    pts_spiderman_raw, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
+    pts_spiderman_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_spiderman_raw]
     pts_nike_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_nike_raw]
     pts_ac_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_ac_raw]
 
-    # Chain match points: portrait -> hitman -> nike -> AC -> back to portrait
-    pts_hitman_svg = match_points(portrait_svg, pts_hitman_svg_raw)
-    pts_nike_svg = match_points(pts_hitman_svg, pts_nike_svg_raw)
+    # Chain match points: portrait -> spiderman -> nike -> AC -> back to portrait
+    pts_spiderman_svg = match_points(portrait_svg, pts_spiderman_svg_raw)
+    pts_nike_svg = match_points(pts_spiderman_svg, pts_nike_svg_raw)
     pts_ac_svg = match_points(pts_nike_svg, pts_ac_svg_raw)
 
     # Build STATIC portrait bands from remaining (non-morphing) dots
@@ -335,13 +370,13 @@ def build_svg(dots_portrait, mode="dark"):
         # Portrait start/end position
         px, py = portrait_svg[i]
         # Logo positions
-        hx, hy = pts_hitman_svg[i]
+        sx, sy = pts_spiderman_svg[i]
         nx, ny = pts_nike_svg[i]
         ax, ay = pts_ac_svg[i]
 
-        # 10 values: portrait -> portrait -> hitman -> HITMAN -> nike -> NIKE -> ac -> AC -> portrait -> portrait
-        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {px:.1f}; {px:.1f}"
-        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {py:.1f}; {py:.1f}"
+        # 10 values: portrait -> portrait -> spiderman -> SPIDERMAN -> nike -> NIKE -> ac -> AC -> portrait -> portrait
+        x_vals = f"{px:.1f}; {px:.1f}; {sx:.1f}; {sx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {px:.1f}; {px:.1f}"
+        y_vals = f"{py:.1f}; {py:.1f}; {sy:.1f}; {sy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {py:.1f}; {py:.1f}"
 
         dot_xml = f'''    <circle r="1.3" fill="{dot_color}" cx="{px:.1f}" cy="{py:.1f}">
       <animate attributeName="cx" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>

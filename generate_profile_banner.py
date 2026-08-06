@@ -155,7 +155,8 @@ def generate_hitman_points(num_points=1200):
         step = len(pts) / float(num_points)
         pts = [pts[int(i * step)] for i in range(num_points)]
     while len(pts) < num_points:
-        pts.append((cx, cy))
+        src = pts[random.randint(0, min(len(pts), len(raw_pts)) - 1)]
+        pts.append((src[0] + random.gauss(0, 2), src[1] + random.gauss(0, 2)))
         
     return pts
 
@@ -184,7 +185,8 @@ def generate_nike_points(num_points=1200):
         step = len(pts) / float(num_points)
         pts = [pts[int(i * step)] for i in range(num_points)]
     while len(pts) < num_points:
-        pts.append((cx, cy))
+        src = pts[random.randint(0, len(raw_pts) - 1)]
+        pts.append((src[0] + random.gauss(0, 2), src[1] + random.gauss(0, 2)))
         
     return pts
 
@@ -223,7 +225,8 @@ def generate_ac_points(num_points=1200):
         step = len(pts) / float(num_points)
         pts = [pts[int(i * step)] for i in range(num_points)]
     while len(pts) < num_points:
-        pts.append((cx, cy))
+        src = pts[random.randint(0, len(raw_pts) - 1)]
+        pts.append((src[0] + random.gauss(0, 2), src[1] + random.gauss(0, 2)))
         
     return pts
 
@@ -261,11 +264,27 @@ def build_svg(dots_portrait, mode="dark"):
     pts_ac = match_points(pts_nike, pts_ac_raw)
     pts_hitman_return = match_points(pts_ac, pts_hitman)
 
+    # Sample portrait dots for morph travellers — these dots will FLY from portrait into logos
+    random.seed(42)
+    sampled_portrait = random.sample(dots_portrait, min(num_travellers, len(dots_portrait)))
+    remaining_portrait = [d for d in dots_portrait if d not in set(sampled_portrait)]
+    
+    # Convert sampled portrait dots to SVG coords & match to first logo shape
+    portrait_svg = []
+    for x, y in sampled_portrait:
+        portrait_svg.append((PORTRAIT_X + x * SCALE_X, PORTRAIT_Y + y * SCALE_Y))
+    
+    # Match portrait positions to hitman positions for minimal travel distance
+    pts_hitman_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman]
+    pts_nike_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_nike]
+    pts_ac_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_ac]
+    pts_return_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman_return]
+
+    # Build STATIC portrait bands from remaining (non-morphing) dots
     num_bands = 90
     bands = [[] for _ in range(num_bands)]
     
-    random.seed(42)
-    for x, y in dots_portrait:
+    for x, y in remaining_portrait:
         noisy_y = y + random.gauss(0, 3.5)
         band_idx = int(clamp(noisy_y / GRID_H * num_bands, 0, num_bands - 1))
         sx = PORTRAIT_X + x * SCALE_X
@@ -279,20 +298,13 @@ def build_svg(dots_portrait, mode="dark"):
         if not d_list: continue
         path_data = " ".join(d_list)
         
-        band_y_center = PORTRAIT_Y + (b_i / num_bands) * PORTRAIT_BOX_H
-        drift_dx = (cx_box - (PORTRAIT_X + PORTRAIT_BOX_W / 2)) * 0.45 + (random.random() - 0.5) * 30
-        drift_dy = (cy_box - band_y_center) * 0.42 + (random.random() - 0.5) * 20
-        
         intro_delay = 0.1 + (b_i % 30) / 30.0 * 1.5
         
+        # Static bands just fade in/out during morph phases
         band_xml = f'''    <g opacity="0">
       <path d="{path_data}" stroke="{dot_color}" stroke-width="1.3" fill="none">
-        <animate attributeName="transform" type="translate" 
-                 values="0,0; 0,0; {drift_dx:.1f},{drift_dy:.1f}; {drift_dx:.1f},{drift_dy:.1f}; 0,0; 0,0" 
-                 keyTimes="0; 0.176; 0.268; 0.810; 0.901; 1" 
-                 dur="14.2s" repeatCount="indefinite" />
         <animate attributeName="opacity" 
-                 values="1; 1; 0; 0; 1; 1" 
+                 values="1; 1; 0.15; 0.15; 1; 1" 
                  keyTimes="0; 0.176; 0.268; 0.810; 0.901; 1" 
                  dur="14.2s" repeatCount="indefinite" />
       </path>
@@ -300,33 +312,35 @@ def build_svg(dots_portrait, mode="dark"):
     </g>'''
         portrait_band_groups.append(band_xml)
 
+    # Build MORPHING traveller dots — these start at portrait positions and fly to logo shapes
     traveller_elements = []
-    # Timeline: portrait visible (0-17.6%) -> dissolve to hitman (17.6-35.2%) -> 
-    # hold hitman (35.2-44.4%) -> morph to nike (44.4-58.5%) -> 
-    # hold nike (58.5-67.6%) -> morph to AC (67.6-81.7%) -> 
-    # hold AC (81.7-90.8%) -> reform portrait (90.8-100%)
+    # Timeline across 14.2s:
+    # 0-17.6%: at portrait pos (visible, blending with portrait)
+    # 17.6-35.2%: fly from portrait to hitman
+    # 35.2-44.4%: hold hitman
+    # 44.4-58.5%: morph hitman to nike
+    # 58.5-67.6%: hold nike
+    # 67.6-81.7%: morph nike to AC
+    # 81.7-90.8%: hold AC
+    # 90.8-100%: fly back to portrait pos
     pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
-    opacity_values = "0; 0; 1; 1; 1; 1; 1; 0; 0"
     
     for i in range(num_travellers):
-        p1 = pts_hitman[i]
-        p2 = pts_nike[i]
-        p3 = pts_ac[i]
-        p4 = pts_hitman_return[i]
-        
-        sx1, sy1 = PORTRAIT_X + p1[0] * SCALE_X, PORTRAIT_Y + p1[1] * SCALE_Y
-        sx2, sy2 = PORTRAIT_X + p2[0] * SCALE_X, PORTRAIT_Y + p2[1] * SCALE_Y
-        sx3, sy3 = PORTRAIT_X + p3[0] * SCALE_X, PORTRAIT_Y + p3[1] * SCALE_Y
-        sx4, sy4 = PORTRAIT_X + p4[0] * SCALE_X, PORTRAIT_Y + p4[1] * SCALE_Y
+        # Portrait start/end position
+        px, py = portrait_svg[i]
+        # Logo positions
+        hx, hy = pts_hitman_svg[i]
+        nx, ny = pts_nike_svg[i]
+        ax, ay = pts_ac_svg[i]
+        rx, ry = pts_return_svg[i]
 
-        x_vals = f"{sx1:.1f}; {sx1:.1f}; {sx1:.1f}; {sx2:.1f}; {sx2:.1f}; {sx3:.1f}; {sx3:.1f}; {sx4:.1f}; {sx4:.1f}"
-        y_vals = f"{sy1:.1f}; {sy1:.1f}; {sy1:.1f}; {sy2:.1f}; {sy2:.1f}; {sy3:.1f}; {sy3:.1f}; {sy4:.1f}; {sy4:.1f}"
+        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {rx:.1f}; {px:.1f}"
+        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {ry:.1f}; {py:.1f}"
 
-        # Use portrait dot_color (purple) for morph particles so they match the dither portrait
-        dot_xml = f'''    <circle r="1.4" fill="{dot_color}" opacity="0">
+        # Dots are always visible — they sit in portrait, fly to logos, fly back
+        dot_xml = f'''    <circle r="1.3" fill="{dot_color}" cx="{px:.1f}" cy="{py:.1f}">
       <animate attributeName="cx" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
       <animate attributeName="cy" values="{y_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="{opacity_values}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
     </circle>'''
         traveller_elements.append(dot_xml)
 

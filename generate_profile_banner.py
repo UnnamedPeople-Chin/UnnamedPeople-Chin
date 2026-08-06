@@ -269,16 +269,21 @@ def build_svg(dots_portrait, mode="dark"):
     sampled_portrait = random.sample(dots_portrait, min(num_travellers, len(dots_portrait)))
     remaining_portrait = [d for d in dots_portrait if d not in set(sampled_portrait)]
     
-    # Convert sampled portrait dots to SVG coords & match to first logo shape
+    # Convert sampled portrait dots to SVG coords
     portrait_svg = []
     for x, y in sampled_portrait:
         portrait_svg.append((PORTRAIT_X + x * SCALE_X, PORTRAIT_Y + y * SCALE_Y))
     
-    # Match portrait positions to hitman positions for minimal travel distance
-    pts_hitman_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman]
-    pts_nike_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_nike]
-    pts_ac_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_ac]
-    pts_return_svg = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman_return]
+    # Convert raw logo shape points to SVG coords
+    pts_hitman_raw, pts_nike_raw, pts_ac_raw = generate_logo_shapes(num_points=num_travellers)
+    pts_hitman_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_hitman_raw]
+    pts_nike_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_nike_raw]
+    pts_ac_svg_raw = [(PORTRAIT_X + p[0] * SCALE_X, PORTRAIT_Y + p[1] * SCALE_Y) for p in pts_ac_raw]
+
+    # Chain match points: portrait -> hitman -> nike -> AC -> back to portrait
+    pts_hitman_svg = match_points(portrait_svg, pts_hitman_svg_raw)
+    pts_nike_svg = match_points(pts_hitman_svg, pts_nike_svg_raw)
+    pts_ac_svg = match_points(pts_nike_svg, pts_ac_svg_raw)
 
     # Build STATIC portrait bands from remaining (non-morphing) dots
     num_bands = 90
@@ -314,10 +319,10 @@ def build_svg(dots_portrait, mode="dark"):
 
     # Build MORPHING traveller dots — these start at portrait positions and fly to logo shapes
     traveller_elements = []
-    # NEW TIMELINE with proper holds for each logo (10 keyframes):
+    # TIMELINE (10 keyframes across 14.2s):
     # 0-10%:   hold portrait (1.4s)
     # 10-22%:  fly to hitman (1.7s)
-    # 22-36%:  HOLD hitman (2.0s) ← was missing before!
+    # 22-36%:  HOLD hitman (2.0s)
     # 36-46%:  morph to nike (1.4s)
     # 46-58%:  HOLD nike (1.7s)
     # 58-68%:  morph to AC (1.4s)
@@ -333,13 +338,11 @@ def build_svg(dots_portrait, mode="dark"):
         hx, hy = pts_hitman_svg[i]
         nx, ny = pts_nike_svg[i]
         ax, ay = pts_ac_svg[i]
-        rx, ry = pts_return_svg[i]
 
-        # 10 values: portrait→portrait→hitman→HITMAN→nike→NIKE→ac→AC→return→portrait
-        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {rx:.1f}; {px:.1f}"
-        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {ry:.1f}; {py:.1f}"
+        # 10 values: portrait -> portrait -> hitman -> HITMAN -> nike -> NIKE -> ac -> AC -> portrait -> portrait
+        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {px:.1f}; {px:.1f}"
+        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {py:.1f}; {py:.1f}"
 
-        # Dots are always visible — they sit in portrait, fly to logos, fly back
         dot_xml = f'''    <circle r="1.3" fill="{dot_color}" cx="{px:.1f}" cy="{py:.1f}">
       <animate attributeName="cx" values="{x_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>
       <animate attributeName="cy" values="{y_vals}" keyTimes="{pos_keytimes}" dur="14.2s" repeatCount="indefinite"/>

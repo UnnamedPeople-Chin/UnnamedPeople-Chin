@@ -300,12 +300,12 @@ def build_svg(dots_portrait, mode="dark"):
         
         intro_delay = 0.1 + (b_i % 30) / 30.0 * 1.5
         
-        # Static bands just fade in/out during morph phases
+        # Static bands fully disappear during morph, reappear for portrait
         band_xml = f'''    <g opacity="0">
       <path d="{path_data}" stroke="{dot_color}" stroke-width="1.3" fill="none">
         <animate attributeName="opacity" 
-                 values="1; 1; 0.15; 0.15; 1; 1" 
-                 keyTimes="0; 0.176; 0.268; 0.810; 0.901; 1" 
+                 values="1; 1; 0; 0; 1; 1" 
+                 keyTimes="0; 0.08; 0.18; 0.82; 0.92; 1" 
                  dur="14.2s" repeatCount="indefinite" />
       </path>
       <animate attributeName="opacity" values="0;1" dur="1.5s" begin="{intro_delay:.2f}s" fill="freeze" />
@@ -314,16 +314,17 @@ def build_svg(dots_portrait, mode="dark"):
 
     # Build MORPHING traveller dots — these start at portrait positions and fly to logo shapes
     traveller_elements = []
-    # Timeline across 14.2s:
-    # 0-17.6%: at portrait pos (visible, blending with portrait)
-    # 17.6-35.2%: fly from portrait to hitman
-    # 35.2-44.4%: hold hitman
-    # 44.4-58.5%: morph hitman to nike
-    # 58.5-67.6%: hold nike
-    # 67.6-81.7%: morph nike to AC
-    # 81.7-90.8%: hold AC
-    # 90.8-100%: fly back to portrait pos
-    pos_keytimes = "0; 0.176; 0.352; 0.444; 0.585; 0.676; 0.817; 0.908; 1"
+    # NEW TIMELINE with proper holds for each logo (10 keyframes):
+    # 0-10%:   hold portrait (1.4s)
+    # 10-22%:  fly to hitman (1.7s)
+    # 22-36%:  HOLD hitman (2.0s) ← was missing before!
+    # 36-46%:  morph to nike (1.4s)
+    # 46-58%:  HOLD nike (1.7s)
+    # 58-68%:  morph to AC (1.4s)
+    # 68-80%:  HOLD AC (1.7s)
+    # 80-90%:  fly back to portrait (1.4s)
+    # 90-100%: hold portrait (1.4s)
+    pos_keytimes = "0; 0.10; 0.22; 0.36; 0.46; 0.58; 0.68; 0.80; 0.90; 1"
     
     for i in range(num_travellers):
         # Portrait start/end position
@@ -334,8 +335,9 @@ def build_svg(dots_portrait, mode="dark"):
         ax, ay = pts_ac_svg[i]
         rx, ry = pts_return_svg[i]
 
-        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {rx:.1f}; {px:.1f}"
-        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {ry:.1f}; {py:.1f}"
+        # 10 values: portrait→portrait→hitman→HITMAN→nike→NIKE→ac→AC→return→portrait
+        x_vals = f"{px:.1f}; {px:.1f}; {hx:.1f}; {hx:.1f}; {nx:.1f}; {nx:.1f}; {ax:.1f}; {ax:.1f}; {rx:.1f}; {px:.1f}"
+        y_vals = f"{py:.1f}; {py:.1f}; {hy:.1f}; {hy:.1f}; {ny:.1f}; {ny:.1f}; {ay:.1f}; {ay:.1f}; {ry:.1f}; {py:.1f}"
 
         # Dots are always visible — they sit in portrait, fly to logos, fly back
         dot_xml = f'''    <circle r="1.3" fill="{dot_color}" cx="{px:.1f}" cy="{py:.1f}">

@@ -1,8 +1,8 @@
 <!-- ANIMATED TERMINAL BANNER -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/dark.svg?v=14&cache=bust">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=14&cache=bust">
-  <img alt="Alexios Mercer Terminal Banner" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=14&cache=bust">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/dark.svg?v=15&cache=bust">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=15&cache=bust">
+  <img alt="Alexios Mercer Terminal Banner" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/main/light.svg?v=15&cache=bust">
 </picture>
 
 <br/>
@@ -35,7 +35,7 @@
 
 <!-- FEATURED PROJECTS GRID -->
 <div align="center">
-  <img width="100%" src="./projects.svg?v=5" alt="Projects List" />
+  <img width="100%" src="./projects.svg?v=6" alt="Projects List" />
 </div>
 
 <br/>

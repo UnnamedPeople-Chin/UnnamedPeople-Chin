@@ -1,13 +1,17 @@
 import os
+import html
 import math
 import random
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
 from scipy.optimize import linear_sum_assignment
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 IMAGE_PATH = r"C:\Users\HYPE AMD\.gemini\antigravity\brain\89b33594-076e-4d18-b417-66a597e698d0\media__1785948563280.jpg"
-OUTPUT_DARK = r"d:\Git setup\dark.svg"
-OUTPUT_LIGHT = r"d:\Git setup\light.svg"
+if not os.path.exists(IMAGE_PATH):
+    IMAGE_PATH = os.path.join(BASE_DIR, "Lord Jizdan.png")
+OUTPUT_DARK = os.path.join(BASE_DIR, "dark.svg")
+OUTPUT_LIGHT = os.path.join(BASE_DIR, "light.svg")
 
 GRID_W = 300
 GRID_H = 340
@@ -172,7 +176,7 @@ def parse_svg_path_commands(d_str):
     return pts
 
 def generate_spiderman_points(num_points=1200):
-    svg_file = r"D:\Git setup\ic_spider_man_new.svg"
+    svg_file = os.path.join(BASE_DIR, "ic_spider_man_new.svg")
     with open(svg_file, "r") as f:
         content = f.read()
     
@@ -393,17 +397,17 @@ def build_svg(dots_portrait, mode="dark"):
 
     info_sections = [
         ("Subject", "Alexios Mercer", cyan_label),
-        ("Role", "Full-Stack | AI Eng | Frontend", cyan_label),
+        ("Role", "Full-Stack | AI & Systems | IoT", cyan_label),
         ("Origin", "Salatiga, Indonesia", cyan_label),
         ("Education", "Politeknik Negeri Semarang", cyan_label),
         ("Status", "Building + Learning + Shipping", cyan_label),
-        ("ToolChain", "VS Code, Git, Figma", cyan_label),
+        ("ToolChain", "VS Code, Git, Docker, Figma", cyan_label),
         ("GAP1", "", ""),
-        ("Core.Lang", "JavaScript, Python, C++", cyan_label),
-        ("Core.Frontend", "React, Next.js, Tailwind CSS", cyan_label),
-        ("Core.Backend", "Node.js, Express", cyan_label),
-        ("Core.Database", "MongoDB, PostgreSQL", cyan_label),
-        ("Core.Infra", "Vercel, Docker, Git", cyan_label),
+        ("Core.Lang", "Go, TypeScript, Python, C#, Java", cyan_label),
+        ("Core.Frontend", "React, Svelte, Next.js, Tailwind", cyan_label),
+        ("Core.Backend", "Go, Node.js, Electron, Express", cyan_label),
+        ("Core.Database", "Firebase, PostgreSQL, MongoDB", cyan_label),
+        ("Core.Infra", "Unity 6, ESP32 IoT, Vercel, Docker", cyan_label),
         ("GAP2", "", ""),
         ("HEADER_CONTACT", "-- Contact", ""),
         ("Grid.Mail", "jizdanyr354@gmail.com", magenta_label),
@@ -435,9 +439,9 @@ def build_svg(dots_portrait, mode="dark"):
         dotted_str = ". " * dots_count
         
         info_rows_xml.append(f'''    <g opacity="0">
-      <text x="475" y="{y_curr}" fill="{lbl_color}" font-size="12">{label}</text>
+      <text x="475" y="{y_curr}" fill="{lbl_color}" font-size="12">{html.escape(label)}</text>
       <text x="605" y="{y_curr}" fill="{sub_text_color}" font-size="12" opacity="0.30">{dotted_str}</text>
-      <text x="1115" y="{y_curr}" fill="{text_color}" font-size="12" font-weight="bold" text-anchor="end">{val}</text>
+      <text x="1115" y="{y_curr}" fill="{text_color}" font-size="12" font-weight="bold" text-anchor="end">{html.escape(val)}</text>
       <animate attributeName="opacity" values="0;1" keyTimes="0;1" dur="0.5s" begin="{row_intro_delay:.2f}s" fill="freeze" />
     </g>''')
         y_curr += 21

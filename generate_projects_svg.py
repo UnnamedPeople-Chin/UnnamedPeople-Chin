@@ -1,75 +1,98 @@
 import os
 import math
+import html
 
-OUTPUT_PROJECTS = r"d:\Git setup\projects.svg"
+OUTPUT_PROJECTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "projects.svg")
 
 # User's REAL GitHub Projects — matching arifhaxn card style
 projects = [
     {
-        "repo": "UnnamedPeople-Chin/Star-Wars-AR",
-        "title": "Star Wars AR_",
-        "desc": "Immersive Star Wars character AR visualizer",
-        "tags": ["C#", "Unity"],
-        "langs": [("C#", 63, "#22D3EE"), ("ShaderLab", 24, "#A78BFA"), ("HLSL", 13, "#10B981")],
-        "stars": 4,
-        "updated": "updated 2w ago",
+        "repo": "UnnamedPeople-Chin/9router-go",
+        "title": "9Router Go_",
+        "desc": "32K RPS LLM proxy gateway & token saver",
+        "tags": ["Go", "Svelte", "LLM Proxy"],
+        "langs": [("Go", 84, "#22D3EE"), ("Svelte", 10, "#F59E0B"), ("TypeScript", 6, "#3B82F6")],
+        "stars": 8,
+        "updated": "updated 1d ago",
         "icon_color": "#22D3EE",
-        "icon": '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
+        "icon": '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/MoneyFlow",
-        "title": "MoneyFlow_",
-        "desc": "Finance money flow manager for PBO project",
-        "tags": ["Java", "OOP"],
-        "langs": [("Java", 78, "#10B981"), ("XML", 15, "#F59E0B"), ("Gradle", 7, "#A78BFA")],
-        "stars": 2,
-        "updated": "updated 1mo ago",
+        "repo": "UnnamedPeople-Chin/discode",
+        "title": "DisCode RPC_",
+        "desc": "Next-gen Discord Rich Presence for VS Code",
+        "tags": ["TypeScript", "VS Code", "RPC"],
+        "langs": [("TypeScript", 83, "#3B82F6"), ("HTML", 17, "#EC4899")],
+        "stars": 6,
+        "updated": "updated 1w ago",
+        "icon_color": "#A78BFA",
+        "icon": '<rect x="2" y="4" width="20" height="16" rx="3" fill="none" stroke="#A78BFA" stroke-width="2.3"/><path d="M8 10l-2 2 2 2M16 10l2 2-2 2M13 9l-2 6" fill="none" stroke="#A78BFA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/AetherCast",
+        "title": "AetherCast_",
+        "desc": "Real-time hand-tracking & particle engine",
+        "tags": ["JavaScript", "MediaPipe", "Electron"],
+        "langs": [("JavaScript", 70, "#F59E0B"), ("Python", 16, "#3B82F6"), ("CSS", 14, "#22D3EE")],
+        "stars": 5,
+        "updated": "updated 3w ago",
+        "icon_color": "#F59E0B",
+        "icon": '<circle cx="12" cy="12" r="4" fill="none" stroke="#F59E0B" stroke-width="2.3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/aphelion-iot-hub",
+        "title": "Aphelion IoT Hub_",
+        "desc": "ESP32 landslide early warning & telemetry",
+        "tags": ["ESP32", "Firebase", "Flutter"],
+        "langs": [("HTML/JS", 74, "#10B981"), ("C++/ESP32", 16, "#22D3EE"), ("Dart", 10, "#3B82F6")],
+        "stars": 4,
+        "updated": "updated 2d ago",
         "icon_color": "#10B981",
-        "icon": '<circle cx="12" cy="12" r="9" fill="none" stroke="#10B981" stroke-width="2.5"/><path d="M12 8v4l3 3" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>'
+        "icon": '<path d="M12 20h.01M8.5 16.5a5 5 0 017 0M5 13a10 10 0 0114 0M2 9.5a15 15 0 0120 0" fill="none" stroke="#10B981" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/chin-portfolio",
+        "title": "Chin Portfolio_",
+        "desc": "Interactive web portfolio & creative hub",
+        "tags": ["HTML5", "TypeScript", "Vite"],
+        "langs": [("HTML", 93, "#EC4899"), ("Python", 5, "#3B82F6"), ("JS/TS", 2, "#22D3EE")],
+        "stars": 4,
+        "updated": "updated 1w ago",
+        "icon_color": "#EC4899",
+        "icon": '<circle cx="12" cy="12" r="9" fill="none" stroke="#EC4899" stroke-width="2.3"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/Star-Wars-AR-Visualizer",
+        "title": "Star Wars AR_",
+        "desc": "Interactive 3D character AR visualizer",
+        "tags": ["C#", "Unity 6", "Vuforia"],
+        "langs": [("C#", 97, "#22D3EE"), ("HLSL", 2, "#10B981"), ("ShaderLab", 1, "#A78BFA")],
+        "stars": 4,
+        "updated": "updated 3w ago",
+        "icon_color": "#3B82F6",
+        "icon": '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#3B82F6" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
     },
     {
         "repo": "UnnamedPeople-Chin/schedule-organizer",
         "title": "Schedule Organizer_",
-        "desc": "Smart schedule and task routine organizer",
-        "tags": ["JavaScript", "CSS"],
-        "langs": [("JavaScript", 55, "#A78BFA"), ("HTML", 28, "#EC4899"), ("CSS", 17, "#22D3EE")],
+        "desc": "Smart task & agenda app with Firebase sync",
+        "tags": ["Python", "JavaScript", "Firebase"],
+        "langs": [("Python", 38, "#A78BFA"), ("JavaScript", 31, "#F59E0B"), ("HTML/CSS", 31, "#22D3EE")],
         "stars": 3,
-        "updated": "updated 1mo ago",
-        "icon_color": "#A78BFA",
-        "icon": '<rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#A78BFA" stroke-width="2.5"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round"/>'
+        "updated": "updated 3w ago",
+        "icon_color": "#22D3EE",
+        "icon": '<rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#22D3EE" stroke-width="2.3"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/Wand-Enhancer",
-        "title": "Wand Enhancer_",
-        "desc": "Advanced UX and interoperability extension",
-        "tags": ["C++", "System"],
-        "langs": [("C++", 72, "#F59E0B"), ("CMake", 18, "#10B981"), ("Shell", 10, "#A78BFA")],
-        "stars": 5,
-        "updated": "updated 1mo ago",
-        "icon_color": "#F59E0B",
-        "icon": '<path d="M13 2L3 14h9l-1 6 10-12h-9l1-6z" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
-    },
-    {
-        "repo": "UnnamedPeople-Chin/github-readme-stats",
-        "title": "Readme Stats_",
-        "desc": "Dynamically generated stats for github",
-        "tags": ["Node.js", "Vercel"],
-        "langs": [("JavaScript", 65, "#EC4899"), ("CSS", 22, "#22D3EE"), ("EJS", 13, "#F59E0B")],
-        "stars": 7,
-        "updated": "updated 3d ago",
-        "icon_color": "#EC4899",
-        "icon": '<rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="#EC4899" stroke-width="2.5"/><path d="M8 17V11M12 17V7M16 17V13" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>'
-    },
-    {
-        "repo": "UnnamedPeople-Chin/AI-Portfolio",
-        "title": "Career Logic AI_",
-        "desc": "AI powered CV management and career builder",
-        "tags": ["Python", "React", "Groq"],
-        "langs": [("Python", 80, "#3B82F6"), ("TypeScript", 12, "#22D3EE"), ("CSS", 8, "#EC4899")],
-        "stars": 10,
-        "updated": "updated 1d ago",
-        "icon_color": "#3B82F6",
-        "icon": '<circle cx="12" cy="12" r="10" fill="none" stroke="#3B82F6" stroke-width="2.5"/><path d="M12 8v4l2.5 2.5" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3B82F6"/>'
+        "repo": "UnnamedPeople-Chin/Project-PBO-MoneyFlow",
+        "title": "MoneyFlow Pro_",
+        "desc": "Desktop personal finance & cashflow suite",
+        "tags": ["Java", "Swing GUI", "OOP"],
+        "langs": [("Java", 96, "#10B981"), ("Inno Setup", 2, "#A78BFA"), ("Batch", 2, "#F59E0B")],
+        "stars": 2,
+        "updated": "updated 3w ago",
+        "icon_color": "#10B981",
+        "icon": '<circle cx="12" cy="12" r="9" fill="none" stroke="#10B981" stroke-width="2.3"/><path d="M12 7v5l3 3" fill="none" stroke="#10B981" stroke-width="2.3" stroke-linecap="round"/>'
     }
 ]
 
@@ -108,7 +131,7 @@ def build_lang_legend(langs, x, y):
         items.append(
             f'<circle cx="{x}" cy="{ly}" r="3.5" fill="{color}"/>'
             f'<text x="{x + 10}" y="{ly + 4}" font-size="10" fill="#94A3B8">'
-            f'{name} {pct}%</text>'
+            f'{html.escape(name)} {pct}%</text>'
         )
     return "\n        ".join(items)
 
@@ -123,6 +146,8 @@ def build_projects_svg():
         (605, 280),
         (30, 504),
         (605, 504),
+        (30, 728),
+        (605, 728),
     ]
     card_w, card_h = 545, 200
 
@@ -140,7 +165,7 @@ def build_projects_svg():
                 f'<rect x="{tx}" y="{ty}" width="{tw:.0f}" height="24" rx="12" '
                 f'fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.35)" stroke-width="1"/>'
                 f'<text x="{tx + tw/2:.0f}" y="{ty + 16}" font-size="10" '
-                f'fill="#22D3EE" text-anchor="middle">{t}</text>'
+                f'fill="#22D3EE" text-anchor="middle">{html.escape(t)}</text>'
             )
             tx += tw + 8
 
@@ -151,7 +176,7 @@ def build_projects_svg():
         legend = build_lang_legend(p["langs"], x + 355, y + 62)
 
         cards_xml.append(f'''
-    <!-- CARD {idx+1}: {p["title"]} -->
+    <!-- CARD {idx+1}: {html.escape(p["title"])} -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="{x}" y="{y}" width="{card_w}" height="{card_h}" rx="14"
@@ -161,7 +186,7 @@ def build_projects_svg():
 
       <!-- Repo path header -->
       <circle cx="{x + 14}" cy="{y + 18}" r="2.5" fill="#22D3EE" opacity="0.6"/>
-      <text x="{x + 24}" y="{y + 22}" font-size="11" fill="#475569">{p["repo"]}</text>
+      <text x="{x + 24}" y="{y + 22}" font-size="11" fill="#475569">{html.escape(p["repo"])}</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="{x + card_w - 16}" cy="{y + 18}" r="3.5" fill="#10B981" opacity="0.7">
@@ -177,11 +202,11 @@ def build_projects_svg():
 
       <!-- Title -->
       <text x="{x + 78}" y="{y + 60}" font-size="18" font-weight="bold" fill="#F8FAFC">
-        {p["title"]}</text>
+        {html.escape(p["title"])}</text>
 
       <!-- Description -->
       <text x="{x + 78}" y="{y + 82}" font-size="11" fill="#94A3B8">
-        {p["desc"]}</text>
+        {html.escape(p["desc"])}</text>
 
       <!-- Language legend (stacked dots) -->
       {legend}
@@ -197,13 +222,13 @@ def build_projects_svg():
       <text x="{x + 32}" y="{y + 188}" font-size="11" font-weight="bold" fill="#94A3B8">
         {p["stars"]}</text>
       <text x="{x + 56}" y="{y + 188}" font-size="11" fill="#475569">
-        {p["updated"]}</text>
+        {html.escape(p["updated"])}</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{delay:.2f}s" fill="freeze"/>
     </g>''')
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760"
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="960" viewBox="0 0 1180 960"
      font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
      role="img" aria-label="Projects List">
   <defs>
@@ -214,7 +239,7 @@ def build_projects_svg():
   </defs>
 
   <!-- Background -->
-  <rect width="1180" height="760" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1180" height="960" rx="16" fill="url(#bgGrad)"/>
 
   <!-- Header -->
   <g opacity="0">

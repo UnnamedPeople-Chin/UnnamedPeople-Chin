@@ -1,3 +1,5 @@
 *.pdf
 Lord Jizdan.png
 __pycache__/
+dist/
+

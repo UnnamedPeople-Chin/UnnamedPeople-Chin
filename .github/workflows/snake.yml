@@ -1,4 +1,4 @@
-name: Generate Snake Animation
+name: Generate Bomberman & Projects SVGs
 on:
   schedule:
     - cron: "0 */12 * * *"
@@ -13,20 +13,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Generate snake SVGs
-        uses: Platane/snk/svg-only@v3
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Generate Bomberman SVGs
+        uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=#7c3aed&color_dots=#faf5ff,#e9d5ff,#c084fc,#a855f7,#7c3aed
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=#a855f7&color_dots=#1e1b4b,#3b0764,#6b21a8,#9333ea,#c084fc
+          games: 'bomberman'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Apply README multi-color palette
+        run: python recolor_arcade_svg.py
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "Update snake animation [skip ci]"
+          commit_message: "Update Bomberman contribution animation [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

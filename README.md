@@ -21,12 +21,12 @@
 <br/>
 <br/>
 
-<!-- CONTRIBUTION SNAKE ANIMATION -->
+<!-- CONTRIBUTION BOMBERMAN ANIMATION -->
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/github-snake.svg" />
-    <img alt="Snake eating my contributions" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/github-snake.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/bomberman-contribution-graph-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/bomberman-contribution-graph.svg" />
+    <img width="100%" alt="Bomberman blasting my contributions" src="https://raw.githubusercontent.com/UnnamedPeople-Chin/UnnamedPeople-Chin/output/bomberman-contribution-graph-dark.svg" />
   </picture>
 </div>
 

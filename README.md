@@ -15,7 +15,7 @@
   <br/>
   <!-- Instance Vercel Pribadi UnnamedPeople-Chin -->
   <img width="49%" src="https://github-readme-stats-kappa-lovat-xpua79hk0b.vercel.app/api?username=UnnamedPeople-Chin&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="stats" />
-  <img width="49%" src="https://github-readme-stats-kappa-lovat-xpua79hk0b.vercel.app/api/top-langs/?username=UnnamedPeople-Chin&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="top langs" />
+  <img width="49%" src="https://github-readme-stats-kappa-lovat-xpua79hk0b.vercel.app/api/top-langs/?username=UnnamedPeople-Chin&layout=compact&langs_count=8&hide=html,css&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="top langs" />
 </div>
 
 <br/>
@@ -35,7 +35,28 @@
 
 <!-- FEATURED PROJECTS GRID -->
 <div align="center">
-  <img width="100%" src="./projects.svg?v=6" alt="Projects List" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./projects.svg?v=7" />
+    <source media="(prefers-color-scheme: light)" srcset="./projects-light.svg?v=7" />
+    <img width="100%" src="./projects.svg?v=7" alt="Projects List" />
+  </picture>
+  <br/>
+  <br/>
+  <a href="https://github.com/UnnamedPeople-Chin/9router-go" target="_blank"><img src="https://img.shields.io/badge/9Router_Go-0A101F?style=for-the-badge&logo=go&logoColor=22D3EE&labelColor=0A101F" alt="9Router Go" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/discode" target="_blank"><img src="https://img.shields.io/badge/DisCode_RPC-0A101F?style=for-the-badge&logo=typescript&logoColor=A78BFA&labelColor=0A101F" alt="DisCode RPC" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/AetherCast" target="_blank"><img src="https://img.shields.io/badge/AetherCast-0A101F?style=for-the-badge&logo=electron&logoColor=F59E0B&labelColor=0A101F" alt="AetherCast" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/aphelion-iot-hub" target="_blank"><img src="https://img.shields.io/badge/Aphelion_IoT-0A101F?style=for-the-badge&logo=espressif&logoColor=10B981&labelColor=0A101F" alt="Aphelion IoT Hub" /></a>
+  <br/>
+  <a href="https://github.com/UnnamedPeople-Chin/chin-portfolio" target="_blank"><img src="https://img.shields.io/badge/Chin_Portfolio-0A101F?style=for-the-badge&logo=vite&logoColor=EC4899&labelColor=0A101F" alt="Chin Portfolio" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer" target="_blank"><img src="https://img.shields.io/badge/Star_Wars_AR-0A101F?style=for-the-badge&logo=unity&logoColor=3B82F6&labelColor=0A101F" alt="Star Wars AR" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/schedule-organizer" target="_blank"><img src="https://img.shields.io/badge/Schedule_Organizer-0A101F?style=for-the-badge&logo=firebase&logoColor=22D3EE&labelColor=0A101F" alt="Schedule Organizer" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/Project-PBO-MoneyFlow" target="_blank"><img src="https://img.shields.io/badge/MoneyFlow_Pro-0A101F?style=for-the-badge&logo=openjdk&logoColor=10B981&labelColor=0A101F" alt="MoneyFlow Pro" /></a>
 </div>
 
 <br/>

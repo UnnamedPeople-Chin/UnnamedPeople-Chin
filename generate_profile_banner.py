@@ -7,7 +7,9 @@ from PIL import Image, ImageEnhance, ImageFilter
 from scipy.optimize import linear_sum_assignment
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IMAGE_PATH = r"C:\Users\HYPE AMD\.gemini\antigravity\brain\89b33594-076e-4d18-b417-66a597e698d0\media__1785948563280.jpg"
+IMAGE_PATH = os.path.join(BASE_DIR, "portrait.jpg")
+if not os.path.exists(IMAGE_PATH):
+    IMAGE_PATH = r"C:\Users\HYPE AMD\.gemini\antigravity\brain\89b33594-076e-4d18-b417-66a597e698d0\media__1785948563280.jpg"
 if not os.path.exists(IMAGE_PATH):
     IMAGE_PATH = os.path.join(BASE_DIR, "Lord Jizdan.png")
 OUTPUT_DARK = os.path.join(BASE_DIR, "dark.svg")

@@ -74,7 +74,7 @@
       <text x="62" y="244" font-size="11" font-weight="bold" fill="#94A3B8">
         8</text>
       <text x="86" y="244" font-size="11" fill="#475569">
-        updated 1d ago</text>
+        updated today</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.15s" fill="freeze"/>
@@ -184,7 +184,7 @@
       <text x="62" y="468" font-size="11" font-weight="bold" fill="#94A3B8">
         5</text>
       <text x="86" y="468" font-size="11" fill="#475569">
-        updated 3w ago</text>
+        updated 1mo ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.39s" fill="freeze"/>
@@ -240,7 +240,7 @@
       <text x="637" y="468" font-size="11" font-weight="bold" fill="#94A3B8">
         4</text>
       <text x="661" y="468" font-size="11" fill="#475569">
-        updated 2d ago</text>
+        updated 1d ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.51s" fill="freeze"/>

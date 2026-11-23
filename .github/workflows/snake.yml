@@ -18,19 +18,15 @@ jobs:
         with:
           ref: main
 
-      - name: Generate Bomberman SVGs
-        uses: abozanona/pacman-contribution-graph@main
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          games: 'bomberman'
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Apply README multi-color palette
-        run: python recolor_arcade_svg.py
+      - name: Generate extended Bomberman SVGs & apply README palette
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python generate_best_bomberman.py
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0

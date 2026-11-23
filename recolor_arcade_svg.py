@@ -24,26 +24,54 @@ LIGHT_COLOR_MAP = {
     "#216e39": "#059669",
 }
 
+# 2.4x slowdown converts default 100ms/frame (10 steps/sec) to 240ms/frame (~4.2 steps/sec normal arcade speed)
+TEMPO_MULTIPLIER = 2.4
+
+
+def scale_duration(match):
+    ms = int(match.group(1))
+    if ms == 500:
+        # Bomb fuse pulse duration
+        return 'dur="800ms"'
+    if ms == 800:
+        return match.group(0)
+    return f'dur="{int(round(ms * TEMPO_MULTIPLIER))}ms"'
+
 
 def recolor_svg(path, is_dark):
-    """Apply full README multi-color palette and rounded outer corners to an arcade SVG."""
+    """Apply README multi-color palette, normal arcade tempo, and padded 1180px terminal frame."""
     color_map = DARK_COLOR_MAP if is_dark else LIGHT_COLOR_MAP
+    bg_color = "#0A101F" if is_dark else "#F8FAFC"
+    border_color = "rgba(34,211,238,0.22)" if is_dark else "rgba(8,145,178,0.28)"
     pattern = re.compile("|".join(re.escape(k) for k in color_map), re.IGNORECASE)
 
     with open(path, "r", encoding="utf-8") as f:
         svg = f.read()
 
+    # 1. Remap contribution colors
     svg = pattern.sub(lambda m: color_map[m.group(0).lower()], svg)
+
+    # 2. Slow down animation tempo (only once if not already framed)
+    if 'viewBox="-18 -18 1200 203"' not in svg:
+        svg = re.sub(r'dur="(\d+)ms"', scale_duration, svg)
+
+    # 3. Expand SVG canvas with 18px breathing room and terminal border
     svg = re.sub(
-        r'<rect\s+width="100%"\s+height="100%"(\s+fill="[^"]+")\s*/>',
-        r'<rect width="100%" height="100%" rx="16"\1/>',
+        r'<svg\s+width="1166"\s+height="169"',
+        '<svg width="1180" height="205" viewBox="-18 -18 1200 203"',
+        svg,
+        count=1,
+    )
+    svg = re.sub(
+        r'<rect\s+width="100%"\s+height="100%"(?:\s+rx="\d+")?\s+fill="[^"]+"\s*/>',
+        f'<rect x="-17" y="-17" width="1198" height="201" rx="16" fill="{bg_color}" stroke="{border_color}" stroke-width="1.5"/>',
         svg,
         count=1,
     )
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"Recolored {'dark' if is_dark else 'light'}: {path}")
+    print(f"Recolored & slowed {'dark' if is_dark else 'light'}: {path}")
 
 
 def main():

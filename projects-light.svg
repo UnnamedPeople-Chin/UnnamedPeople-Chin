@@ -133,7 +133,7 @@
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.27s" fill="freeze"/>
     </g>
-    <!-- CARD 3: QRIS-Track_ -->
+    <!-- CARD 3: SignFlow_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="30" y="280" width="545" height="200" rx="14"
@@ -143,7 +143,7 @@
 
       <!-- Repo path header -->
       <circle cx="44" cy="298" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="54" y="302" font-size="11" fill="#64748B">UnnamedPeople-Chin/qris-track</text>
+      <text x="54" y="302" font-size="11" fill="#64748B">UnnamedPeople-Chin/SignFlow</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="559" cy="298" r="3.5" fill="#10B981" opacity="0.7">
@@ -152,42 +152,44 @@
 
       <!-- Icon box -->
       <rect x="44" y="318" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#22D3EE" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#10B981" stroke-width="1.2"/>
       <g transform="translate(58,332) scale(1.05)">
-        <rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h2" fill="none" stroke="#22D3EE" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M18 11V6a2 2 0 00-4 0v5M14 10V4a2 2 0 00-4 0v6M10 10.5V6a2 2 0 00-4 0v8l-1.5-1.5a2 2 0 00-2.8 2.8l4.3 4.7a6 6 0 004.5 2h2.5a6 6 0 006-6v-5a2 2 0 00-2-2z" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
       <!-- Title -->
       <text x="108" y="340" font-size="18" font-weight="bold" fill="#0F172A">
-        QRIS-Track_</text>
+        SignFlow_</text>
 
       <!-- Description -->
       <text x="108" y="362" font-size="11" fill="#475569">
-        ISO-18004 dynamic QRIS &amp; zero-dep Node 22 ledger</text>
+        Gamified sign language &amp; MediaPipe hand coach</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="385" cy="342" r="3.5" fill="#F59E0B"/><text x="395" y="346" font-size="10" fill="#475569">JavaScript 54%</text>
-        <circle cx="385" cy="360" r="3.5" fill="#EC4899"/><text x="395" y="364" font-size="10" fill="#475569">HTML/CSS 46%</text>
+      <circle cx="385" cy="342" r="3.5" fill="#F59E0B"/><text x="395" y="346" font-size="10" fill="#475569">JavaScript 64%</text>
+        <circle cx="385" cy="360" r="3.5" fill="#22D3EE"/><text x="395" y="364" font-size="10" fill="#475569">CSS 24%</text>
+        <circle cx="385" cy="378" r="3.5" fill="#EC4899"/><text x="395" y="382" font-size="10" fill="#475569">HTML 12%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="510" cy="362" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="108.6 92.5" stroke-dashoffset="0.0" transform="rotate(-90 510 362)"/>
-        <circle cx="510" cy="362" r="32" fill="none" stroke="#EC4899" stroke-width="7" stroke-dasharray="92.5 108.6" stroke-dashoffset="-108.6" transform="rotate(-90 510 362)"/>
-        <text x="510" y="367" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">54%</text>
+      <circle cx="510" cy="362" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="128.7 72.4" stroke-dashoffset="0.0" transform="rotate(-90 510 362)"/>
+        <circle cx="510" cy="362" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="48.3 152.8" stroke-dashoffset="-128.7" transform="rotate(-90 510 362)"/>
+        <circle cx="510" cy="362" r="32" fill="none" stroke="#EC4899" stroke-width="7" stroke-dasharray="24.1 176.9" stroke-dashoffset="-176.9" transform="rotate(-90 510 362)"/>
+        <text x="510" y="367" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">64%</text>
 
       <!-- Tag pills -->
-      <rect x="48" y="422" width="67" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="82" y="438" font-size="10" fill="#0891B2" text-anchor="middle">Node 22</text><rect x="123.0" y="422" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="153" y="438" font-size="10" fill="#0891B2" text-anchor="middle">SQLite</text><rect x="191.0" y="422" width="46" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="214" y="438" font-size="10" fill="#0891B2" text-anchor="middle">QRIS</text>
+      <rect x="48" y="422" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="88" y="438" font-size="10" fill="#0891B2" text-anchor="middle">MediaPipe</text><rect x="137.0" y="422" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="178" y="438" font-size="10" fill="#0891B2" text-anchor="middle">Canvas 2D</text><rect x="226.0" y="422" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="256" y="438" font-size="10" fill="#0891B2" text-anchor="middle">EdTech</text>
 
       <!-- Stars + updated -->
       <text x="48" y="468" font-size="11" fill="#F59E0B">★</text>
       <text x="62" y="468" font-size="11" font-weight="bold" fill="#475569">
-        2</text>
+        1</text>
       <text x="86" y="468" font-size="11" fill="#64748B">
         updated today</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.39s" fill="freeze"/>
     </g>
-    <!-- CARD 4: SignFlow_ -->
+    <!-- CARD 4: 9Router Go_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="605" y="280" width="545" height="200" rx="14"
@@ -197,7 +199,7 @@
 
       <!-- Repo path header -->
       <circle cx="619" cy="298" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="629" y="302" font-size="11" fill="#64748B">UnnamedPeople-Chin/SignFlow</text>
+      <text x="629" y="302" font-size="11" fill="#64748B">UnnamedPeople-Chin/9router-go</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="1134" cy="298" r="3.5" fill="#10B981" opacity="0.7">
@@ -206,44 +208,44 @@
 
       <!-- Icon box -->
       <rect x="619" y="318" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#10B981" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#22D3EE" stroke-width="1.2"/>
       <g transform="translate(633,332) scale(1.05)">
-        <path d="M18 11V6a2 2 0 00-4 0v5M14 10V4a2 2 0 00-4 0v6M10 10.5V6a2 2 0 00-4 0v8l-1.5-1.5a2 2 0 00-2.8 2.8l4.3 4.7a6 6 0 004.5 2h2.5a6 6 0 006-6v-5a2 2 0 00-2-2z" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
       <!-- Title -->
       <text x="683" y="340" font-size="18" font-weight="bold" fill="#0F172A">
-        SignFlow_</text>
+        9Router Go_</text>
 
       <!-- Description -->
       <text x="683" y="362" font-size="11" fill="#475569">
-        Gamified sign language &amp; MediaPipe hand coach</text>
+        Fork &amp; Go/Svelte AI proxy gateway + RTK saver</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="960" cy="342" r="3.5" fill="#F59E0B"/><text x="970" y="346" font-size="10" fill="#475569">JavaScript 64%</text>
-        <circle cx="960" cy="360" r="3.5" fill="#22D3EE"/><text x="970" y="364" font-size="10" fill="#475569">CSS 24%</text>
-        <circle cx="960" cy="378" r="3.5" fill="#EC4899"/><text x="970" y="382" font-size="10" fill="#475569">HTML 12%</text>
+      <circle cx="960" cy="342" r="3.5" fill="#22D3EE"/><text x="970" y="346" font-size="10" fill="#475569">Go 84%</text>
+        <circle cx="960" cy="360" r="3.5" fill="#F59E0B"/><text x="970" y="364" font-size="10" fill="#475569">Svelte 10%</text>
+        <circle cx="960" cy="378" r="3.5" fill="#3B82F6"/><text x="970" y="382" font-size="10" fill="#475569">TypeScript 6%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="1085" cy="362" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="128.7 72.4" stroke-dashoffset="0.0" transform="rotate(-90 1085 362)"/>
-        <circle cx="1085" cy="362" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="48.3 152.8" stroke-dashoffset="-128.7" transform="rotate(-90 1085 362)"/>
-        <circle cx="1085" cy="362" r="32" fill="none" stroke="#EC4899" stroke-width="7" stroke-dasharray="24.1 176.9" stroke-dashoffset="-176.9" transform="rotate(-90 1085 362)"/>
-        <text x="1085" y="367" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">64%</text>
+      <circle cx="1085" cy="362" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="168.9 32.2" stroke-dashoffset="0.0" transform="rotate(-90 1085 362)"/>
+        <circle cx="1085" cy="362" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="20.1 181.0" stroke-dashoffset="-168.9" transform="rotate(-90 1085 362)"/>
+        <circle cx="1085" cy="362" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="12.1 189.0" stroke-dashoffset="-189.0" transform="rotate(-90 1085 362)"/>
+        <text x="1085" y="367" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">84%</text>
 
       <!-- Tag pills -->
-      <rect x="623" y="422" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="664" y="438" font-size="10" fill="#0891B2" text-anchor="middle">MediaPipe</text><rect x="712.0" y="422" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="752" y="438" font-size="10" fill="#0891B2" text-anchor="middle">Canvas 2D</text><rect x="801.0" y="422" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="831" y="438" font-size="10" fill="#0891B2" text-anchor="middle">EdTech</text>
+      <rect x="623" y="422" width="32" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="639" y="438" font-size="10" fill="#0891B2" text-anchor="middle">Go</text><rect x="663.0" y="422" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="693" y="438" font-size="10" fill="#0891B2" text-anchor="middle">Svelte</text><rect x="731.0" y="422" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="772" y="438" font-size="10" fill="#0891B2" text-anchor="middle">LLM Proxy</text>
 
       <!-- Stars + updated -->
       <text x="623" y="468" font-size="11" fill="#F59E0B">★</text>
       <text x="637" y="468" font-size="11" font-weight="bold" fill="#475569">
-        1</text>
+        8</text>
       <text x="661" y="468" font-size="11" fill="#64748B">
         updated today</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.51s" fill="freeze"/>
     </g>
-    <!-- CARD 5: qris-dinamis_ -->
+    <!-- CARD 5: Aphelion IoT Hub_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="30" y="504" width="545" height="200" rx="14"
@@ -253,7 +255,7 @@
 
       <!-- Repo path header -->
       <circle cx="44" cy="522" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="54" y="526" font-size="11" fill="#64748B">UnnamedPeople-Chin/qris-dinamis</text>
+      <text x="54" y="526" font-size="11" fill="#64748B">UnnamedPeople-Chin/aphelion-iot-hub</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="559" cy="522" r="3.5" fill="#10B981" opacity="0.7">
@@ -262,42 +264,44 @@
 
       <!-- Icon box -->
       <rect x="44" y="542" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#EC4899" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#10B981" stroke-width="1.2"/>
       <g transform="translate(58,556) scale(1.05)">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#EC4899" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 20h.01M8.5 16.5a5 5 0 017 0M5 13a10 10 0 0114 0M2 9.5a15 15 0 0120 0" fill="none" stroke="#10B981" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
       <!-- Title -->
       <text x="108" y="564" font-size="18" font-weight="bold" fill="#0F172A">
-        qris-dinamis_</text>
+        Aphelion IoT Hub_</text>
 
       <!-- Description -->
       <text x="108" y="586" font-size="11" fill="#475569">
-        Zero-dep npm CLI &amp; SDK for dynamic QRIS</text>
+        ESP32 landslide early warning &amp; telemetry</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="385" cy="566" r="3.5" fill="#F59E0B"/><text x="395" y="570" font-size="10" fill="#475569">JavaScript 88%</text>
-        <circle cx="385" cy="584" r="3.5" fill="#3B82F6"/><text x="395" y="588" font-size="10" fill="#475569">TypeScript 12%</text>
+      <circle cx="385" cy="566" r="3.5" fill="#10B981"/><text x="395" y="570" font-size="10" fill="#475569">HTML/JS 74%</text>
+        <circle cx="385" cy="584" r="3.5" fill="#22D3EE"/><text x="395" y="588" font-size="10" fill="#475569">C++/ESP32 16%</text>
+        <circle cx="385" cy="602" r="3.5" fill="#3B82F6"/><text x="395" y="606" font-size="10" fill="#475569">Dart 10%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="510" cy="586" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="176.9 24.1" stroke-dashoffset="0.0" transform="rotate(-90 510 586)"/>
-        <circle cx="510" cy="586" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="24.1 176.9" stroke-dashoffset="-176.9" transform="rotate(-90 510 586)"/>
-        <text x="510" y="591" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">88%</text>
+      <circle cx="510" cy="586" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="148.8 52.3" stroke-dashoffset="0.0" transform="rotate(-90 510 586)"/>
+        <circle cx="510" cy="586" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="32.2 168.9" stroke-dashoffset="-148.8" transform="rotate(-90 510 586)"/>
+        <circle cx="510" cy="586" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="20.1 181.0" stroke-dashoffset="-181.0" transform="rotate(-90 510 586)"/>
+        <text x="510" y="591" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">74%</text>
 
       <!-- Tag pills -->
-      <rect x="48" y="646" width="39" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="68" y="662" font-size="10" fill="#0891B2" text-anchor="middle">npm</text><rect x="95.0" y="646" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="122" y="662" font-size="10" fill="#0891B2" text-anchor="middle">EMVCo</text><rect x="156.0" y="646" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="182" y="662" font-size="10" fill="#0891B2" text-anchor="middle">CRC16</text>
+      <rect x="48" y="646" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="74" y="662" font-size="10" fill="#0891B2" text-anchor="middle">ESP32</text><rect x="109.0" y="646" width="74" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="146" y="662" font-size="10" fill="#0891B2" text-anchor="middle">Firebase</text><rect x="191.0" y="646" width="67" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="224" y="662" font-size="10" fill="#0891B2" text-anchor="middle">Flutter</text>
 
       <!-- Stars + updated -->
       <text x="48" y="692" font-size="11" fill="#F59E0B">★</text>
       <text x="62" y="692" font-size="11" font-weight="bold" fill="#475569">
-        1</text>
+        4</text>
       <text x="86" y="692" font-size="11" fill="#64748B">
-        updated today</text>
+        updated 2d ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.63s" fill="freeze"/>
     </g>
-    <!-- CARD 6: 9Router Go_ -->
+    <!-- CARD 6: Chin Portfolio_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="605" y="504" width="545" height="200" rx="14"
@@ -307,7 +311,7 @@
 
       <!-- Repo path header -->
       <circle cx="619" cy="522" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="629" y="526" font-size="11" fill="#64748B">UnnamedPeople-Chin/9router-go</text>
+      <text x="629" y="526" font-size="11" fill="#64748B">UnnamedPeople-Chin/chin-portfolio</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="1134" cy="522" r="3.5" fill="#10B981" opacity="0.7">
@@ -316,44 +320,44 @@
 
       <!-- Icon box -->
       <rect x="619" y="542" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#22D3EE" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#3B82F6" stroke-width="1.2"/>
       <g transform="translate(633,556) scale(1.05)">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="9" fill="none" stroke="#3B82F6" stroke-width="2.3"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
       </g>
 
       <!-- Title -->
       <text x="683" y="564" font-size="18" font-weight="bold" fill="#0F172A">
-        9Router Go_</text>
+        Chin Portfolio_</text>
 
       <!-- Description -->
       <text x="683" y="586" font-size="11" fill="#475569">
-        Fork &amp; Go/Svelte AI proxy gateway + RTK saver</text>
+        Interactive web portfolio &amp; creative hub</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="960" cy="566" r="3.5" fill="#22D3EE"/><text x="970" y="570" font-size="10" fill="#475569">Go 84%</text>
-        <circle cx="960" cy="584" r="3.5" fill="#F59E0B"/><text x="970" y="588" font-size="10" fill="#475569">Svelte 10%</text>
-        <circle cx="960" cy="602" r="3.5" fill="#3B82F6"/><text x="970" y="606" font-size="10" fill="#475569">TypeScript 6%</text>
+      <circle cx="960" cy="566" r="3.5" fill="#EC4899"/><text x="970" y="570" font-size="10" fill="#475569">HTML 93%</text>
+        <circle cx="960" cy="584" r="3.5" fill="#3B82F6"/><text x="970" y="588" font-size="10" fill="#475569">Python 5%</text>
+        <circle cx="960" cy="602" r="3.5" fill="#22D3EE"/><text x="970" y="606" font-size="10" fill="#475569">JS/TS 2%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="1085" cy="586" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="168.9 32.2" stroke-dashoffset="0.0" transform="rotate(-90 1085 586)"/>
-        <circle cx="1085" cy="586" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="20.1 181.0" stroke-dashoffset="-168.9" transform="rotate(-90 1085 586)"/>
-        <circle cx="1085" cy="586" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="12.1 189.0" stroke-dashoffset="-189.0" transform="rotate(-90 1085 586)"/>
-        <text x="1085" y="591" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">84%</text>
+      <circle cx="1085" cy="586" r="32" fill="none" stroke="#EC4899" stroke-width="7" stroke-dasharray="187.0 14.1" stroke-dashoffset="0.0" transform="rotate(-90 1085 586)"/>
+        <circle cx="1085" cy="586" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="10.1 191.0" stroke-dashoffset="-187.0" transform="rotate(-90 1085 586)"/>
+        <circle cx="1085" cy="586" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="4.0 197.0" stroke-dashoffset="-197.0" transform="rotate(-90 1085 586)"/>
+        <text x="1085" y="591" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">93%</text>
 
       <!-- Tag pills -->
-      <rect x="623" y="646" width="32" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="639" y="662" font-size="10" fill="#0891B2" text-anchor="middle">Go</text><rect x="663.0" y="646" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="693" y="662" font-size="10" fill="#0891B2" text-anchor="middle">Svelte</text><rect x="731.0" y="646" width="81" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="772" y="662" font-size="10" fill="#0891B2" text-anchor="middle">LLM Proxy</text>
+      <rect x="623" y="646" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="650" y="662" font-size="10" fill="#0891B2" text-anchor="middle">HTML5</text><rect x="684.0" y="646" width="88" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="728" y="662" font-size="10" fill="#0891B2" text-anchor="middle">TypeScript</text><rect x="780.0" y="646" width="46" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="803" y="662" font-size="10" fill="#0891B2" text-anchor="middle">Vite</text>
 
       <!-- Stars + updated -->
       <text x="623" y="692" font-size="11" fill="#F59E0B">★</text>
       <text x="637" y="692" font-size="11" font-weight="bold" fill="#475569">
-        8</text>
+        4</text>
       <text x="661" y="692" font-size="11" fill="#64748B">
-        updated today</text>
+        updated 2w ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.75s" fill="freeze"/>
     </g>
-    <!-- CARD 7: Aphelion IoT Hub_ -->
+    <!-- CARD 7: Star Wars AR_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="30" y="728" width="545" height="200" rx="14"
@@ -363,7 +367,7 @@
 
       <!-- Repo path header -->
       <circle cx="44" cy="746" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="54" y="750" font-size="11" fill="#64748B">UnnamedPeople-Chin/aphelion-iot-hub</text>
+      <text x="54" y="750" font-size="11" fill="#64748B">UnnamedPeople-Chin/Star-Wars-AR-Visualizer</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="559" cy="746" r="3.5" fill="#10B981" opacity="0.7">
@@ -372,44 +376,44 @@
 
       <!-- Icon box -->
       <rect x="44" y="766" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#10B981" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#EC4899" stroke-width="1.2"/>
       <g transform="translate(58,780) scale(1.05)">
-        <path d="M12 20h.01M8.5 16.5a5 5 0 017 0M5 13a10 10 0 0114 0M2 9.5a15 15 0 0120 0" fill="none" stroke="#10B981" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#EC4899" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
       <!-- Title -->
       <text x="108" y="788" font-size="18" font-weight="bold" fill="#0F172A">
-        Aphelion IoT Hub_</text>
+        Star Wars AR_</text>
 
       <!-- Description -->
       <text x="108" y="810" font-size="11" fill="#475569">
-        ESP32 landslide early warning &amp; telemetry</text>
+        Interactive 3D character AR visualizer</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="385" cy="790" r="3.5" fill="#10B981"/><text x="395" y="794" font-size="10" fill="#475569">HTML/JS 74%</text>
-        <circle cx="385" cy="808" r="3.5" fill="#22D3EE"/><text x="395" y="812" font-size="10" fill="#475569">C++/ESP32 16%</text>
-        <circle cx="385" cy="826" r="3.5" fill="#3B82F6"/><text x="395" y="830" font-size="10" fill="#475569">Dart 10%</text>
+      <circle cx="385" cy="790" r="3.5" fill="#22D3EE"/><text x="395" y="794" font-size="10" fill="#475569">C# 97%</text>
+        <circle cx="385" cy="808" r="3.5" fill="#10B981"/><text x="395" y="812" font-size="10" fill="#475569">HLSL 2%</text>
+        <circle cx="385" cy="826" r="3.5" fill="#A78BFA"/><text x="395" y="830" font-size="10" fill="#475569">ShaderLab 1%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="510" cy="810" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="148.8 52.3" stroke-dashoffset="0.0" transform="rotate(-90 510 810)"/>
-        <circle cx="510" cy="810" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="32.2 168.9" stroke-dashoffset="-148.8" transform="rotate(-90 510 810)"/>
-        <circle cx="510" cy="810" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="20.1 181.0" stroke-dashoffset="-181.0" transform="rotate(-90 510 810)"/>
-        <text x="510" y="815" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">74%</text>
+      <circle cx="510" cy="810" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="195.0 6.0" stroke-dashoffset="0.0" transform="rotate(-90 510 810)"/>
+        <circle cx="510" cy="810" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="4.0 197.0" stroke-dashoffset="-195.0" transform="rotate(-90 510 810)"/>
+        <circle cx="510" cy="810" r="32" fill="none" stroke="#A78BFA" stroke-width="7" stroke-dasharray="2.0 199.1" stroke-dashoffset="-199.1" transform="rotate(-90 510 810)"/>
+        <text x="510" y="815" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">97%</text>
 
       <!-- Tag pills -->
-      <rect x="48" y="870" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="74" y="886" font-size="10" fill="#0891B2" text-anchor="middle">ESP32</text><rect x="109.0" y="870" width="74" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="146" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Firebase</text><rect x="191.0" y="870" width="67" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="224" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Flutter</text>
+      <rect x="48" y="870" width="32" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="64" y="886" font-size="10" fill="#0891B2" text-anchor="middle">C#</text><rect x="88.0" y="870" width="67" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="122" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Unity 6</text><rect x="163.0" y="870" width="67" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="196" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Vuforia</text>
 
       <!-- Stars + updated -->
       <text x="48" y="916" font-size="11" fill="#F59E0B">★</text>
       <text x="62" y="916" font-size="11" font-weight="bold" fill="#475569">
         4</text>
       <text x="86" y="916" font-size="11" fill="#64748B">
-        updated 2d ago</text>
+        updated 1mo ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.87s" fill="freeze"/>
     </g>
-    <!-- CARD 8: Chin Portfolio_ -->
+    <!-- CARD 8: Schedule Organizer_ -->
     <g opacity="0">
       <!-- Card background -->
       <rect x="605" y="728" width="545" height="200" rx="14"
@@ -419,7 +423,7 @@
 
       <!-- Repo path header -->
       <circle cx="619" cy="746" r="2.5" fill="#0891B2" opacity="0.6"/>
-      <text x="629" y="750" font-size="11" fill="#64748B">UnnamedPeople-Chin/chin-portfolio</text>
+      <text x="629" y="750" font-size="11" fill="#64748B">UnnamedPeople-Chin/schedule-organizer</text>
 
       <!-- Status dot (top-right) -->
       <circle cx="1134" cy="746" r="3.5" fill="#10B981" opacity="0.7">
@@ -428,39 +432,39 @@
 
       <!-- Icon box -->
       <rect x="619" y="766" width="52" height="52" rx="14"
-            fill="#F1F5F9" stroke="#3B82F6" stroke-width="1.2"/>
+            fill="#F1F5F9" stroke="#22D3EE" stroke-width="1.2"/>
       <g transform="translate(633,780) scale(1.05)">
-        <circle cx="12" cy="12" r="9" fill="none" stroke="#3B82F6" stroke-width="2.3"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+        <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#22D3EE" stroke-width="2.3"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round"/>
       </g>
 
       <!-- Title -->
       <text x="683" y="788" font-size="18" font-weight="bold" fill="#0F172A">
-        Chin Portfolio_</text>
+        Schedule Organizer_</text>
 
       <!-- Description -->
       <text x="683" y="810" font-size="11" fill="#475569">
-        Interactive web portfolio &amp; creative hub</text>
+        Smart task &amp; agenda app with Firebase sync</text>
 
       <!-- Language legend (stacked dots) -->
-      <circle cx="960" cy="790" r="3.5" fill="#EC4899"/><text x="970" y="794" font-size="10" fill="#475569">HTML 93%</text>
-        <circle cx="960" cy="808" r="3.5" fill="#3B82F6"/><text x="970" y="812" font-size="10" fill="#475569">Python 5%</text>
-        <circle cx="960" cy="826" r="3.5" fill="#22D3EE"/><text x="970" y="830" font-size="10" fill="#475569">JS/TS 2%</text>
+      <circle cx="960" cy="790" r="3.5" fill="#A78BFA"/><text x="970" y="794" font-size="10" fill="#475569">Python 38%</text>
+        <circle cx="960" cy="808" r="3.5" fill="#F59E0B"/><text x="970" y="812" font-size="10" fill="#475569">JavaScript 31%</text>
+        <circle cx="960" cy="826" r="3.5" fill="#22D3EE"/><text x="970" y="830" font-size="10" fill="#475569">HTML/CSS 31%</text>
 
       <!-- Donut chart (multi-segment) -->
-      <circle cx="1085" cy="810" r="32" fill="none" stroke="#EC4899" stroke-width="7" stroke-dasharray="187.0 14.1" stroke-dashoffset="0.0" transform="rotate(-90 1085 810)"/>
-        <circle cx="1085" cy="810" r="32" fill="none" stroke="#3B82F6" stroke-width="7" stroke-dasharray="10.1 191.0" stroke-dashoffset="-187.0" transform="rotate(-90 1085 810)"/>
-        <circle cx="1085" cy="810" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="4.0 197.0" stroke-dashoffset="-197.0" transform="rotate(-90 1085 810)"/>
-        <text x="1085" y="815" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">93%</text>
+      <circle cx="1085" cy="810" r="32" fill="none" stroke="#A78BFA" stroke-width="7" stroke-dasharray="76.4 124.7" stroke-dashoffset="0.0" transform="rotate(-90 1085 810)"/>
+        <circle cx="1085" cy="810" r="32" fill="none" stroke="#F59E0B" stroke-width="7" stroke-dasharray="62.3 138.7" stroke-dashoffset="-76.4" transform="rotate(-90 1085 810)"/>
+        <circle cx="1085" cy="810" r="32" fill="none" stroke="#22D3EE" stroke-width="7" stroke-dasharray="62.3 138.7" stroke-dashoffset="-138.7" transform="rotate(-90 1085 810)"/>
+        <text x="1085" y="815" font-size="13" font-weight="bold" fill="#0F172A" text-anchor="middle">38%</text>
 
       <!-- Tag pills -->
-      <rect x="623" y="870" width="53" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="650" y="886" font-size="10" fill="#0891B2" text-anchor="middle">HTML5</text><rect x="684.0" y="870" width="88" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="728" y="886" font-size="10" fill="#0891B2" text-anchor="middle">TypeScript</text><rect x="780.0" y="870" width="46" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="803" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Vite</text>
+      <rect x="623" y="870" width="60" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="653" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Python</text><rect x="691.0" y="870" width="88" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="735" y="886" font-size="10" fill="#0891B2" text-anchor="middle">JavaScript</text><rect x="787.0" y="870" width="74" height="24" rx="12" fill="rgba(8,145,178,0.10)" stroke="rgba(8,145,178,0.35)" stroke-width="1"/><text x="824" y="886" font-size="10" fill="#0891B2" text-anchor="middle">Firebase</text>
 
       <!-- Stars + updated -->
       <text x="623" y="916" font-size="11" fill="#F59E0B">★</text>
       <text x="637" y="916" font-size="11" font-weight="bold" fill="#475569">
-        4</text>
+        3</text>
       <text x="661" y="916" font-size="11" fill="#64748B">
-        updated 2w ago</text>
+        updated 1mo ago</text>
 
       <!-- Entrance animation -->
       <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.99s" fill="freeze"/>

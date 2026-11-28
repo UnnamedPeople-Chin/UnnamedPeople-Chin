@@ -35,17 +35,6 @@ projects = [
         "icon": '<circle cx="12" cy="12" r="4" fill="none" stroke="#F59E0B" stroke-width="2.3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" fill="none" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>'
     },
     {
-        "repo": "UnnamedPeople-Chin/qris-track",
-        "title": "QRIS-Track_",
-        "desc": "ISO-18004 dynamic QRIS & zero-dep Node 22 ledger",
-        "tags": ["Node 22", "SQLite", "QRIS"],
-        "langs": [("JavaScript", 54, "#F59E0B"), ("HTML/CSS", 46, "#EC4899")],
-        "stars": 2,
-        "updated": "updated today",
-        "icon_color": "#22D3EE",
-        "icon": '<rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="#22D3EE" stroke-width="2.2"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h2" fill="none" stroke="#22D3EE" stroke-width="2.2" stroke-linecap="round"/>'
-    },
-    {
         "repo": "UnnamedPeople-Chin/SignFlow",
         "title": "SignFlow_",
         "desc": "Gamified sign language & MediaPipe hand coach",
@@ -55,17 +44,6 @@ projects = [
         "updated": "updated today",
         "icon_color": "#10B981",
         "icon": '<path d="M18 11V6a2 2 0 00-4 0v5M14 10V4a2 2 0 00-4 0v6M10 10.5V6a2 2 0 00-4 0v8l-1.5-1.5a2 2 0 00-2.8 2.8l4.3 4.7a6 6 0 004.5 2h2.5a6 6 0 006-6v-5a2 2 0 00-2-2z" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
-    },
-    {
-        "repo": "UnnamedPeople-Chin/qris-dinamis",
-        "title": "qris-dinamis_",
-        "desc": "Zero-dep npm CLI & SDK for dynamic QRIS",
-        "tags": ["npm", "EMVCo", "CRC16"],
-        "langs": [("JavaScript", 88, "#F59E0B"), ("TypeScript", 12, "#3B82F6")],
-        "stars": 1,
-        "updated": "updated today",
-        "icon_color": "#EC4899",
-        "icon": '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#EC4899" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
     },
     {
         "repo": "UnnamedPeople-Chin/9router-go",
@@ -99,6 +77,29 @@ projects = [
         "updated": "updated 1w ago",
         "icon_color": "#3B82F6",
         "icon": '<circle cx="12" cy="12" r="9" fill="none" stroke="#3B82F6" stroke-width="2.3"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/Star-Wars-AR-Visualizer",
+        "api_repo": "UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer",
+        "title": "Star Wars AR_",
+        "desc": "Interactive 3D character AR visualizer",
+        "tags": ["C#", "Unity 6", "Vuforia"],
+        "langs": [("C#", 97, "#22D3EE"), ("HLSL", 2, "#10B981"), ("ShaderLab", 1, "#A78BFA")],
+        "stars": 4,
+        "updated": "updated 3w ago",
+        "icon_color": "#EC4899",
+        "icon": '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#EC4899" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+        "repo": "UnnamedPeople-Chin/schedule-organizer",
+        "title": "Schedule Organizer_",
+        "desc": "Smart task & agenda app with Firebase sync",
+        "tags": ["Python", "JavaScript", "Firebase"],
+        "langs": [("Python", 38, "#A78BFA"), ("JavaScript", 31, "#F59E0B"), ("HTML/CSS", 31, "#22D3EE")],
+        "stars": 3,
+        "updated": "updated 3w ago",
+        "icon_color": "#22D3EE",
+        "icon": '<rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#22D3EE" stroke-width="2.3"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="#22D3EE" stroke-width="2.3" stroke-linecap="round"/>'
     }
 ]
 

@@ -42,22 +42,25 @@
   </picture>
   <br/>
   <br/>
-  <a href="https://github.com/UnnamedPeople-Chin/9router-go" target="_blank"><img src="https://img.shields.io/badge/9Router_Go-0A101F?style=for-the-badge&logo=go&logoColor=22D3EE&labelColor=0A101F" alt="9Router Go" /></a>
-  &nbsp;
   <a href="https://github.com/UnnamedPeople-Chin/discode" target="_blank"><img src="https://img.shields.io/badge/DisCode_RPC-0A101F?style=for-the-badge&logo=typescript&logoColor=A78BFA&labelColor=0A101F" alt="DisCode RPC" /></a>
   &nbsp;
   <a href="https://github.com/UnnamedPeople-Chin/AetherCast" target="_blank"><img src="https://img.shields.io/badge/AetherCast-0A101F?style=for-the-badge&logo=electron&logoColor=F59E0B&labelColor=0A101F" alt="AetherCast" /></a>
   &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/qris-track" target="_blank"><img src="https://img.shields.io/badge/QRIS_Track-0A101F?style=for-the-badge&logo=nodedotjs&logoColor=22D3EE&labelColor=0A101F" alt="QRIS-Track" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/SignFlow" target="_blank"><img src="https://img.shields.io/badge/SignFlow-0A101F?style=for-the-badge&logo=mediapipe&logoColor=10B981&labelColor=0A101F" alt="SignFlow" /></a>
+  <br/>
+  <br/>
+  <a href="https://github.com/UnnamedPeople-Chin/qris-dinamis" target="_blank"><img src="https://img.shields.io/badge/qris--dinamis_npm-0A101F?style=for-the-badge&logo=npm&logoColor=EC4899&labelColor=0A101F" alt="qris-dinamis" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/9router-go" target="_blank"><img src="https://img.shields.io/badge/9Router_Go-0A101F?style=for-the-badge&logo=go&logoColor=22D3EE&labelColor=0A101F" alt="9Router Go" /></a>
+  &nbsp;
   <a href="https://github.com/UnnamedPeople-Chin/aphelion-iot-hub" target="_blank"><img src="https://img.shields.io/badge/Aphelion_IoT-0A101F?style=for-the-badge&logo=espressif&logoColor=10B981&labelColor=0A101F" alt="Aphelion IoT Hub" /></a>
+  &nbsp;
+  <a href="https://github.com/UnnamedPeople-Chin/chin-portfolio" target="_blank"><img src="https://img.shields.io/badge/Chin_Portfolio-0A101F?style=for-the-badge&logo=vite&logoColor=3B82F6&labelColor=0A101F" alt="Chin Portfolio" /></a>
   <br/>
   <br/>
-  <a href="https://github.com/UnnamedPeople-Chin/chin-portfolio" target="_blank"><img src="https://img.shields.io/badge/Chin_Portfolio-0A101F?style=for-the-badge&logo=vite&logoColor=EC4899&labelColor=0A101F" alt="Chin Portfolio" /></a>
-  &nbsp;
-  <a href="https://github.com/UnnamedPeople-Chin/Star-Wars-AR-Interactive-Character-Visualizer" target="_blank"><img src="https://img.shields.io/badge/Star_Wars_AR-0A101F?style=for-the-badge&logo=unity&logoColor=3B82F6&labelColor=0A101F" alt="Star Wars AR" /></a>
-  &nbsp;
-  <a href="https://github.com/UnnamedPeople-Chin/schedule-organizer" target="_blank"><img src="https://img.shields.io/badge/Schedule_Organizer-0A101F?style=for-the-badge&logo=firebase&logoColor=22D3EE&labelColor=0A101F" alt="Schedule Organizer" /></a>
-  &nbsp;
-  <a href="https://github.com/UnnamedPeople-Chin/Project-PBO-MoneyFlow" target="_blank"><img src="https://img.shields.io/badge/MoneyFlow_Pro-0A101F?style=for-the-badge&logo=openjdk&logoColor=10B981&labelColor=0A101F" alt="MoneyFlow Pro" /></a>
+  <sub>Live Demos: <a href="https://unnamedpeople-chin.github.io/AetherCast/" target="_blank">AetherCast Web</a> | <a href="https://unnamedpeople-chin.github.io/SignFlow/" target="_blank">SignFlow Studio</a> | <a href="https://qristrack.biz.id/?demo=1" target="_blank">QRIS-Track Sandbox</a></sub>
 </div>
 
 <br/>
